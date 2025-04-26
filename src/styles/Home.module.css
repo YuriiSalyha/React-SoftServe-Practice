@@ -1,14 +1,127 @@
-/* src/styles/Home.module.css */
-
-.container {
-  position: absolute;
-  width: 1136px;
-  height: 1528px;
-  top: 176px;
-  left: -158px;
+/* Загальний контейнер сторінки */
+.pageBackground {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
-.header h1 {
-  margin: 0;
-  font-size: 24px; /* Можна змінити за потребою */
+/* Центральний макет */
+.container {
+  width: 1136px;
+  background-color: #1e1e24; 
+  min-height: 1528px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+/* Стиль для заголовка */
+.header {
+  position: absolute;
+  text-align: center;
+  color: white;
+  top: 600px; 
+  left: 24%; 
+  width: 275px;
+  height: 37px;
+  font-size: 15px; 
+  white-space: nowrap; 
+}
+
+/* Загальний контейнер сторінки */
+.pageBackground {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Центральний макет */
+.container {
+  width: 1136px;
+  background-color: #1e1e24;
+  min-height: 1528px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Стиль для заголовка */
+.header {
+  position: absolute;
+  text-align: center;
+  color: white;
+  top: 600px;
+  left: 24%;
+  width: 275px;
+  height: 37px;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+/* Зображення та текст на зображенні */
+.imageContainer {
+  position: relative;
+  width: 1058px;
+  height: 371px;
+  top: 100px;
+  left: 25px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+}
+
+/* Текст на зображенні */
+.imageContainer h2 {
+  position: absolute;
+  top: 315px;
+  left: -70px;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  width: 580px;
+  height: 700px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Кнопки зі стрілками */
+.arrowButtons {
+  position: absolute; 
+  top: 30%; 
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  transform: translateY(-50%); 
+}
+
+/* Кнопки */
+.arrowButtons button {
+  width: 42px; 
+  height: 42px;
+  background-color: transparent; 
+  border: none;
+  color: rgb(246, 3, 3);
+  cursor: pointer;
+  font-size: 20px;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+  position: relative; 
+  outline: none; 
+}
+
+
+/* Кнопка зліва */
+.arrowButtons button:first-child {
+  left: 500px; 
+}
+
+/* Кнопка справа */
+.arrowButtons button:last-child {
+  right: 500px; 
 }
