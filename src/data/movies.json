@@ -1,0 +1,15 @@
+[
+    {
+      "id": "1",
+      "title": "Oppenheimer",
+      "description": "A dramatization of the life of J. Robert Oppenheimer, the physicist who led the Manhattan Project.",
+      "posterUrl": "url",
+      "rating": 8.3,
+      "releaseYear": 2023,
+      "genre": ["Drama", "Biography", "History"],
+      "duration": 180,
+      "ageRestriction": 16,
+      "trailerUrl": "https://www.youtube.com/watch?v=uYPbbksJxIg",
+      "PremiereDate": "2023-07-21"
+    }
+]
