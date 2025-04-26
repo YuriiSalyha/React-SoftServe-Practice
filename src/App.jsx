@@ -9,7 +9,7 @@ import HomePage from "./pages/HomePage";
 
 import "./styles/App.css";
 
-import Header from './components/Header';
+import Header from './components/Header/Header';
 import Wrapper from './components/Wrapper';
 
 function App() {
