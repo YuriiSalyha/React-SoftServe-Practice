@@ -6,11 +6,10 @@ import SessionsPage from './pages/SessionsPage';
 import AdminPanel from './pages/AdminPanel';
 import SearchPage from './pages/SearchPage';
 import NotFoundPage from './pages/NotFoundPage';
-import './App.css'
+
+import './styles/App.css';
 
 function App() {
-
-
   return (
     <Router>
       <Routes>

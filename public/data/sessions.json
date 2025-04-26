@@ -5,6 +5,8 @@
       "date": "2025-04-26",
       "time": "18:30",
       "hall": "Зал 1",
-      "price": 150
+      "price": 150,
+      "numberOfSeats": 50,
+      "bookedSeats": 0
     }
 ]
