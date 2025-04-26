@@ -9,8 +9,12 @@ const Header = () => {
       <div className={styles.logo}>logo</div>
 
       <ul className={styles.list}>
-        <li className={styles.list__item}>сеанси</li>
-        <li className={styles.list__item}>Фільми</li>
+        <li className={styles.list__item}>
+          <a href="/">сеанси</a>
+        </li>
+        <li className={styles.list__item}>
+          <a href="/">Фільми</a>
+        </li>
       </ul>
       <Search />
 
