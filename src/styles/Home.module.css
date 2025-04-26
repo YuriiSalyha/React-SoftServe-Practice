@@ -61,67 +61,103 @@
   white-space: nowrap;
 }
 
-/* Зображення та текст на зображенні */
-.imageContainer {
+.sliderWrapper {
   position: relative;
   width: 1058px;
   height: 371px;
-  top: 100px;
-  left: 25px;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
+  overflow: hidden;
+  margin-top: 100px;
+  margin-left: 15px; /* Відступ ліворуч на 50px */
   border-radius: 10px;
 }
 
-/* Текст на зображенні */
-.imageContainer h2 {
-  position: absolute;
-  top: 315px;
-  left: -70px;
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  width: 580px;
-  height: 700px;
-  text-align: center;
-  white-space: nowrap;
+
+.sliderTrack {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  height: 100%;
 }
 
-/* Кнопки зі стрілками */
-.arrowButtons {
+.slide {
+  min-width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.slideImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.slideTitle {
+  position: absolute;
+  bottom: 20px;
+  left: 2%;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+
+/* Обгортка для кнопок зі стрілками */
+.sliderNavigation {
   position: absolute; 
   top: 30%; 
   left: 0;
   right: 0;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
-  transform: translateY(-50%); 
+  transform: translateY(-50%);
+  pointer-events: none; /* Щоб тільки кнопки ловили кліки */
+}
+/* Стрілки-контейнер */
+.scrollbarArrows {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  pointer-events: all;
 }
 
-/* Кнопки */
-.arrowButtons button {
-  width: 42px; 
+/* Окремі стрілки */
+.scrollbarLeftArrow {
+  width: 42px;
   height: 42px;
-  background-color: transparent; 
-  border: none;
-  color: rgb(246, 3, 3);
-  cursor: pointer;
-  font-size: 20px;
+  background-color: transparent;
   border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 490px; /* Відступ зліва — МОЖЕШ НАЛАШТУВАТИ */
   transition: background-color 0.3s;
-  position: relative; 
-  outline: none; 
 }
 
-
-/* Кнопка зліва */
-.arrowButtons button:first-child {
-  left: 500px; 
+.scrollbarRightArrow {
+  width: 42px;
+  height: 42px;
+  background-color: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 500px; /* Відступ справа — МОЖЕШ НАЛАШТУВАТИ */
+  transition: background-color 0.3s;
 }
 
-/* Кнопка справа */
-.arrowButtons button:last-child {
-  right: 500px; 
+/* Наведення на стрілку */
+.scrollbarLeftArrow:hover,
+.scrollbarRightArrow:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Стилі для SVG */
+.arrowImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }

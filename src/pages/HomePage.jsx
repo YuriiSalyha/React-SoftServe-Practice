@@ -25,16 +25,29 @@ function Home() {
           <h1>ЗАРАЗ У КІНО</h1>
         </header>
 
-        <div 
-          className={`${styles.imageContainer} ${styles.fadeIn}`} 
-          style={{ backgroundImage: `url(${images[currentImageIndex].src})` }}
-        >
-          <h2>{images[currentImageIndex].title}</h2>
+        <div className={styles.sliderWrapper}>
+          <div 
+            className={styles.sliderTrack}
+            style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
+          >
+            {images.map((image, index) => (
+              <div key={index} className={styles.slide}>
+                <img src={image.src} alt={image.title} className={styles.slideImage} />
+                <h2 className={styles.slideTitle}>{image.title}</h2>
+              </div>
+            ))}
+          </div>
         </div>
 
-        <div className={styles.arrowButtons}>
-          <button onClick={handlePrev}>←</button>
-          <button onClick={handleNext}>→</button>
+        <div className={styles.sliderNavigation}>
+          <div className={styles.scrollbarArrows}>
+            <div className={styles.scrollbarLeftArrow} onClick={handlePrev}>
+              <img className={styles.arrowImage} src="/Arrow-L.svg" alt="Стрілка вліво" />
+            </div>
+            <div className={styles.scrollbarRightArrow} onClick={handleNext}>
+              <img className={styles.arrowImage} src="/Arrow-R.svg" alt="Стрілка вправо" />
+            </div>
+          </div>
         </div>
       </div>
     </div>
