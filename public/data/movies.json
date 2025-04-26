@@ -10,6 +10,7 @@
       "duration": 180,
       "ageRestriction": 16,
       "trailerUrl": "https://www.youtube.com/watch?v=uYPbbksJxIg",
-      "PremiereDate": "2023-07-21"
-    }
+      "premiereDate": "2023-07-21",
+      "country": "USA"
+    } 
 ]
