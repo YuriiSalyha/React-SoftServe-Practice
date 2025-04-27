@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../styles/header.module.css";
+import styles from "../../styles/header.module.css";
 import IsSigned from "./IsSigned";
 import Search from "./Search";
 

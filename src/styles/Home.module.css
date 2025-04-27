@@ -11,50 +11,18 @@
 /* Центральний макет */
 .container {
   width: 1136px;
-  background-color: #1e1e24; 
-  min-height: 1528px;
-  padding: 20px;
-  box-sizing: border-box;
-}
-/* Стиль для заголовка */
-.header {
-  position: absolute;
-  text-align: center;
-  color: white;
-  top: 600px; 
-  left: 24%; 
-  width: 275px;
-  height: 37px;
-  font-size: 15px; 
-  white-space: nowrap; 
-}
-
-/* Загальний контейнер сторінки */
-.pageBackground {
-  background-color: black;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  background-color: #1f1f25;
   min-height: 100vh;
-  overflow-x: hidden;
-}
-
-/* Центральний макет */
-.container {
-  width: 1136px;
-  background-color: #1e1e24;
-  min-height: 1528px;
   padding: 20px;
   box-sizing: border-box;
 }
 
-/* Стиль для заголовка */
+/* Стиль тексту новинок */
 .header {
-  position: absolute;
-  text-align: center;
+  position: sticky;
   color: white;
-  top: 600px;
-  left: 24%;
+  top: 500px;
+  left: 4%;
   width: 275px;
   height: 37px;
   font-size: 13px;
@@ -66,12 +34,12 @@
   width: 1058px;
   height: 371px;
   overflow: hidden;
-  margin-top: 100px;
-  margin-left: 15px; /* Відступ ліворуч на 50px */
+  margin-top: -10px;
+  margin-left: 15px;
   border-radius: 10px;
 }
 
-
+/* Логіка слайдів */
 .sliderTrack {
   display: flex;
   transition: transform 0.5s ease-in-out;
@@ -100,21 +68,20 @@
   border-radius: 5px;
 }
 
-
 /* Обгортка для кнопок зі стрілками */
 .sliderNavigation {
-  position: absolute; 
-  top: 30%; 
+  position: absolute;
+  top: 50%;
   left: 0;
   right: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  transform: translateY(-50%);
-  pointer-events: none; /* Щоб тільки кнопки ловили кліки */
+  transform: translateY(-50%); 
+  pointer-events: none;
 }
-/* Стрілки-контейнер */
+
 .scrollbarArrows {
   display: flex;
   justify-content: space-between;
@@ -122,8 +89,8 @@
   pointer-events: all;
 }
 
-/* Окремі стрілки */
-.scrollbarLeftArrow {
+/* Стрілки */
+.scrollbarLeftArrow, .scrollbarRightArrow {
   width: 42px;
   height: 42px;
   background-color: transparent;
@@ -132,32 +99,59 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 490px; /* Відступ зліва — МОЖЕШ НАЛАШТУВАТИ */
   transition: background-color 0.3s;
+  pointer-events: all;
+  position: absolute; 
+}
+
+.scrollbarLeftArrow {
+  top: 50%;    
+  left: 20px;  
+  transform: translateY(-50%); 
 }
 
 .scrollbarRightArrow {
-  width: 42px;
-  height: 42px;
-  background-color: transparent;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 500px; /* Відступ справа — МОЖЕШ НАЛАШТУВАТИ */
-  transition: background-color 0.3s;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
 }
 
-/* Наведення на стрілку */
 .scrollbarLeftArrow:hover,
 .scrollbarRightArrow:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Стилі для SVG */
 .arrowImage {
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+
+.movieDetails {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 100px; 
+}
+
+.moviePosterWrapper {
+  margin: 34px;
+  text-align: center;
+}
+
+.moviePoster {
+  width: 190px; 
+  height: 275px; 
+  object-fit: cover;  
+  margin-bottom: 10px;
+}
+
+.moviePosterWrapper h2 {
+  color: white;
+  font-size: 22px;
+}
+
+.moviePosterWrapper p {
+  color: rgb(218, 215, 215);
+  font-size: 18px;
 }

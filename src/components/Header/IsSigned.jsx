@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../styles/IsSigned.module.css";
+import styles from "../../styles/isSigned.module.css";
 const IsSigned = () => {
   const auth = true;
 
