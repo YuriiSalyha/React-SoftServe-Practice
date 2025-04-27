@@ -1,22 +1,23 @@
 import React from 'react';
 import styles from '../styles/sessioncard.module.css';
 
-// Placeholder image for movie posters (using a placeholder service or local asset)
+// Placeholder image for movie posters
 const placeholderImage = 'https://via.placeholder.com/120x180.png?text=No+Image';
 
-const SessionCard = ({ movie, sessions }) => {
-  // Extract all session times for this movie (assuming sessions is an array of session objects for one movie on the selected date)
+const SessionCard = ({ movie, sessions, onOrder }) => {
+  // Збираємо всі часи сеансів у строку
   const sessionTimes = sessions.map(s => s.time).sort().join(', ');
 
   return (
     <div className={styles.card}>
-      {/* Movie Poster */}
-      <img 
+      {/* Постер */}
+      <img
         className={styles.poster}
         src={movie.poster || placeholderImage}
         alt={movie.title}
       />
-      {/* Movie Details */}
+
+      {/* Деталі фільму */}
       <div className={styles.info}>
         <h3 className={styles.title}>{movie.title}</h3>
         <p>Дата виходу: {movie.releaseDate}</p>
@@ -24,8 +25,18 @@ const SessionCard = ({ movie, sessions }) => {
         <p>Тривалість: {movie.duration}</p>
         <p>Вікові обмеження: {movie.ageLimit}</p>
         <p>Жанр: {movie.genre}</p>
-        <p>Сеанси: <span className={styles.times}>{sessionTimes}</span></p>
-        <button className={styles.buyButton} type="button">Замовити квиток</button>
+        <p>
+          Сеанси: <span className={styles.times}>{sessionTimes}</span>
+        </p>
+
+        {/* Оновлена кнопка: викликає onOrder з пропсів */}
+        <button
+          className={styles.buyButton}
+          type="button"
+          onClick={onOrder}
+        >
+          Замовити квиток
+        </button>
       </div>
     </div>
   );
