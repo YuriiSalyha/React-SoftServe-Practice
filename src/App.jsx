@@ -11,6 +11,7 @@ import "./styles/App.css";
 
 import Header from './components/Header/Header';
 import Wrapper from './components/Wrapper';
+import SignInPage from "./pages/SignInPage";
 
 function App() {
   return (
@@ -20,6 +21,8 @@ function App() {
         <Routes>
           {/* Головна сторінка */}
           <Route path="/" element={<HomePage />} />
+          <Route path="/signIn" element={<SignInPage />} />
+          
         </Routes>
       </Router>
     </Wrapper>
