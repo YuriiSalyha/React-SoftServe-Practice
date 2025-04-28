@@ -23,7 +23,6 @@
     position: relative;
   }
   
-  /* Кнопка закриття (іконка "×" у кутку) */
   .closeButton {
     position: absolute;
     top: 10px;

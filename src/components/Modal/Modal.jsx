@@ -3,22 +3,27 @@ import React, { useState, useEffect } from 'react';
 import styles from '../../styles/modal.module.css';
 
 function Modal({ isOpen, onClose, poster, title, hall }) {
-  const [sessionsData, setSessionsData] = useState([]);
-  const [selectedDate, setSelectedDate] = useState('');
+  const [sessionsData, setSessionsData]     = useState([]);
+  const [selectedDate, setSelectedDate]     = useState('');
   const [availableDates, setAvailableDates] = useState([]);
-  const [selectedTime, setSelectedTime] = useState('');
+  const [selectedTime, setSelectedTime]     = useState('');
   const [availableTimes, setAvailableTimes] = useState([]);
 
-  const [name, setName] = useState('');
+  // Seat numbers (1..freeSeats)
+  const [maxSeats, setMaxSeats]       = useState(0);
+  const [selectedSeat, setSelectedSeat] = useState('');
+
+  const [name, setName]   = useState('');
   const [phone, setPhone] = useState('');
   const [isOrdered, setIsOrdered] = useState(false);
 
-  // 1) Завантажити дані при відкритті модалки
+  // 1) Load sessions when modal opens
   useEffect(() => {
     if (!isOpen) return;
-    // скинути попередні стани
+    // reset all form fields
     setSelectedDate('');
     setSelectedTime('');
+    setSelectedSeat('');
     setName('');
     setPhone('');
     setIsOrdered(false);
@@ -27,26 +32,22 @@ function Modal({ isOpen, onClose, poster, title, hall }) {
       .then(res => res.json())
       .then(data => {
         setSessionsData(data);
-        // одразу сформуємо можливі дати для даного залу
         const dates = Array.from(
-          new Set(
-            data
-              .filter(s => s.hall === hall)
-              .map(s => s.date)
-          )
+          new Set(data.filter(s => s.hall === hall).map(s => s.date))
         );
         setAvailableDates(dates);
       })
-      .catch(err => console.error('Не вдалося завантажити сесії:', err));
+      .catch(console.error);
   }, [isOpen, hall]);
 
-  // 2) Коли змінюється selectedDate — оновлюємо availableTimes
+  // 2) When date changes → update times
   useEffect(() => {
-    if (!selectedDate) {
-      setAvailableTimes([]);
-      setSelectedTime('');
-      return;
-    }
+    setSelectedTime('');
+    setAvailableTimes([]);
+    setSelectedSeat('');
+    setMaxSeats(0);
+
+    if (!selectedDate) return;
     const times = Array.from(
       new Set(
         sessionsData
@@ -55,14 +56,29 @@ function Modal({ isOpen, onClose, poster, title, hall }) {
       )
     );
     setAvailableTimes(times);
-    setSelectedTime('');
   }, [selectedDate, sessionsData, hall]);
+
+  // 3) When time changes → compute free seats
+  useEffect(() => {
+    setSelectedSeat('');
+    setMaxSeats(0);
+
+    if (!selectedTime) return;
+    const session = sessionsData.find(
+      s => s.hall === hall && s.date === selectedDate && s.time === selectedTime
+    );
+    if (session) {
+      const free = session.numberOfSeats - session.bookedSeats;
+      setMaxSeats(free > 0 ? free : 0);
+    }
+  }, [selectedTime, selectedDate, sessionsData, hall]);
 
   const handleConfirm = e => {
     e.preventDefault();
-    if (selectedDate && selectedTime && name.trim() && phone.trim()) {
+    // final check: all fields filled, including seat
+    if (selectedDate && selectedTime && name && phone && selectedSeat) {
       setIsOrdered(true);
-      // тут можна ще відправити на сервер
+      // тут можна відправити дані на сервер
     }
   };
 
@@ -71,87 +87,107 @@ function Modal({ isOpen, onClose, poster, title, hall }) {
   return (
     <div className={styles.overlay} onClick={onClose}>
       <div className={styles.modal} onClick={e => e.stopPropagation()}>
-        <button className={styles.closeButton} onClick={onClose} aria-label="Закрити">×</button>
+        <button className={styles.closeButton} onClick={onClose} aria-label="Close">×</button>
 
         {isOrdered ? (
           <div className={styles.successMessage}>
-            <p>Квиток успішно замовлено!</p>
+            <p>Your ticket has been successfully booked!</p>
+            <p>
+              {`Session: ${selectedDate} at ${selectedTime}, Seat #${selectedSeat}`}
+            </p>
           </div>
         ) : (
-          <div className={styles.content}>
+          <form className={styles.form} onSubmit={handleConfirm}>
             <div className={styles.movieInfo}>
-              <img src={poster} alt={`Постер ${title}`} className={styles.poster} />
+              <img src={poster} alt={`Poster of ${title}`} className={styles.poster}/>
               <h2 className={styles.title}>{title}</h2>
             </div>
-            <p className={styles.sessionDetails}>
-              Зал: <span>{hall}</span>
-            </p>
+            <p className={styles.sessionDetails}>Hall: <span>{hall}</span></p>
 
-            <form className={styles.form} onSubmit={handleConfirm}>
-              {/* Дата */}
-              <label className={styles.label}>
-                Дата сеансу:
-                <select
-                  className={styles.input}
-                  value={selectedDate}
-                  onChange={e => setSelectedDate(e.target.value)}
-                  required
-                >
-                  <option value="">Оберіть день</option>
-                  {availableDates.map(d => (
-                    <option key={d} value={d}>
-                      {new Date(d).toLocaleDateString('uk-UA', { day: '2-digit', month: 'long', year: 'numeric' })}
-                    </option>
-                  ))}
-                </select>
-              </label>
+            {/* Date */}
+            <label className={styles.label}>
+              Session Date:
+              <select
+                className={styles.input}
+                value={selectedDate}
+                onChange={e => setSelectedDate(e.target.value)}
+                required
+              >
+                <option value="">Select a date</option>
+                {availableDates.map(date => (
+                  <option key={date} value={date}>{date}</option>
+                ))}
+              </select>
+            </label>
 
-              {/* Час */}
-              <label className={styles.label}>
-                Час сеансу:
-                <select
-                  className={styles.input}
-                  value={selectedTime}
-                  onChange={e => setSelectedTime(e.target.value)}
-                  disabled={!availableTimes.length}
-                  required
-                >
-                  <option value="">Оберіть час</option>
-                  {availableTimes.map(t => (
-                    <option key={t} value={t}>{t}</option>
-                  ))}
-                </select>
-              </label>
+            {/* Time */}
+            <label className={styles.label}>
+              Session Time:
+              <select
+                className={styles.input}
+                value={selectedTime}
+                onChange={e => setSelectedTime(e.target.value)}
+                disabled={!availableTimes.length}
+                required
+              >
+                <option value="">Select a time</option>
+                {availableTimes.map(time => (
+                  <option key={time} value={time}>{time}</option>
+                ))}
+              </select>
+            </label>
 
-              {/* Ім'я */}
+            {/* Personal data */}
+            <label className={styles.label}>
+              Your Name:
               <input
                 type="text"
-                placeholder="Ваше ім'я"
                 className={styles.input}
+                placeholder="Enter your name"
                 value={name}
                 onChange={e => setName(e.target.value)}
                 required
               />
+            </label>
 
-              {/* Телефон */}
+            <label className={styles.label}>
+              Phone Number:
               <input
                 type="tel"
-                placeholder="Ваш номер телефону"
                 className={styles.input}
+                placeholder="Enter your phone"
                 value={phone}
                 onChange={e => setPhone(e.target.value)}
                 required
               />
+            </label>
 
-              <button
-                type="submit"
-                className={styles.confirmButton}
-                disabled={!selectedDate || !selectedTime || !name || !phone}
-              >
-                Замовити квиток
-              </button>
-            </form>
-          </div>
+            {/* Seat selector appears only after name & phone */}
+            {name && phone && maxSeats > 0 && (
+              <label className={styles.label}>
+                Select Seat:
+                <select
+                  className={styles.input}
+                  value={selectedSeat}
+                  onChange={e => setSelectedSeat(e.target.value)}
+                  required
+                >
+                  <option value="">Choose your seat</option>
+                  {Array.from({ length: maxSeats }, (_, i) => i + 1).map(num => (
+                    <option key={num} value={num}>{`#${num}`}</option>
+                  ))}
+                </select>
+              </label>
+            )}
+
+            <button
+              type="submit"
+              className={styles.confirmButton}
+              disabled={!(selectedDate && selectedTime && name && phone && selectedSeat)}
+            >
+              Book Ticket
+            </button>
+          </form>
         )}
       </div>
     </div>

@@ -8,7 +8,6 @@ export default function SessionsPage() {
   const [sessionsData, setSessionsData] = useState([]);
   const [moviesData, setMoviesData]     = useState([]);
   const [selectedDate, setSelectedDate] = useState('');
-  // ось новий стан для модалки:
   const [selectedSession, setSelectedSession] = useState(null);
 
   useEffect(() => {
@@ -27,31 +26,29 @@ export default function SessionsPage() {
     });
   }, []);
 
-  // формуємо таби
+  // Унікальні дати
   const dateTabs = Array.from(new Set(sessionsData.map(s => s.date)))
                         .sort();
 
-  // сесії на вибрану дату
-  const sessionsOnDate = sessionsData
-    .filter(s => s.date === selectedDate);
+  // Сеанси на обрану дату
+  const sessionsOnDate = sessionsData.filter(s => s.date === selectedDate);
 
-  // групуємо за movieId
+  // Групування за фільмом
   const sessionsByMovie = sessionsOnDate.reduce((acc, sess) => {
-    (acc[sess.movieId] = acc[sess.movieId]||[]).push(sess);
+    (acc[sess.movieId] = acc[sess.movieId] || []).push(sess);
     return acc;
   }, {});
 
-  // масив {movie, sessions}
+  // Масив { movie, sessions }
   const moviesToShow = Object.entries(sessionsByMovie)
     .map(([movieId, sessions]) => ({
       movie:    moviesData.find(m => String(m.id) === movieId),
       sessions
     }))
-    .slice(0,6); // максимум 6
+    .slice(0,6);
 
-  // обробник кліку "Замовити квиток"
+  // Клік на кнопку "Order Ticket"
   const handleOrderClick = ({ movie, sessions }) => {
-    // тут можемо запропонувати обрати конкретний час, але для прикладу візьмемо перший сеанс:
     const sess = sessions[0];
     setSelectedSession({
       poster: movie.poster,
@@ -62,20 +59,21 @@ export default function SessionsPage() {
     });
   };
 
-  // закрити модалку
   const handleCloseModal = () => {
     setSelectedSession(null);
   };
 
   return (
     <div className={styles.sessionsPage}>
-      <h1 className={styles.pageTitle}>СЕАНСИ</h1>
+      <h1 className={styles.pageTitle}>SESSIONS</h1>
 
       <div className={styles.tabs}>
         {dateTabs.map(date => {
-          const label = new Date(date).toLocaleDateString('uk-UA', {
-            day:'2-digit', month:'long'
+          const label = new Date(date).toLocaleDateString('en-US', {
+            day:   '2-digit',
+            month: 'long'
           }).toUpperCase();
+
           return (
             <button
               key={date}
@@ -99,19 +97,22 @@ export default function SessionsPage() {
       </div>
 
       <div className={styles.sessionsGrid}>
-        {moviesToShow.length ? moviesToShow.map(({ movie, sessions }) => (
-          <SessionCard
-            key={movie.id}
-            movie={movie}
-            sessions={sessions}
-            onOrder={() => handleOrderClick({ movie, sessions })}
-          />
-        )) : (
-          <p className={styles.noSessions}>Немає сеансів на цю дату.</p>
+        {moviesToShow.length ? (
+          moviesToShow.map(({ movie, sessions }) => (
+            <SessionCard
+              key={movie.id}
+              movie={movie}
+              sessions={sessions}
+              onOrder={() => handleOrderClick({ movie, sessions })}
+            />
+          ))
+        ) : (
+          <p className={styles.noSessions}>
+            No sessions available for this date.
+          </p>
         )}
       </div>
 
-      {/* Рендер модального вікна, якщо вибрано сеанс */}
       {selectedSession && (
         <Modal
           isOpen={true}
