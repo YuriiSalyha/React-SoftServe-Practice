@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom'; // Додано для маршрутизації
+import { Link } from 'react-router-dom'; 
 import styles from '../styles/Home.module.css';
 
 function HomePage() {
@@ -24,7 +24,7 @@ function HomePage() {
     <div className={styles.pageBackground}>
       <div className={styles.container}>
         <header className={styles.header}>
-          <h1>ЗАРАЗ У КІНО</h1>
+          <h1>NOW IN THE CINEMA</h1>
         </header>
 
         <div className={styles.sliderWrapper}>
@@ -34,15 +34,15 @@ function HomePage() {
   >
     <div className={styles.slide}>
       <img src="/image1.png" alt="Стражі Галактики" className={styles.slideImage} />
-      <h2 className={styles.slideTitle}>СТРАЖІ ГАЛАКТИК ЗАРАЗ У КІНО</h2>
+      <h2 className={styles.slideTitle}>GUARDIANS OF THE GALAXY IS NOW IN THE MOVIES</h2>
     </div>
     <div className={styles.slide}>
       <img src="/image2.png" alt="Майнкрафт" className={styles.slideImage} />
-      <h2 className={styles.slideTitle}>МАЙНКРАФТ ЗАРАЗ У КІНО</h2>
+      <h2 className={styles.slideTitle}>MINECRAFT NOW IN THE CINEMA</h2>
     </div>
     <div className={styles.slide}>
       <img src="/image3.png" alt="Опенгеймер" className={styles.slideImage} />
-      <h2 className={styles.slideTitle}>ОПЕНГЕЙМЕР ЗАРАЗ У КІНО</h2>
+      <h2 className={styles.slideTitle}>OPPENGEIMER IS NOW IN THE CINEMA</h2>
     </div>
   </div>
 
