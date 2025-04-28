@@ -2,35 +2,63 @@
   padding: 20px;
   background-color: #1a1a1a;
   color: #fff;
-  min-height: 100vh;
-  font-family: "Roboto", sans-serif; /* Added font-family here */
+  display: flex;
+  flex-direction: column; /* Вертикальне розташування */
+  min-height: 100vh; /* Висота на всю сторінку */
+  font-family: "Roboto", sans-serif; /* Додано щрифт */
+}
+
+.headerTitle {
+  font-size: 30px;
+  font-weight: 700;
+  color: #fff;
+  margin-top: 10px;
+  margin-bottom: 30px;
 }
 
 .moviesGrid {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  justify-content: center; /* Center the movie cards */
+  justify-content: center; /* Центруємо картки фільмів */
+  flex-grow: 1; /* Дозволяємо основному контенту займати весь доступний простір */
 }
 
 .movieCard {
   width: 180px;
-  text-align: center; /* Center text in movie cards */
+  margin-left: 50px;
+  text-align: center; /* Центруємо текст у картках фільмів */
+}
+
+.movieCard h3 {
+  font-size: 18px; /* Розмір шрифта для назви фільму */
+  font-weight: 700; /* Вага шрифта */
+  margin-bottom: 10px; /* Відступ після заголовка */
+}
+
+.movieCard p {
+  font-size: 16px; /* Розмір шрифта */
+  font-weight: 400;
+  margin-bottom: 10px;
 }
 
 .movieCard img {
   width: 100%;
   border-radius: 8px;
+  margin-bottom: 15px;
 }
 
 .footer {
-  margin-top: 50px;
   padding: 20px;
+  margin-left: -20px;
+  margin-bottom: -20px;
   background-color: #111;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   font-size: 14px;
+  margin-top: auto; /* Переміщає футер в низ */
+  width: 100%; /* Футер займає всю ширину */
 }
 
 .footerLeft,

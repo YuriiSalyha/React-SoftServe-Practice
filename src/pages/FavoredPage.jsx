@@ -25,12 +25,52 @@ const movies = [
     genres: "Lorem, ipsum",
     image: "./img/posters/unteldown.jpg",
   },
+  {
+    id: 4,
+    title: "UNTIL DAWN",
+    duration: "142 Minute.",
+    ageLimit: "16+",
+    genres: "Lorem, ipsum",
+    image: "./img/posters/unteldown.jpg",
+  },
+  {
+    id: 5,
+    title: "UNTIL DAWN",
+    duration: "142 Minute.",
+    ageLimit: "16+",
+    genres: "Lorem, ipsum",
+    image: "./img/posters/unteldown.jpg",
+  },
+  {
+    id: 6,
+    title: "SuperBaby",
+    duration: "103 Minute.",
+    ageLimit: "3+",
+    genres: "Adventures, Comedy, Drama",
+    image: "./img/posters/superbaby.jpg",
+  },
+  {
+    id: 7,
+    title: "Minecraft: Movie",
+    duration: "101 Minute.",
+    ageLimit: "12+",
+    genres: "Adventures, Action, Comedy",
+    image: "./img/posters/minecraft.jpg",
+  },
+  {
+    id: 7,
+    title: "Minecraft: Movie",
+    duration: "101 Minute.",
+    ageLimit: "12+",
+    genres: "Adventures, Action, Comedy",
+    image: "./img/posters/minecraft.jpg",
+  },
 ];
 
 function FavoredPage() {
   return (
     <div className={styles.favoredPage}>
-      <h2>Додано в улюблене:</h2>
+      <h2 className={styles.headerTitle}>Додано в улюблене:</h2>
       <div className={styles.moviesGrid}>
         {movies.map((movie) => (
           <div key={movie.id} className={styles.movieCard}>
