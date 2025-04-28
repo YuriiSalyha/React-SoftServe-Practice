@@ -1,0 +1,44 @@
+.favoredPage {
+  padding: 20px;
+  background-color: #1a1a1a;
+  color: #fff;
+  min-height: 100vh;
+  font-family: "Roboto", sans-serif; /* Added font-family here */
+}
+
+.moviesGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center; /* Center the movie cards */
+}
+
+.movieCard {
+  width: 180px;
+  text-align: center; /* Center text in movie cards */
+}
+
+.movieCard img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.footer {
+  margin-top: 50px;
+  padding: 20px;
+  background-color: #111;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  font-size: 14px;
+}
+
+.footerLeft,
+.footerRight {
+  flex: 1;
+  min-width: 250px;
+}
+
+.footerNames {
+  margin-top: 10px;
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom"; // Імпортуємо Link
 import styles from "../../styles/header.module.css";
 import IsSigned from "./IsSigned";
 import Search from "./Search";
@@ -12,10 +13,10 @@ const Header = () => {
 
       <ul className={styles.list}>
         <li className={styles.list__item}>
-          <a href="/">сеанси</a>
+          <Link to="/">сеанси</Link> {/* Залишаємо без змін */}
         </li>
         <li className={styles.list__item}>
-          <a href="/">Фільми</a>
+          <Link to="/favored">Фільми</Link> {/* Змінюємо на Link */}
         </li>
       </ul>
       <Search />
