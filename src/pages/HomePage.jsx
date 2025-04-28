@@ -33,15 +33,15 @@ function HomePage() {
     style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
   >
     <div className={styles.slide}>
-      <img src="/image1.png" alt="Стражі Галактики" className={styles.slideImage} />
+      <img src="img\posters/image1.png" alt="Стражі Галактики" className={styles.slideImage} />
       <h2 className={styles.slideTitle}>GUARDIANS OF THE GALAXY IS NOW IN THE MOVIES</h2>
     </div>
     <div className={styles.slide}>
-      <img src="/image2.png" alt="Майнкрафт" className={styles.slideImage} />
+      <img src="img\posters/image2.png" alt="Майнкрафт" className={styles.slideImage} />
       <h2 className={styles.slideTitle}>MINECRAFT NOW IN THE CINEMA</h2>
     </div>
     <div className={styles.slide}>
-      <img src="/image3.png" alt="Опенгеймер" className={styles.slideImage} />
+      <img src="img\posters/image3.png" alt="Опенгеймер" className={styles.slideImage} />
       <h2 className={styles.slideTitle}>OPPENGEIMER IS NOW IN THE CINEMA</h2>
     </div>
   </div>
