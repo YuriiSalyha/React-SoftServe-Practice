@@ -13,10 +13,10 @@ const Header = () => {
 
       <ul className={styles.list}>
         <li className={styles.list__item}>
-          <Link to="/">сеанси</Link> {/* Залишаємо без змін */}
+          <Link to="/">сеанси</Link>
         </li>
         <li className={styles.list__item}>
-          <Link to="/favored">Фільми</Link> {/* Змінюємо на Link */}
+          <Link to="/favored">Фільми</Link>
         </li>
       </ul>
       <Search />

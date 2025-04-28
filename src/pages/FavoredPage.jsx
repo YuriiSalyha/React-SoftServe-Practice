@@ -70,7 +70,7 @@ const movies = [
 function FavoredPage() {
   return (
     <div className={styles.favoredPage}>
-      <h2 className={styles.headerTitle}>Додано в улюблене:</h2>
+      <h2 className={styles.headerTitle}>Added to favorites:</h2>
       <div className={styles.moviesGrid}>
         {movies.map((movie) => (
           <div key={movie.id} className={styles.movieCard}>
