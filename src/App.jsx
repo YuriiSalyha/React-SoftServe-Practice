@@ -5,9 +5,9 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
+import FavoritesPage from "./pages/FavoredPage";
 import HomePage from "./pages/HomePage";
 import MoviePage from "./pages/MoviePage";
-// import FavoritesPage from "./pages/FavoritesPage";
 import SessionsPage from "./pages/SessionsPage";
 // import SearchPage from "./pages/SearchPage";
 // import AdminPanel from "./pages/AdminPanel";
