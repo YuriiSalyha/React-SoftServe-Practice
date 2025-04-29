@@ -17,6 +17,7 @@ import "./styles/App.css";
 
 import Header from "./components/Header/Header";
 import Wrapper from "./components/Wrapper";
+
 import SignInPage from "./pages/SignInPage";
 import AuthProvider from "./context/AuthContext";
 
