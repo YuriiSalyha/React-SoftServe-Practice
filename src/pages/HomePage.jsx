@@ -41,7 +41,7 @@ function HomePage() {
       <h2 className={styles.slideTitle}>MINECRAFT NOW IN THE CINEMA</h2>
     </div>
     <div className={styles.slide}>
-      <img src="img\posters/image3.png" alt="Опенгеймер" className={styles.slideImage} />
+      <img src="img\posters`/image3.png" alt="Опенгеймер" className={styles.slideImage} />
       <h2 className={styles.slideTitle}>OPPENGEIMER IS NOW IN THE CINEMA</h2>
     </div>
   </div>
