@@ -1,16 +1,16 @@
 import React from "react";
-// import useAuth from "../../hooks/useAuth";
+import useAuth from "../../hooks/useAuth";
 import styles from "../../styles/IsSigned.module.css";
 
 const IsSigned = () => {
-  const isAuthenticated = true; // true щоб працювало
+  const { isAuthenticated, logout } = useAuth();
 
   if (isAuthenticated) {
     return (
       <div className={styles.wrapper}>
         {/* favorites */}
         <div className={styles.col}>
-          <a className={styles.col__link} href="/favored">
+          <a className={styles.col__link} href="/favorites">
             <div className={styles.col__icon}>
               <img src="/user_icon.svg" alt="user" />
             </div>
