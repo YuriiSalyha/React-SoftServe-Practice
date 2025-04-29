@@ -10,7 +10,7 @@
 
 .header .logo {
   width: 106px;
-  height: 100%;
+  height: auto;
 }
 
 .header .list {
