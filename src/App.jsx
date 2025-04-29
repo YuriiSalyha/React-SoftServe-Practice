@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  BrowserRouter as Router
+  BrowserRouter as Router,
   Routes,
   Route,
   Navigate,
@@ -29,7 +29,10 @@ function App() {
         <Router>
           <Routes>
             {/* За замовчуванням перенаправимо на /sessions */}
-            <Route path="/" element={<Navigate to="/sessions" replace />} />
+            <Route path="/" element={<Navigate to="/home" replace />} />
+
+            {/* Говна сторінка */} 
+            <Route path="/home" element={<HomePage />} />
 
             {/* Сторінка сеансів */}
             <Route path="/sessions" element={<SessionsPage />} />
