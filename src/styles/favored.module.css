@@ -54,31 +54,3 @@
   font-weight: 400;
   margin-bottom: 6px;
 }
-
-.footer {
-  margin-top: 30px;
-  background-color: var(--charcoal-gray-color);
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  font-size: 14px;
-  width: calc(100% + 40px); /* Збільшуємо ширину на 20px */
-  margin-left: -20px;
-  margin-bottom: -20px;
-}
-
-.footerLeft,
-.footerRight {
-  flex: 1;
-  min-width: 250px;
-}
-
-.footerLeft img {
-  width: 125px;
-  margin-bottom: 30px;
-}
-
-.footerNames {
-  margin-top: 50px;
-}

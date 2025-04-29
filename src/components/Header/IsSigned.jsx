@@ -1,20 +1,47 @@
 import React from "react";
+// import useAuth from "../../hooks/useAuth";
 import styles from "../../styles/IsSigned.module.css";
-const IsSigned = () => {
-  const auth = true;
 
-  if (auth) {
+const IsSigned = () => {
+  const isAuthenticated = true; // true щоб працювало
+
+  if (isAuthenticated) {
     return (
-      <div className={styles.profile}>
-        <div className={styles.icon}>
-          <img src="/user_icon.svg" alt="user" />
+      <div className={styles.wrapper}>
+        {/* favorites */}
+        <div className={styles.col}>
+          <a className={styles.col__link} href="/favored">
+            <div className={styles.col__icon}>
+              <img src="/user_icon.svg" alt="user" />
+            </div>
+            <h3 className={styles.col__text}>Вподобані</h3>
+          </a>
         </div>
-        <h3 className={styles.text}>Профіль</h3>
+        {/* profile */}
+        <div className={styles.col}>
+          <a className={styles.col__link} href="/profile">
+            <div className={styles.col__icon}>
+              <img src="/user_icon.svg" alt="user" />
+            </div>
+            <h3 className={styles.col__text}>Профіль</h3>
+          </a>
+        </div>
       </div>
     );
   }
 
-  return <div>Увійти</div>;
+  return (
+    <div className={styles.wrapper}>
+      <div className={styles.col}>
+        <a className={styles.col__link} href="/signIn">
+          <div className={styles.col__icon}>
+            <img src="/user_icon.svg" alt="user" />
+          </div>
+          <h3 className={styles.col__text}>Війти</h3>
+        </a>
+      </div>
+    </div>
+  );
 };
 
 export default IsSigned;

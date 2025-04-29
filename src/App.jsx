@@ -1,6 +1,17 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import HomePage from "./pages/HomePage";
-import FavoredPage from "./pages/FavoredPage"; // Імпортуємо FavoredPage
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+// import HomePage from "./pages/HomePage";
+// import MoviePage from "./pages/MoviePage";
+import FavoritesPage from "./pages/FavoredPage";
+import SessionsPage from "./pages/SessionsPage";
+// import SearchPage from "./pages/SearchPage";
+// import AdminPanel from "./pages/AdminPanel";
+// import NotFoundPage from "./pages/NotFoundPage";
 
 import "./styles/App.css";
 
@@ -9,17 +20,32 @@ import Wrapper from "./components/Wrapper";
 
 function App() {
   return (
-    <Router>
-      <Wrapper>
-        <Header />
+    <Wrapper>
+      <Header />
+      <Router>
         <Routes>
-          {/* Головна сторінка */}
-          <Route path="/" element={<HomePage />} />
+          {/* За замовчуванням перенаправимо на /sessions */}
+          <Route path="/" element={<Navigate to="/sessions" replace />} />
+
+          {/* Сторінка сеансів */}
+          <Route path="/sessions" element={<SessionsPage />} />
+
           {/* Сторінка обраного */}
-          <Route path="/favored" element={<FavoredPage />} />
+          <Route path="/favored" element={<FavoritesPage />} />
+
+          {/* 
+            Сторінка одного фільму
+            <Route path="/movie/:id" element={<MoviePage />} />
+            Сторінка пошуку
+            <Route path="/search" element={<SearchPage />} />
+            Адмін панель
+            <Route path="/admin" element={<AdminPanel />} />
+            404 сторінка
+            <Route path="*" element={<NotFoundPage />} />
+          */}
         </Routes>
-      </Wrapper>
-    </Router>
+      </Router>
+    </Wrapper>
   );
 }
 

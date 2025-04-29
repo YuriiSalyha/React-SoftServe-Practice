@@ -83,24 +83,6 @@ function FavoredPage() {
           </div>
         ))}
       </div>
-
-      <footer className={styles.footer}>
-        <div className={styles.footerLeft}>
-          <img src="/logo.svg" alt="CinemaVerse Logo" />
-          <p>© 2025 "CinemaVerse" SoftServe Practice.</p>
-        </div>
-        <div className={styles.footerRight}>
-          <p>ЗАМОВЛЕННЯ КВИТКІВ</p>
-          <p>+38 (063) 222 38 98</p>
-          <p>+38 (098) 111 61 54</p>
-          <p>Наші контакти: lorem.ipsum@gmail.com</p>
-          <div className={styles.footerNames}>
-            <p>Yurii Salyha | Anton Boienko</p>
-            <p>Bohdan Vakulenko | Dmytro Zenko</p>
-            <p>Oles Syniuk | Emiliya Terada</p>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
