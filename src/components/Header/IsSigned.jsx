@@ -12,7 +12,7 @@ const IsSigned = () => {
         <div className={styles.col}>
           <a className={styles.col__link} href="/favorites">
             <div className={styles.col__icon}>
-              <img src="/user_icon.svg" alt="user" />
+              <img src="/icons/heart_icon.svg" alt="favor" />
             </div>
             <h3 className={styles.col__text}>Вподобані</h3>
           </a>
@@ -21,7 +21,7 @@ const IsSigned = () => {
         <div className={styles.col}>
           <a className={styles.col__link} href="/profile">
             <div className={styles.col__icon}>
-              <img src="/user_icon.svg" alt="user" />
+              <img src="/icons/user_icon.svg" alt="user" />
             </div>
             <h3 className={styles.col__text}>Профіль</h3>
           </a>

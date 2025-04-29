@@ -13,7 +13,7 @@ const Search = () => {
       />
       {/* submit button */}
       <button type="button" className={styles.search__submit}>
-        <img src="/search_icon.svg" alt="search" />
+        <img src="/icons/search_icon.svg" alt="search" />
       </button>
     </form>
   );
