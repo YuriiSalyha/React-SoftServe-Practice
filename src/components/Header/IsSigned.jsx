@@ -35,7 +35,7 @@ const IsSigned = () => {
       <div className={styles.col}>
         <a className={styles.col__link} href="/signIn">
           <div className={styles.col__icon}>
-            <img src="/user_icon.svg" alt="user" />
+            <img src="/icons/user_icon.svg" alt="user" />
           </div>
           <h3 className={styles.col__text}>Війти</h3>
         </a>
