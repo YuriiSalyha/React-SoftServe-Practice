@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import styles from "../styles/auth.module.css";
 import useAuth from "../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 const signInSchema = z.object({
   login: z
@@ -17,6 +18,8 @@ const signInSchema = z.object({
 });
 
 const SignInPage = () => {
+  const navigate = useNavigate();
+
   const { login } = useAuth();
 
   const {
@@ -43,7 +46,8 @@ const SignInPage = () => {
         return;
       }
 
-      alert("success!");
+      navigate("/");
+
     } catch (error) {
       console.error(error);
       setError("general", {
