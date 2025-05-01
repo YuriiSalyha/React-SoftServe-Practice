@@ -36,19 +36,32 @@
   left: 30px;
 }
 
+.filtersContainer {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+
 .dropdownButton {
   background-color: #403E47ED;
   color: white;
-  padding: 10px 20px;
-  font-size: 22px;
+  padding: 5px 15px;
+  font-size: 18px;
   border: none;
   cursor: pointer;
-  width: 250px;
-  text-align: left;
+  width: 190px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-radius: 20px;
+}
+
+/* Забороняємо підсвічування на кнопці при натисканні або фокусі */
+.dropdownButton:focus,
+.dropdownButton:active {
+  background-color: #403E47ED; /* Колір фону не змінюється */
+  outline: none; /* Вимикаємо стандартне підсвічування */
 }
 
 .dropdownButton:hover {
@@ -63,14 +76,14 @@
   transform: scaleX(2) translateY(2px); 
   display: inline-block; 
   color: rgb(248, 163, 6);
-  
 }
+
 .dropdownMenu {
   position: absolute;
   top: 80%;
   left: 0;
   background-color: #333;
-  width: 250px;
+  width: 200px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
   border-radius: 7px;
   padding: 10px 0;
@@ -80,17 +93,29 @@
 
 .dropdownMenu li {
   padding: 10px;
+  background-color: #333; /* Додаємо колір фону для елементів */
 }
 
-.dropdownMenu li a {
+.dropdownMenu li button {
+  background-color: transparent; /* Прибираємо фоновий колір кнопки */
   color: white;
-  text-decoration: none;
-  display: block;
+  border: none;
+  width: 100%;
   padding: 10px;
+  text-align: left;
+  cursor: pointer;
+  font-size: 18px;
 }
 
-.dropdownMenu li a:hover {
-  background-color: #555;
+.dropdownMenu li button:hover {
+  background-color: #555; /* Підсвічування при наведенні на елемент */
+}
+
+/* Забороняємо фокусування елементів списку і підсвічування фону */
+.dropdownMenu li button:focus,
+.dropdownMenu li button:active {
+  background-color: transparent; /* Залишаємо фон прозорим */
+  outline: none; /* Вимикаємо стандартну підсвітку */
 }
 
 .arrowImage {
@@ -106,8 +131,9 @@
 }
 
 .moviePosterWrapper {
-  margin: 34px;
+  margin: 30px;
   text-align: center;
+  margin-bottom: 80px;
 }
 
 .moviePoster {
@@ -115,14 +141,17 @@
   height: 275px; 
   object-fit: cover;  
   margin-bottom: 10px;
+  margin-top: -50px;
 }
 
 .moviePosterWrapper h2 {
   color: white;
   font-size: 22px;
+  margin-top: -10px;
 }
 
 .moviePosterWrapper p {
   color: rgb(218, 215, 215);
   font-size: 18px;
+  margin-top: -1px;
 }
