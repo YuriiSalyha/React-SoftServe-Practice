@@ -1,0 +1,128 @@
+/* Загальний контейнер сторінки */
+.pageBackground {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  
+  /* Центральний макет */
+  .container {
+    width: 1136px;
+    background-color: #1f1f25;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  /* Стиль тексту новинок */
+  .header {
+    position: sticky;
+    color: white;
+    top: 50px;
+    left: 4%;
+    width: 275px;
+    height: 37px;
+    font-size: 32px;
+    white-space: nowrap;
+  }
+
+/* Стилі для кнопки і випадаючого меню */
+.dropdownContainer {
+  position: relative;
+  margin-top: 70px;
+  left: 30px;
+}
+
+.dropdownButton {
+  background-color: #403E47ED;
+  color: white;
+  padding: 10px 20px;
+  font-size: 22px;
+  border: none;
+  cursor: pointer;
+  width: 250px;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 20px;
+}
+
+.dropdownButton:hover {
+  background-color: #666;
+}
+
+.dropdownButton::after {
+  content: '˅'; 
+  font-size: 18px; 
+  margin-left: 10px;
+  background-color: transparent; 
+  transform: scaleX(2) translateY(2px); 
+  display: inline-block; 
+  color: rgb(248, 163, 6);
+  
+}
+.dropdownMenu {
+  position: absolute;
+  top: 80%;
+  left: 0;
+  background-color: #333;
+  width: 250px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  border-radius: 7px;
+  padding: 10px 0;
+  list-style-type: none;
+  margin: 0;
+}
+
+.dropdownMenu li {
+  padding: 10px;
+}
+
+.dropdownMenu li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+}
+
+.dropdownMenu li a:hover {
+  background-color: #555;
+}
+
+.arrowImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.movieDetails {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 100px; 
+}
+
+.moviePosterWrapper {
+  margin: 34px;
+  text-align: center;
+}
+
+.moviePoster {
+  width: 190px; 
+  height: 275px; 
+  object-fit: cover;  
+  margin-bottom: 10px;
+}
+
+.moviePosterWrapper h2 {
+  color: white;
+  font-size: 22px;
+}
+
+.moviePosterWrapper p {
+  color: rgb(218, 215, 215);
+  font-size: 18px;
+}

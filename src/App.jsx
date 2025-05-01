@@ -9,7 +9,7 @@ import FavoritesPage from "./pages/FavoredPage";
 import HomePage from "./pages/HomePage";
 import MoviePage from "./pages/MoviePage";
 import SessionsPage from "./pages/SessionsPage";
-// import SearchPage from "./pages/SearchPage";
+import SearchPage from "./pages/SearchPage";
 // import AdminPanel from "./pages/AdminPanel";
 // import NotFoundPage from "./pages/NotFoundPage";
 
@@ -44,7 +44,7 @@ function App() {
             <Route path="/movie/:id" element={<MoviePage />} />
 
             {/* Сторінка результат пошуку */}
-            <Route path="/result" element={<SearchresultPage />} />
+            <Route path="/result" element={<SearchPage />} />
             {/* Сторінка обраного */}
             {/* <Route path="/favorites" element={<FavoritesPage />} /> */}
             {/* Сторінка сеансів */}
