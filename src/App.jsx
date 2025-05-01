@@ -29,7 +29,7 @@ function App() {
         <Router>
           <Routes>
             {/* За замовчуванням перенаправимо на /sessions */}
-            <Route path="/" element={<Navigate to="/home" replace />} />
+            <Route path="/" element={<Navigate to="/result" replace />} />
 
             {/* Говна сторінка */} 
             <Route path="/home" element={<HomePage />} />
@@ -42,6 +42,9 @@ function App() {
 
             {/* Сторінка одного фільму */}
             <Route path="/movie/:id" element={<MoviePage />} />
+
+            {/* Сторінка результат пошуку */}
+            <Route path="/result" element={<SearchresultPage />} />
             {/* Сторінка обраного */}
             {/* <Route path="/favorites" element={<FavoritesPage />} /> */}
             {/* Сторінка сеансів */}
