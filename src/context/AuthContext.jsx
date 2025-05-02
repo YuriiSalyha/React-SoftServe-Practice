@@ -12,12 +12,26 @@ const AuthProvider = ({ children }) => {
   const login = async ({ username, password }) => {
     try {
       const response = await fetch("/data/users.json");
+
+      if (!response.ok) {
+        throw new Error("Не вдалося завантажити дані користувачів");
+      }
+
       const res_data = await response.json();
 
-      const findOne = res_data.find((user) => user.username == username);
+      const findOne = res_data.find((user) => user.username === username);
 
       if (!findOne) {
-        throw new Error("Користувача не знайдено");
+        const error = new Error("Користувача не знайдено");
+        error.field = "login";
+        throw error;
+      }
+
+      // перевірка пароля
+      if (password !== findOne.password) {
+        const error = new Error("Невірний пароль");
+        error.field = "password";
+        throw error;
       }
 
       localStorage.setItem("user", JSON.stringify(findOne));
@@ -28,7 +42,7 @@ const AuthProvider = ({ children }) => {
     } catch (error) {
       console.error(error);
       setStatus("unauthenticated");
-      return { success: false, error: error.message };
+      return { success: false, error: error.message, field: error?.field };
     }
   };
 
