@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { createContext } from "react";
 
-export const AuthContext = createContext(undefined);
+export const AuthContext = createContext({
+  user: null,
+  isAuthenticated: false,
+  status: "loading",
+  login: () => {},
+  register: () => {},
+  logout: () => {},
+});
 
 const AuthProvider = ({ children }) => {
   const [status, setStatus] = useState("loading"); // loading, authorized, unauthenticated
@@ -46,6 +53,19 @@ const AuthProvider = ({ children }) => {
     }
   };
 
+  const register = async ({ username, password }) => {
+    try {
+      // логика для створення користувача
+      setUser({username});
+      setStatus("authorized");
+      return { success: true };
+    } catch (error) {
+      console.error(error);
+      return { success: false, error: error.message };
+    }
+  };
+
+
   const logout = () => {
     localStorage.removeItem("user");
     setUser(null);
@@ -72,7 +92,7 @@ const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ status, isAuthenticated, login, logout, user }}
+      value={{ status, isAuthenticated, login, register, logout, user }}
     >
       {children}
     </AuthContext.Provider>
