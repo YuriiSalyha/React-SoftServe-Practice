@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  BrowserRouter as Router
+  BrowserRouter as Router,
   Routes,
   Route,
   Navigate,
@@ -19,6 +19,8 @@ import Header from "./components/Header/Header";
 import Wrapper from "./components/Wrapper";
 
 import SignInPage from "./pages/SignInPage";
+import SignUpPage from "./pages/SignUpPage";
+
 import AuthProvider from "./context/AuthContext";
 
 function App() {
@@ -36,6 +38,8 @@ function App() {
 
             {/* інші сторінки поки закоментовані */}
             <Route path="/signIn" element={<SignInPage />} />
+            <Route path="/signUp" element={<SignUpPage />} />
+
 
             {/* Сторінка одного фільму */}
             <Route path="/movie/:id" element={<MoviePage />} />
