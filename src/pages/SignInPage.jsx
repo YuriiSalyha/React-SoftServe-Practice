@@ -98,7 +98,7 @@ const SignInPage = () => {
       </form>
 
       <div className={styles.text}>
-        Не маєте аккауту? <a href="/">Регистрація</a>
+        Не маєте аккауту? <a href="/signUp">Регистрація</a>
       </div>
     </div>
   );
