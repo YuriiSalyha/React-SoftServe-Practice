@@ -29,6 +29,17 @@
     white-space: nowrap;
   }
 
+/* Текст фільм не знайдено */
+  .notFound {
+    color: white; 
+    font-size: 1.5rem; 
+    text-align: center; 
+    width: 2750px;
+    margin-top: -2rem; 
+    font-weight: bold; 
+  }
+  
+
 /* Стилі для кнопки і випадаючого меню */
 .dropdownContainer {
   position: relative;
@@ -60,8 +71,8 @@
 /* Забороняємо підсвічування на кнопці при натисканні або фокусі */
 .dropdownButton:focus,
 .dropdownButton:active {
-  background-color: #403E47ED; /* Колір фону не змінюється */
-  outline: none; /* Вимикаємо стандартне підсвічування */
+  background-color: #403E47ED; 
+  outline: none; 
 }
 
 .dropdownButton:hover {
@@ -93,11 +104,11 @@
 
 .dropdownMenu li {
   padding: 10px;
-  background-color: #333; /* Додаємо колір фону для елементів */
+  background-color: #333; 
 }
 
 .dropdownMenu li button {
-  background-color: transparent; /* Прибираємо фоновий колір кнопки */
+  background-color: transparent; 
   color: white;
   border: none;
   width: 100%;
@@ -108,14 +119,14 @@
 }
 
 .dropdownMenu li button:hover {
-  background-color: #555; /* Підсвічування при наведенні на елемент */
+  background-color: #555; 
 }
 
-/* Забороняємо фокусування елементів списку і підсвічування фону */
+/* Забороняє фокусування елементів списку і підсвічування фону */
 .dropdownMenu li button:focus,
 .dropdownMenu li button:active {
-  background-color: transparent; /* Залишаємо фон прозорим */
-  outline: none; /* Вимикаємо стандартну підсвітку */
+  background-color: transparent; 
+  outline: none; 
 }
 
 .arrowImage {
@@ -154,4 +165,44 @@
   color: rgb(218, 215, 215);
   font-size: 18px;
   margin-top: -1px;
+}
+
+/* Пагінація */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  gap: 10px;
+}
+
+.paginationButton,
+.paginationArrow {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  padding: 8px 16px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 0; 
+}
+
+.paginationButton:disabled,
+.paginationArrow:disabled {
+  background-color: transparent;
+  border: none;
+  color: #e0e0e0;
+  cursor: not-allowed;
+}
+
+.paginationButton:hover,
+.paginationArrow:hover {
+  background-color: transparent;
+  text-decoration: underline; 
+}
+
+.paginationButton.active,
+.paginationArrow.active {
+  background-color: transparent;
+  border: none;
+  color: #fff;
 }

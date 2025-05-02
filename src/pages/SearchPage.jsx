@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom'; 
+import { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import styles from '../styles/searchresult.module.css';
 
 function SearchresultPage() {
@@ -16,6 +16,13 @@ function SearchresultPage() {
   const [selectedYear, setSelectedYear] = useState('');
   const [selectedAge, setSelectedAge] = useState('');
   const [selectedCountry, setSelectedCountry] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const moviesPerPage = 8;
+  const genreRef = useRef(null);
+  const yearRef = useRef(null);
+  const ageRef = useRef(null);
+  const countryRef = useRef(null);
+
 
   useEffect(() => {
     fetch('/data/movies.json')
@@ -45,6 +52,28 @@ function SearchresultPage() {
       });
   }, []);
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        genreRef.current && !genreRef.current.contains(event.target) &&
+        yearRef.current && !yearRef.current.contains(event.target) &&
+        ageRef.current && !ageRef.current.contains(event.target) &&
+        countryRef.current && !countryRef.current.contains(event.target)
+      ) {
+        setGenreDropdownOpen(false);
+        setYearDropdownOpen(false);
+        setAgeDropdownOpen(false);
+        setCountryDropdownOpen(false);
+      }
+    };
+  
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+  
+
   const toggleGenreDropdown = () => setGenreDropdownOpen(!isGenreDropdownOpen);
   const toggleYearDropdown = () => setYearDropdownOpen(!isYearDropdownOpen);
   const toggleAgeDropdown = () => setAgeDropdownOpen(!isAgeDropdownOpen);
@@ -53,42 +82,50 @@ function SearchresultPage() {
   const handleGenreSelect = (genre) => {
     setSelectedGenre(genre);
     setGenreDropdownOpen(false);
+    setCurrentPage(1);
   };
 
   const handleYearSelect = (year) => {
     setSelectedYear(year);
     setYearDropdownOpen(false);
+    setCurrentPage(1);
   };
 
   const handleAgeSelect = (age) => {
     setSelectedAge(age);
     setAgeDropdownOpen(false);
+    setCurrentPage(1);
   };
 
   const handleCountrySelect = (country) => {
     setSelectedCountry(country);
     setCountryDropdownOpen(false);
+    setCurrentPage(1);
   };
 
   // Окремі функції скидання
   const resetGenre = () => {
     setSelectedGenre('');
     setGenreDropdownOpen(false);
+    setCurrentPage(1);
   };
 
   const resetYear = () => {
     setSelectedYear('');
     setYearDropdownOpen(false);
+    setCurrentPage(1);
   };
 
   const resetAge = () => {
     setSelectedAge('');
     setAgeDropdownOpen(false);
+    setCurrentPage(1);
   };
 
   const resetCountry = () => {
     setSelectedCountry('');
     setCountryDropdownOpen(false);
+    setCurrentPage(1);
   };
 
   const filteredMovies = movies.filter(movie => {
@@ -99,6 +136,25 @@ function SearchresultPage() {
     return matchGenre && matchYear && matchAge && matchCountry;
   });
 
+  // Pagination Logic
+  const indexOfLastMovie = currentPage * moviesPerPage;
+  const indexOfFirstMovie = indexOfLastMovie - moviesPerPage;
+  const currentMovies = filteredMovies.slice(indexOfFirstMovie, indexOfLastMovie);
+
+  const totalPages = Math.ceil(filteredMovies.length / moviesPerPage);
+
+  const handleNextPage = () => {
+    if (currentPage < totalPages) setCurrentPage(currentPage + 1);
+  };
+
+  const handlePrevPage = () => {
+    if (currentPage > 1) setCurrentPage(currentPage - 1);
+  };
+
+  const handlePageSelect = (page) => {
+    setCurrentPage(page);
+  };
+
   return (
     <div className={styles.pageBackground}>
       <div className={styles.container}>
@@ -108,7 +164,7 @@ function SearchresultPage() {
         <div className={styles.filtersContainer}>
 
           {/* Жанр */}
-          <div className={styles.dropdownContainer}>
+          <div className={styles.dropdownContainer} ref={genreRef}>
             <button className={styles.dropdownButton} onClick={toggleGenreDropdown}>
               {selectedGenre || 'Жанр'}
             </button>
@@ -125,7 +181,7 @@ function SearchresultPage() {
           </div>
 
           {/* Рік виходу */}
-          <div className={styles.dropdownContainer}>
+          <div className={styles.dropdownContainer} ref={yearRef}>
             <button className={styles.dropdownButton} onClick={toggleYearDropdown}>
               {selectedYear || 'Рік виходу'}
             </button>
@@ -142,7 +198,7 @@ function SearchresultPage() {
           </div>
 
           {/* Вікова категорія */}
-          <div className={styles.dropdownContainer}>
+          <div className={styles.dropdownContainer} ref={ageRef}>
             <button className={styles.dropdownButton} onClick={toggleAgeDropdown}>
               {selectedAge || 'Вікова категорія'}
             </button>
@@ -159,7 +215,7 @@ function SearchresultPage() {
           </div>
 
           {/* Країна */}
-          <div className={styles.dropdownContainer}>
+          <div className={styles.dropdownContainer} ref={countryRef}>
             <button className={styles.dropdownButton} onClick={toggleCountryDropdown}>
               {selectedCountry || 'Країна'}
             </button>
@@ -178,23 +234,60 @@ function SearchresultPage() {
 
         {/* Вивід фільмів */}
         <div className={styles.movieDetails}>
-          {filteredMovies.length > 0 ? filteredMovies.map((movie, index) => (
-            <div key={index} className={styles.moviePosterWrapper}>
-              <Link to={`/movie/${movie.id}`}>
-                <img
-                  src={movie.poster}
-                  alt={movie.title}
-                  className={styles.moviePoster}
-                />
-              </Link>
-              <h2>{movie.title}</h2>
-              <p>{movie.duration} {movie.ageRestriction}</p>
-              <p>{movie.genres.join(', ')}</p>
-              <p><strong>Рік:</strong> {new Date(movie.releaseDate).getFullYear()}</p>
-              <p><strong>Країна:</strong> {movie.country}</p>
-            </div>
-          )) : <p>Фільмів не знайдено</p>}
-        </div>
+  {filteredMovies.length > 0 ? (
+    currentMovies.map((movie, index) => (
+      <div key={index} className={styles.moviePosterWrapper}>
+        <Link to={`/movie/${movie.id}`}>
+          <img
+            src={movie.poster}
+            alt={movie.title}
+            className={styles.moviePoster}
+          />
+        </Link>
+        <h2>{movie.title}</h2>
+        <p>{movie.duration} {movie.ageRestriction}</p>
+        <p>{movie.genres.join(', ')}</p>
+        <p><strong>Рік:</strong> {new Date(movie.releaseDate).getFullYear()}</p>
+        <p><strong>Країна:</strong> {movie.country}</p>
+      </div>
+    ))
+  ) : (
+    <p className={styles.notFound}>Фільмів не знайдено</p>
+  )}
+</div>
+
+
+        {/* Пагінація */}
+        <div className={styles.pagination}>
+  {currentPage > 1 && (
+    <button 
+      onClick={handlePrevPage} 
+      className={styles.paginationButton}
+    >
+      🡠
+    </button>
+  )}
+
+  {[...Array(totalPages)].map((_, index) => (
+    <button 
+      key={index} 
+      onClick={() => handlePageSelect(index + 1)} 
+      className={`${styles.paginationButton} ${currentPage === index + 1 ? styles.active : ''}`}
+    >
+      {index + 1}
+    </button>
+  ))}
+
+  {currentPage < totalPages && (
+    <button 
+      onClick={handleNextPage} 
+      className={styles.paginationButton}
+    >
+      🡢
+    </button>
+  )}
+  </div>
+
       </div>
     </div>
   );
