@@ -53,7 +53,7 @@
 }
 
 .form .btn__submit {
-  width: 230px;
+  min-width: 230px;
 
   padding: 13px 31px;
   border-radius: 10px;
