@@ -24,38 +24,26 @@ import AuthProvider from "./context/AuthContext";
 function App() {
   return (
     <AuthProvider>
-      <Wrapper>
-        <Header />
-        <Router>
+      <Router> 
+        <Wrapper>
+          <Header />
           <Routes>
-            {/* За замовчуванням перенаправимо на /sessions */}
-            <Route path="/" element={<Navigate to="/result" replace />} />
-
-            {/* Говна сторінка */} 
+            <Route path="/" element={<Navigate to="/home" replace />} />
             <Route path="/home" element={<HomePage />} />
-
-            {/* Сторінка сеансів */}
             <Route path="/sessions" element={<SessionsPage />} />
-
-            {/* інші сторінки поки закоментовані */}
             <Route path="/signIn" element={<SignInPage />} />
-
-            {/* Сторінка одного фільму */}
             <Route path="/movie/:id" element={<MoviePage />} />
 
-            {/* Сторінка результат пошуку */}
+            {/* Тут буде виводитися результат пошуку */}
             <Route path="/result" element={<SearchPage />} />
-            {/* Сторінка обраного */}
+
+            {/* Можна розкоментувати інші сторінки пізніше */}
             {/* <Route path="/favorites" element={<FavoritesPage />} /> */}
-            {/* Сторінка сеансів */}
-            {/* <Route path="/search" element={<SearchPage />} /> */}
-            {/* Адмін панель */}
             {/* <Route path="/admin" element={<AdminPanel />} /> */}
-            {/* 404 сторінка */}
             {/* <Route path="*" element={<NotFoundPage />} /> */}
           </Routes>
-        </Router>
-      </Wrapper>
+        </Wrapper>
+      </Router>
     </AuthProvider>
   );
 }
