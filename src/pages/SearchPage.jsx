@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect, useRef,  } from 'react';
+import { Link, useLocation} from 'react-router-dom';
 import styles from '../styles/searchresult.module.css';
 
 function SearchresultPage() {
@@ -22,6 +22,13 @@ function SearchresultPage() {
   const yearRef = useRef(null);
   const ageRef = useRef(null);
   const countryRef = useRef(null);
+
+  const location = useLocation();
+  const query = new URLSearchParams(location.search).get("search")?.toLowerCase() || ""; 
+
+  useEffect(() => {
+    setCurrentPage(1); 
+  }, [query]);
 
   useEffect(() => {
     fetch('/data/movies.json')
@@ -47,6 +54,7 @@ function SearchresultPage() {
         setMovies(data);
       })
       .catch(error => {
+        console.error("Error fetching movies data:", error);
       });
   }, []);
 
@@ -149,11 +157,12 @@ function SearchresultPage() {
   };
 
   const filteredMovies = movies.filter(movie => {
+    const matchQuery = query ? movie.title.toLowerCase().includes(query) : true;
     const matchGenre = selectedGenre ? movie.genres.includes(selectedGenre) : true;
     const matchYear = selectedYear ? new Date(movie.releaseDate).getFullYear() === selectedYear : true;
     const matchAge = selectedAge ? movie.ageRestriction === selectedAge : true;
     const matchCountry = selectedCountry ? movie.country === selectedCountry : true;
-    return matchGenre && matchYear && matchAge && matchCountry;
+    return matchQuery && matchGenre && matchYear && matchAge && matchCountry;
   });
 
   // Pagination Logic
@@ -178,7 +187,7 @@ function SearchresultPage() {
   return (
     <div className={styles.pageBackground}>
       <div className={styles.container}>
-        <h2 className={styles.header}>Search result:</h2>
+        <h2 className={styles.header}>Search result: {query} </h2>
 
         {/* Блок із фільтрами */}
         <div className={styles.filtersContainer}>
@@ -270,7 +279,7 @@ function SearchresultPage() {
               </div>
             ))
           ) : (
-            <p className={styles.notFound}>Фільмів не знайдено</p>
+            <p className={styles.notFound}>No movies found</p>
           )}
         </div>
 
