@@ -6,21 +6,27 @@ import styles from "../styles/auth.module.css";
 import useAuth from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 
-const signInSchema = z.object({
-  login: z
-    .string()
-    .min(3, "Login must be at least 3 characters long")
-    .nonempty("Login is required"),
-  password: z
-    .string()
-    .min(3, "Password must be at least 6 characters")
-    .nonempty("Password is required"),
-});
+const signUpSchema = z
+  .object({
+    login: z
+      .string()
+      .min(3, "Login must be at least 3 characters long")
+      .nonempty("Login is required"),
+    password: z
+      .string()
+      .min(6, "Password must be at least 6 characters long")
+      .nonempty("Password is required"),
+    confirmPassword: z.string().nonempty("Please confirm your password"),
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    message: "Passwords do not match",
+    path: ["confirmPassword"],
+  });
 
-const SignInPage = () => {
+const SignUpPage = () => {
   const navigate = useNavigate();
 
-  const { login } = useAuth();
+  const { register: authRegister } = useAuth();
 
   const {
     register,
@@ -28,12 +34,12 @@ const SignInPage = () => {
     setError,
     formState: { errors },
   } = useForm({
-    resolver: zodResolver(signInSchema),
+    resolver: zodResolver(signUpSchema),
   });
 
   const onSubmit = async (data) => {
     try {
-      const response = await login({
+      const response = await authRegister({
         username: data.login,
         password: data.password,
       });
@@ -47,7 +53,6 @@ const SignInPage = () => {
       }
 
       navigate("/");
-
     } catch (error) {
       console.error(error);
       setError("general", {
@@ -59,7 +64,7 @@ const SignInPage = () => {
 
   return (
     <div className={styles.wrapper}>
-      <h1 className={styles.title}>Вхід</h1>
+      <h1 className={styles.title}>Регістрація</h1>
 
       {errors.general && (
         <p className={styles.field__error}>{errors.general.message}</p>
@@ -92,16 +97,31 @@ const SignInPage = () => {
           )}
         </div>
 
+        <div className={styles.field}>
+          <input
+            id="confirmPassword"
+            className={styles.field__input}
+            placeholder="Повторіть пароль"
+            type="password"
+            {...register("confirmPassword")}
+          />
+          {errors.confirmPassword && (
+            <p className={styles.field__error}>
+              {errors.confirmPassword.message}
+            </p>
+          )}
+        </div>
+
         <button className={styles.btn__submit} type="submit">
-          ВІЙТИ НА САЙТ
+          Зарегіструватися
         </button>
       </form>
 
       <div className={styles.text}>
-        Не маєте аккауту? <a href="/signUp">Регистрація</a>
+        Маєте аккаут? <a href="/signIn">Вхід</a>
       </div>
     </div>
   );
 };
 
-export default SignInPage;
+export default SignUpPage;

@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { createContext } from "react";
 
-export const AuthContext = createContext(undefined);
+export const AuthContext = createContext({
+  user: null,
+  isAuthenticated: false,
+  status: "loading",
+  login: () => {},
+  register: () => {},
+  logout: () => {},
+});
 
 const AuthProvider = ({ children }) => {
   const [status, setStatus] = useState("loading"); // loading, authorized, unauthenticated
@@ -12,12 +19,26 @@ const AuthProvider = ({ children }) => {
   const login = async ({ username, password }) => {
     try {
       const response = await fetch("/data/users.json");
+
+      if (!response.ok) {
+        throw new Error("Не вдалося завантажити дані користувачів");
+      }
+
       const res_data = await response.json();
 
-      const findOne = res_data.find((user) => user.username == username);
+      const findOne = res_data.find((user) => user.username === username);
 
       if (!findOne) {
-        throw new Error("Користувача не знайдено");
+        const error = new Error("Користувача не знайдено");
+        error.field = "login";
+        throw error;
+      }
+
+      // перевірка пароля
+      if (password !== findOne.password) {
+        const error = new Error("Невірний пароль");
+        error.field = "password";
+        throw error;
       }
 
       localStorage.setItem("user", JSON.stringify(findOne));
@@ -28,9 +49,22 @@ const AuthProvider = ({ children }) => {
     } catch (error) {
       console.error(error);
       setStatus("unauthenticated");
+      return { success: false, error: error.message, field: error?.field };
+    }
+  };
+
+  const register = async ({ username, password }) => {
+    try {
+      // логика для створення користувача
+      setUser({username});
+      setStatus("authorized");
+      return { success: true };
+    } catch (error) {
+      console.error(error);
       return { success: false, error: error.message };
     }
   };
+
 
   const logout = () => {
     localStorage.removeItem("user");
@@ -58,7 +92,7 @@ const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ status, isAuthenticated, login, logout, user }}
+      value={{ status, isAuthenticated, login, register, logout, user }}
     >
       {children}
     </AuthContext.Provider>
