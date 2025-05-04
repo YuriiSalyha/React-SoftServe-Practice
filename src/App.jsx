@@ -19,7 +19,10 @@ import Header from "./components/Header/Header";
 import Wrapper from "./components/Wrapper";
 
 import SignInPage from "./pages/SignInPage";
+import SignUpPage from "./pages/SignUpPage";
+
 import AuthProvider from "./context/AuthContext";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -29,18 +32,20 @@ function App() {
         <Router>
           <Routes>
             {/* За замовчуванням перенаправимо на /sessions */}
-            <Route path="/" element={<Navigate to="/sessions" replace />} />
+            <Route path="/" element={<HomePage />} />
 
             {/* Сторінка сеансів */}
             <Route path="/sessions" element={<SessionsPage />} />
 
             {/* інші сторінки поки закоментовані */}
             <Route path="/signIn" element={<SignInPage />} />
+            <Route path="/signUp" element={<SignUpPage />} />
+
 
             {/* Сторінка одного фільму */}
             <Route path="/movie/:id" element={<MoviePage />} />
             {/* Сторінка обраного */}
-            {/* <Route path="/favorites" element={<FavoritesPage />} /> */}
+          <Route path="/favorites" element={<FavoritesPage />} />
             {/* Сторінка сеансів */}
             {/* <Route path="/search" element={<SearchPage />} /> */}
             {/* Адмін панель */}
@@ -49,6 +54,7 @@ function App() {
             {/* <Route path="*" element={<NotFoundPage />} /> */}
           </Routes>
         </Router>
+        <Footer />
       </Wrapper>
     </AuthProvider>
   );
