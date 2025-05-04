@@ -165,7 +165,6 @@ function SearchresultPage() {
     return matchQuery && matchGenre && matchYear && matchAge && matchCountry;
   });
 
-  // Pagination Logic
   const indexOfLastMovie = currentPage * moviesPerPage;
   const indexOfFirstMovie = indexOfLastMovie - moviesPerPage;
   const currentMovies = filteredMovies.slice(indexOfFirstMovie, indexOfLastMovie);
