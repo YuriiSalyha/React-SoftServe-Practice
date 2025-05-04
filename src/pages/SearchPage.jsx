@@ -283,7 +283,7 @@ function SearchresultPage() {
           )}
         </div>
 
-        {/* Пагінація */}
+        {/* Pagination */}
         <div className={styles.pagination}>
           {currentPage > 1 && (
             <button 
