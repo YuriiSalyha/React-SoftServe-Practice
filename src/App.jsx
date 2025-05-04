@@ -9,7 +9,7 @@ import FavoritesPage from "./pages/FavoredPage";
 import HomePage from "./pages/HomePage";
 import MoviePage from "./pages/MoviePage";
 import SessionsPage from "./pages/SessionsPage";
-// import SearchPage from "./pages/SearchPage";
+import SearchPage from "./pages/SearchPage";
 // import AdminPanel from "./pages/AdminPanel";
 // import NotFoundPage from "./pages/NotFoundPage";
 
@@ -26,13 +26,16 @@ import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
+    <Router>
     <AuthProvider>
       <Wrapper>
         <Header />
-        <Router>
           <Routes>
             {/* За замовчуванням перенаправимо на /sessions */}
-            <Route path="/" element={<HomePage />} />
+            <Route path="/" element={<Navigate to="/home" replace />} />
+
+            {/* Говна сторінка */} 
+            <Route path="/home" element={<HomePage />} />
 
             {/* Сторінка сеансів */}
             <Route path="/sessions" element={<SessionsPage />} />
@@ -44,6 +47,9 @@ function App() {
 
             {/* Сторінка одного фільму */}
             <Route path="/movie/:id" element={<MoviePage />} />
+
+            {/* Сторінка результат пошуку */}
+            <Route path="/search" element={<SearchPage />} />
             {/* Сторінка обраного */}
           <Route path="/favorites" element={<FavoritesPage />} />
             {/* Сторінка сеансів */}
@@ -53,10 +59,9 @@ function App() {
             {/* 404 сторінка */}
             {/* <Route path="*" element={<NotFoundPage />} /> */}
           </Routes>
-        </Router>
-        <Footer />
       </Wrapper>
     </AuthProvider>
+    </Router>
   );
 }
 
