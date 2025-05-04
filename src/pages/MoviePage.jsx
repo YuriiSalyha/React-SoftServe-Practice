@@ -2,8 +2,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "../styles/moviePage.Module.css";
-import imdbLogo from "../assets/imbd_logo.png";
-import rtLogo from "../assets/rt.jpg";
+import imdbLogo from "/imbd_logo.png";
+import rtLogo from "/rt.jpg";
 import Modal from "../components/Modal/Modal.jsx";
 
 function getWeekDates() {
@@ -66,8 +66,8 @@ export default function MoviePage() {
   const ytId = new URL(trailerLink).searchParams.get("v");
   const nonEmpty = sessionsByDate.filter((g) => g.times.length > 0);
 
-  const handleOrderClick = () => {
-    if (nonEmpty.length === 0) return;
+  function handleOrderClick() {
+    if (!nonEmpty.length) return;
     const firstGroup = nonEmpty[0];
     const firstTime = firstGroup.times[0];
     setSelectedSession({
@@ -77,11 +77,16 @@ export default function MoviePage() {
       time: firstTime,
       hall: "Main Hall",
     });
-  };
+  }
 
-  const [start, end] = getWeekDates();
+  // ← here are the lines you replace:
+  const week = getWeekDates();
+  const start = week[0];
+  const end = week[week.length - 1];
+  // ↑ instead of `const [start,end] = getWeekDates();`
+
   const fmt = (d) => `${d.getMonth() + 1}.${d.getDate()}`;
-  const rangeLabel = `${fmt(start)}-${fmt(end)}`;
+  const rangeLabel = `${fmt(start)}-${fmt(end)}`; // e.g. "4.28-5.04"
 
   return (
     <div className="movie-page">
@@ -167,7 +172,7 @@ export default function MoviePage() {
       {/* Модальне вікно бронювання */}
       {selectedSession && (
         <Modal
-          isOpen={true}
+          isOpen
           onClose={() => setSelectedSession(null)}
           poster={selectedSession.poster}
           title={selectedSession.title}

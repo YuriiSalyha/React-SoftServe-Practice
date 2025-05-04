@@ -52,14 +52,14 @@ const SignInPage = () => {
       console.error(error);
       setError("general", {
         type: "manual",
-        message: "Сталася помилка. Спробуйте ще раз пізніше.",
+        message: "An error occurred. Please try again later.",
       });
     }
   };
 
   return (
     <div className={styles.wrapper}>
-      <h1 className={styles.title}>Вхід</h1>
+      <h1 className={styles.title}>Login</h1>
 
       {errors.general && (
         <p className={styles.field__error}>{errors.general.message}</p>
@@ -71,7 +71,7 @@ const SignInPage = () => {
             id="login"
             className={styles.field__input}
             type="text"
-            placeholder="Ваш логін"
+            placeholder="Your login"
             {...register("login")}
           />
           {errors.login && (
@@ -83,7 +83,7 @@ const SignInPage = () => {
           <input
             id="password"
             className={styles.field__input}
-            placeholder="Ваш пароль"
+            placeholder="Your Password"
             type="password"
             {...register("password")}
           />
@@ -93,12 +93,12 @@ const SignInPage = () => {
         </div>
 
         <button className={styles.btn__submit} type="submit">
-          ВІЙТИ НА САЙТ
+          Sign in
         </button>
       </form>
 
       <div className={styles.text}>
-        Не маєте аккауту? <a href="/signUp">Регистрація</a>
+        Don’t have an account? <a href="/">Sign up</a>
       </div>
     </div>
   );

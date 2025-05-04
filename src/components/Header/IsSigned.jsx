@@ -14,7 +14,7 @@ const IsSigned = () => {
             <div className={styles.col__icon}>
               <img src="/icons/heart_icon.svg" alt="favor" />
             </div>
-            <h3 className={styles.col__text}>Вподобані</h3>
+            <h3 className={styles.col__text}>Favorites</h3>
           </a>
         </div>
         {/* profile */}
@@ -23,7 +23,7 @@ const IsSigned = () => {
             <div className={styles.col__icon}>
               <img src="/icons/user_icon.svg" alt="user" />
             </div>
-            <h3 className={styles.col__text}>Профіль</h3>
+            <h3 className={styles.col__text}>Profile</h3>
           </a>
         </div>
       </div>
@@ -37,7 +37,7 @@ const IsSigned = () => {
           <div className={styles.col__icon}>
             <img src="/icons/user_icon.svg" alt="user" />
           </div>
-          <h3 className={styles.col__text}>Війти</h3>
+          <h3 className={styles.col__text}>Sign in</h3>
         </a>
       </div>
     </div>

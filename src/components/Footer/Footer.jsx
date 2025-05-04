@@ -30,7 +30,7 @@ export default function Footer() {
           <li>Bohdan Vakulenko</li>
           <li>Dmytrii Zenko</li>
           <li>Olesia Synchuk</li>
-          <li>Emilia Terada</li>
+          <li>Emiliia Terada</li>
         </ul>
       </div>
     </footer>

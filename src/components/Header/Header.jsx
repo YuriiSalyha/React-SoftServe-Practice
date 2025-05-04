@@ -12,10 +12,10 @@ const Header = () => {
 
       <ul className={styles.list}>
         <li className={styles.list__item}>
-          <a href="/">сеанси</a>
+          <a href="/sessions">Sessions</a>
         </li>
         <li className={styles.list__item}>
-          <a href="/">Фільми</a>
+          <a href="/">Movies</a>
         </li>
       </ul>
       <Search />
