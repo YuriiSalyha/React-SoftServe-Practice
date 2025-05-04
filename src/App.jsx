@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  BrowserRouter as Router
+  BrowserRouter as Router,
   Routes,
   Route,
   Navigate,
@@ -20,6 +20,7 @@ import Wrapper from "./components/Wrapper";
 
 import SignInPage from "./pages/SignInPage";
 import AuthProvider from "./context/AuthContext";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -29,7 +30,7 @@ function App() {
         <Router>
           <Routes>
             {/* За замовчуванням перенаправимо на /sessions */}
-            <Route path="/" element={<Navigate to="/sessions" replace />} />
+            <Route path="/" element={<HomePage />} />
 
             {/* Сторінка сеансів */}
             <Route path="/sessions" element={<SessionsPage />} />
@@ -40,7 +41,7 @@ function App() {
             {/* Сторінка одного фільму */}
             <Route path="/movie/:id" element={<MoviePage />} />
             {/* Сторінка обраного */}
-            {/* <Route path="/favorites" element={<FavoritesPage />} /> */}
+          <Route path="/favorites" element={<FavoritesPage />} />
             {/* Сторінка сеансів */}
             {/* <Route path="/search" element={<SearchPage />} /> */}
             {/* Адмін панель */}
@@ -49,6 +50,7 @@ function App() {
             {/* <Route path="*" element={<NotFoundPage />} /> */}
           </Routes>
         </Router>
+        <Footer />
       </Wrapper>
     </AuthProvider>
   );
