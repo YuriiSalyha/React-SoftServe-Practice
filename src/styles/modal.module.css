@@ -96,3 +96,25 @@
     font-size: 1.1rem;
   }
   
+  .seat {
+    width: 24px;
+    height: 24px;
+    background-color: gray;       /* Вільне місце - сіре */
+    margin: 4px;
+    text-align: center;
+    line-height: 24px;            /* вертикальне вирівнювання номера */
+    cursor: pointer;
+    border-radius: 4px;
+    display: inline-block;
+  }
+  .seat.booked {
+    background-color: red;        /* Зайняте місце - червоне */
+    cursor: not-allowed;          /* Заборонений курсор, щоб було видно, що неактивне */
+  }
+  .seat.selected {
+    background-color: green;      /* Обране місце - зелене */
+  }
+  .seat-row {
+    margin-bottom: 8px;           /* Відступ між рядами */
+  }
+  
