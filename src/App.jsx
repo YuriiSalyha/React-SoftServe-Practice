@@ -58,6 +58,7 @@ function App() {
             {/* 404 сторінка */}
             {/* <Route path="*" element={<NotFoundPage />} /> */}
           </Routes>
+          <Footer />
         </Wrapper>
       </AuthProvider>
     </Router>
