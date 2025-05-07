@@ -1,4 +1,3 @@
-// src/pages/MoviePage.jsx
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "../styles/moviePage.Module.css";
@@ -66,25 +65,29 @@ export default function MoviePage() {
   const ytId = new URL(trailerLink).searchParams.get("v");
   const nonEmpty = sessionsByDate.filter((g) => g.times.length > 0);
 
+  // ✅ Динамічно знаходимо hall з sessions.json
   function handleOrderClick() {
-    if (!nonEmpty.length) return;
-    const firstGroup = nonEmpty[0];
-    const firstTime = firstGroup.times[0];
-    setSelectedSession({
-      poster,
-      title,
-      date: firstGroup.date.toISOString().split("T")[0],
-      time: firstTime,
-      hall: "Main Hall",
-    });
+    fetch("/data/sessions.json")
+      .then((res) => res.json())
+      .then((data) => {
+        const sessionsForThisMovie = data.filter(
+          (s) => String(s.movieId) === id
+        );
+        if (sessionsForThisMovie.length === 0) return;
+
+        const hall = sessionsForThisMovie[0].hall;
+        setSelectedSession({
+          poster,
+          title,
+          hall,
+        });
+      })
+      .catch(console.error);
   }
 
-  // ← here are the lines you replace:
   const week = getWeekDates();
   const start = week[0];
   const end = week[week.length - 1];
-  // ↑ instead of `const [start,end] = getWeekDates();`
-
   const fmt = (d) => `${d.getMonth() + 1}.${d.getDate()}`;
   const rangeLabel = `${fmt(start)}-${fmt(end)}`; // e.g. "4.28-5.04"
 
@@ -97,21 +100,11 @@ export default function MoviePage() {
           <h1 className="movie-title">
             {title} ({new Date(releaseDate).getFullYear()})
           </h1>
-          <p>
-            <strong>Premiere:</strong> {releaseDate}
-          </p>
-          <p>
-            <strong>Country:</strong> {country}
-          </p>
-          <p>
-            <strong>Duration:</strong> {duration} min
-          </p>
-          <p>
-            <strong>Age Restriction:</strong> {ageRestriction}+
-          </p>
-          <p>
-            <strong>Genres:</strong> {genres.join(", ")}
-          </p>
+          <p><strong>Premiere:</strong> {releaseDate}</p>
+          <p><strong>Country:</strong> {country}</p>
+          <p><strong>Duration:</strong> {duration} min</p>
+          <p><strong>Age Restriction:</strong> {ageRestriction}+</p>
+          <p><strong>Genres:</strong> {genres.join(", ")}</p>
           <div className="ratings-inline">
             <div className="rating-inline-item">
               <img className="rating-logo" src={imdbLogo} alt="IMDb" />
@@ -176,8 +169,6 @@ export default function MoviePage() {
           onClose={() => setSelectedSession(null)}
           poster={selectedSession.poster}
           title={selectedSession.title}
-          date={selectedSession.date}
-          time={selectedSession.time}
           hall={selectedSession.hall}
         />
       )}
