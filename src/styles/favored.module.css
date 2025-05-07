@@ -28,7 +28,7 @@
   overflow: hidden;
   text-align: center;
   padding: 10px;
-  max-height: 370px;
+  max-height: 380px;
   transition: transform 0.3s;
 }
 
@@ -53,4 +53,35 @@
   font-size: 14px;
   font-weight: 400;
   margin-bottom: 6px;
+}
+
+.removeButton {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.removeButton img {
+  width: 28px;
+  height: 28px;
+  background-color: #f7931e;
+  border-radius: 20%;
+}
+
+/* Додаємо курсор-посилання для постера */
+.posterLink {
+  cursor: pointer;
+}
+
+/* Підкреслення заголовка при наведенні */
+.titleLink {
+  color: inherit;
+  text-decoration: none;
+}
+.titleLink:hover {
+  text-decoration: underline;
 }

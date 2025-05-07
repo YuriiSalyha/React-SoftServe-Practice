@@ -1,7 +1,7 @@
 [
   {
     "id": "1",
-    "poster": "../img/posters/minecraft.jpg",
+    "poster": "../img/posters/minecraft.png",
     "title": "Minecraft: Movie",
     "releaseDate": "2025-03-30",
     "country": "USA",
@@ -131,7 +131,7 @@
   {
     "id": "9",
     "poster": "../img/posters/karpat.jpg",
-    "title": "Eyes. The legend of the Carpathians",
+    "title": "The Legend of Ochi",
     "releaseDate": "2025-04-10",
     "country": "United Kingdom",
     "duration": "115 minutes",
@@ -147,7 +147,7 @@
   {
     "id": "10",
     "poster": "../img/posters/race.jpg",
-    "title": "Flight overhead",
+    "title": "Fight or Flight",
     "releaseDate": "2025-04-15",
     "country": "USA",
     "duration": "110 minutes",
