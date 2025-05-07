@@ -1,10 +1,14 @@
-// src/pages/MoviePage.jsx
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "../styles/moviePage.Module.css";
 import imdbLogo from "/imbd_logo.png";
 import rtLogo from "/rt.jpg";
 import Modal from "../components/Modal/Modal.jsx";
+import {
+  addFavoriteToLocalStorage,
+  getFavoritesFromLocalStorage,
+  removeFavoriteFromLocalStorage,
+} from "../utils/localStorageFavoriteUtils"; // Імпортуємо функції для роботи з localStorage
 
 function getWeekDates() {
   const today = new Date();
@@ -23,6 +27,7 @@ export default function MoviePage() {
   const [movie, setMovie] = useState(null);
   const [sessionsByDate, setSessionsByDate] = useState([]);
   const [selectedSession, setSelectedSession] = useState(null);
+  const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
     Promise.all([
@@ -44,6 +49,12 @@ export default function MoviePage() {
         setSessionsByDate(grouped);
       })
       .catch(console.error);
+  }, [id]);
+
+  // Перевірка, чи є фільм у обраному
+  useEffect(() => {
+    const favorites = getFavoritesFromLocalStorage();
+    setIsFavorite(favorites.some((movie) => movie.id === parseInt(id)));
   }, [id]);
 
   if (!movie) {
@@ -79,12 +90,20 @@ export default function MoviePage() {
     });
   }
 
-  // ← here are the lines you replace:
+  // Toggle фільм в обраному
+  const toggleFavorite = () => {
+    if (isFavorite) {
+      removeFavoriteFromLocalStorage(movie.id);
+      setIsFavorite(false);
+    } else {
+      addFavoriteToLocalStorage(movie);
+      setIsFavorite(true);
+    }
+  };
+
   const week = getWeekDates();
   const start = week[0];
   const end = week[week.length - 1];
-  // ↑ instead of `const [start,end] = getWeekDates();`
-
   const fmt = (d) => `${d.getMonth() + 1}.${d.getDate()}`;
   const rangeLabel = `${fmt(start)}-${fmt(end)}`; // e.g. "4.28-5.04"
 
@@ -104,10 +123,10 @@ export default function MoviePage() {
             <strong>Country:</strong> {country}
           </p>
           <p>
-            <strong>Duration:</strong> {duration} min
+            <strong>Duration:</strong> {duration}
           </p>
           <p>
-            <strong>Age Restriction:</strong> {ageRestriction}+
+            <strong>Age Restriction:</strong> {ageRestriction}
           </p>
           <p>
             <strong>Genres:</strong> {genres.join(", ")}
@@ -123,6 +142,17 @@ export default function MoviePage() {
             </div>
           </div>
         </div>
+        {/* Кнопка для додавання/видалення з обраного */}
+        <button
+          className="favorite-button"
+          onClick={toggleFavorite}
+          title={isFavorite ? "Remove from favorites" : "Add to favorites"}
+        >
+          <img
+            src={isFavorite ? "/icons/close.svg" : "/icons/heart_icon.svg"}
+            alt={isFavorite ? "Remove from favorites" : "Add to favorites"}
+          />
+        </button>
       </div>
 
       {/* Нижній блок */}

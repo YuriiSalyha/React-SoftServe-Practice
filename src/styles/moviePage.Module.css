@@ -60,6 +60,29 @@
   color: #fff;
 }
 
+.favorite-button {
+  align-self: flex-start;
+  background-color: #f7931e;
+  border: none;
+  border-radius: 12px;
+  padding: 8px;
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.favorite-button img {
+  width: 20px;
+  height: 20px;
+}
+
+.favorite-button:hover {
+  background-color: #ff8903;
+}
+
 /* 2) Нижній блок */
 .movie-body {
   display: flex;
@@ -72,8 +95,8 @@
   background: #1a1a1a;
   padding: 1rem;
   border-radius: 4px;
-  margin: 0 auto;        /* центр блоку */
-  text-align: center;    /* центр тексту */
+  margin: 0 auto; /* центр блоку */
+  text-align: center; /* центр тексту */
 }
 
 .sessions-sidebar h2 {
@@ -85,9 +108,9 @@
 .sessions-list {
   list-style: none;
   padding: 0;
-  margin: 0 auto 1rem;    /* центр списку */
-  display: inline-block;   /* підганяє ширину до вмісту */
-  text-align: left;        /* вирівняти times ліворуч */
+  margin: 0 auto 1rem; /* центр списку */
+  display: inline-block; /* підганяє ширину до вмісту */
+  text-align: left; /* вирівняти times ліворуч */
 }
 
 .session-item {
