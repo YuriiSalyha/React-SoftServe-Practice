@@ -98,7 +98,7 @@ const SignInPage = () => {
       </form>
 
       <div className={styles.text}>
-        Don’t have an account? <a href="/">Sign up</a>
+        Don’t have an account? <a href="/signUp">Sign up</a>
       </div>
     </div>
   );
