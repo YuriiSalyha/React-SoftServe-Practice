@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { supabase } from "../supabaseClient";
 import { createContext } from "react";
+import Cookies from "js-cookie";
 
 export const AuthContext = createContext({
   user: null,
@@ -16,47 +18,38 @@ const AuthProvider = ({ children }) => {
 
   const isAuthenticated = status === "authorized"; // швидка перевірка на авторизацію користувача
 
-  const login = async ({ username, password }) => {
+  const login = async ({ usernameOrEmail, password }) => {
+    let email = usernameOrEmail;
+
     try {
-      const response = await fetch("/data/users.json");
+      const {
+        data: authData,
+        error: authError,
+      } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
 
-      if (!response.ok) {
-        throw new Error("Не вдалося завантажити дані користувачів");
-      }
+      if (authError) throw authError;
 
-      const res_data = await response.json();
-
-      const findOne = res_data.find((user) => user.username === username);
-
-      if (!findOne) {
-        const error = new Error("Користувача не знайдено");
-        error.field = "login";
-        throw error;
-      }
-
-      // перевірка пароля
-      if (password !== findOne.password) {
-        const error = new Error("Невірний пароль");
-        error.field = "password";
-        throw error;
-      }
-
-      localStorage.setItem("user", JSON.stringify(findOne));
-      setUser(findOne);
+      setUser(authData.user);
+      Cookies.set("access_token", authData.session.access_token, { expires: 1 });
+      Cookies.set("refresh_token", authData.session.refresh_token, { expires: 30 });
       setStatus("authorized");
 
-      return { success: true, user: findOne };
+      return authData;
     } catch (error) {
-      console.error(error);
-      setStatus("unauthenticated");
-      return { success: false, error: error.message, field: error?.field };
+      console.log(error.message);
+      setStatus("unauthorized");
+      setUser(null);
+      return null;
     }
   };
 
-  const register = async ({ username, password }) => {
+  const register = async ({ email, username, password }) => {
     try {
       // логика для створення користувача
-      setUser({username});
+      setUser({ username });
       setStatus("authorized");
       return { success: true };
     } catch (error) {
@@ -65,29 +58,51 @@ const AuthProvider = ({ children }) => {
     }
   };
 
-
-  const logout = () => {
-    localStorage.removeItem("user");
+  const logout = async () => {
+    await supabase.auth.signOut();
     setUser(null);
+    Cookies.remove("access_token");
+    Cookies.remove("refresh_token");
     setStatus("unauthenticated");
   };
 
   useEffect(() => {
-    const userDataString = localStorage.getItem("user");
-
-    if (userDataString) {
-      try {
-        const userData = JSON.parse(userDataString);
-        setUser(userData);
-      } catch (error) {
-        setStatus("unauthenticated");
-        logout();
-      } finally {
+    // Используем getSession() для получения текущей сессии
+    const getSession = async () => {
+      const { data: session } = await supabase.auth.getSession();
+      if (session) {
+        setUser(session.user);
         setStatus("authorized");
+        Cookies.set("access_token", session.access_token, { expires: 1 });
+        Cookies.set("refresh_token", session.refresh_token, { expires: 30 });
+      } else {
+        setStatus("unauthenticated");
       }
-    } else {
-      setStatus("unauthenticated");
-    }
+    };
+
+    getSession();
+
+    const { data: authListener } = supabase.auth.onAuthStateChange(
+      (event, session) => {
+        if (event === "SIGNED_IN" || event === "TOKEN_REFRESHED") {
+          setUser(session.user);
+          Cookies.set("access_token", session.access_token, { expires: 1 });
+          Cookies.set("refresh_token", session.refresh_token, { expires: 30 });
+          setStatus("authorized");
+        }
+
+        if (event === "SIGNED_OUT") {
+          setUser(null);
+          Cookies.remove("access_token");
+          Cookies.remove("refresh_token");
+          setStatus("unauthenticated");
+        }
+      }
+    );
+
+    return () => {
+      authListener?.subscription?.unsubscribe()
+    };
   }, []);
 
   return (
