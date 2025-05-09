@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 const signUpSchema = z
   .object({
+    email: z.string().email(),
     login: z
       .string()
       .min(3, "Login must be at least 3 characters long")
@@ -40,6 +41,7 @@ const SignUpPage = () => {
   const onSubmit = async (data) => {
     try {
       const response = await authRegister({
+        email: data.email,
         username: data.login,
         password: data.password,
       });
@@ -71,6 +73,19 @@ const SignUpPage = () => {
       )}
 
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+        <div className={styles.field}>
+          <input
+            id="email"
+            className={styles.field__input}
+            type="email"
+            placeholder="Ваша пошта"
+            {...register("email")}
+          />
+          {errors.email && (
+            <p className={styles.field__error}>{errors.email.message}</p>
+          )}
+        </div>
+
         <div className={styles.field}>
           <input
             id="login"
