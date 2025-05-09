@@ -10,7 +10,7 @@ const IsSigned = () => {
       <div className={styles.wrapper}>
         {/* favorites */}
         <div className={styles.col}>
-          <a className={styles.col__link} href="/favorites">
+          <a className={styles.col__link} href="/favorite">
             <div className={styles.col__icon}>
               <img src="/icons/heart_icon.svg" alt="favor" />
             </div>
