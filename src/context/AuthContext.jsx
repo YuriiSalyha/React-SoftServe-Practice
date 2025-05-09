@@ -14,44 +14,101 @@ export const AuthContext = createContext({
 
 const AuthProvider = ({ children }) => {
   const [status, setStatus] = useState("loading"); // loading, authorized, unauthenticated
-  const [user, setUser] = useState(null); // дані користувача
+  const [user, setUser] = useState(null);
 
-  const isAuthenticated = status === "authorized"; // швидка перевірка на авторизацію користувача
+  const isAuthenticated = status === "authorized";
 
   const login = async ({ usernameOrEmail, password }) => {
     let email = usernameOrEmail;
 
     try {
-      const {
-        data: authData,
-        error: authError,
-      } = await supabase.auth.signInWithPassword({
-        email,
-        password,
-      });
+      if (!usernameOrEmail.includes("@")) {
+        const { data: profile, error: profileError } = await supabase
+          .from("profiles")
+          .select("user_id")
+          .eq("username", usernameOrEmail)
+          .single();
+  
+        if (profileError || !profile) {
+          throw new Error("Username not found");
+        }
+  
+        const { data: authUser, error: authUserError } = await supabase
+          .from("auth.users")
+          .select("email")
+          .eq("id", profile.user_id)
+          .single();
+  
+        if (authUserError || !authUser) {
+          throw new Error("User data not found");
+        }
+  
+        email = authUser.email;
+      }
+
+      const { data: authData, error: authError } =
+        await supabase.auth.signInWithPassword({
+          email,
+          password,
+        });
 
       if (authError) throw authError;
 
       setUser(authData.user);
-      Cookies.set("access_token", authData.session.access_token, { expires: 1 });
-      Cookies.set("refresh_token", authData.session.refresh_token, { expires: 30 });
+
+      Cookies.set("access_token", authData.session.access_token, {
+        expires: 1,
+      });
+      Cookies.set("refresh_token", authData.session.refresh_token, {
+        expires: 30,
+      });
       setStatus("authorized");
 
-      return authData;
+      return { success: true };
     } catch (error) {
       console.log(error.message);
       setStatus("unauthorized");
       setUser(null);
-      return null;
+      return { success: false, error: error.message };
     }
   };
 
   const register = async ({ email, username, password }) => {
     try {
-      // логика для створення користувача
-      setUser({ username });
+      const {
+        data: signUpData,
+        error: signUpError,
+      } = await supabase.auth.signUp({
+        email,
+        password,
+      });
+
+      if (signUpError) {
+        console.log("signUp" , signUpError);
+        throw new Error(signUpError);
+      }
+
+      const { error } = await supabase
+        .from("Profiles")
+        .insert([{ user_id: signUpData.user.id, username }]);
+
+      if (error) {
+        console.log("profile: " , error);
+        throw new Error(error);
+      }
+
+      setUser(signUpData.user);
       setStatus("authorized");
+
+      Cookies.set("access_token", signUpData.session.access_token, {
+        expires: 1,
+      });
+      Cookies.set("refresh_token", signUpData.session.refresh_token, {
+        expires: 30,
+      });
+
       return { success: true };
+      
     } catch (error) {
       console.error(error);
       return { success: false, error: error.message };
@@ -67,9 +124,8 @@ const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    // Используем getSession() для получения текущей сессии
     const getSession = async () => {
-      const { data: session } = await supabase.auth.getSession();
+      const { data: {session} } = await supabase.auth.getSession();
       if (session) {
         setUser(session.user);
         setStatus("authorized");
@@ -101,7 +157,7 @@ const AuthProvider = ({ children }) => {
     );
 
     return () => {
-      authListener?.subscription?.unsubscribe()
+      authListener?.subscription?.unsubscribe();
     };
   }, []);
 
