@@ -13,24 +13,21 @@ const ProfileModal = ({ isOpen, onClose }) => {
 
         <div className={styles.header}>
           <div className={styles.avatar}>
-            <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="User" />
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/847/847969.png"
+              alt="User"
+            />
           </div>
           <div>
             <div className={styles.username}>Pufic2005</div>
-            <div className={styles.role}>Група користувача: Адмін</div>
+            <div className={styles.role}>User group: Admin</div>
           </div>
         </div>
 
         <div className={styles.buttonGrid}>
-          <button className={styles.actionButton}>
-            ⚙️ Редагувати профіль
-          </button>
-          <button className={styles.actionButton}>
-            🛠️ Адмінка
-          </button>
-          <button className={styles.actionButton}>
-            ↩️ Вийти
-          </button>
+          <button className={styles.actionButton}>⚙️ Edit profile</button>
+          <button className={styles.actionButton}>↩️ Log out</button>
+          <button className={styles.actionButton}>🛠️ Admin panel</button>
         </div>
       </div>
     </div>
