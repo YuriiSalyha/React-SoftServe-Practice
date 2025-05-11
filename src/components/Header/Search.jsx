@@ -8,7 +8,7 @@ const Search = () => {
   const [allMovies, setAllMovies] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const navigate = useNavigate();
-  const searchRef = useRef(null); // 🔹 Створюємо посилання на контейнер
+  const searchRef = useRef(null);
 
   // Завантаження всіх фільмів з JSON або API
   useEffect(() => {
@@ -17,7 +17,7 @@ const Search = () => {
       .then((data) => setAllMovies(data));
   }, []);
 
-  // Фільтруємо фільми на основі введеної букви
+  // Фільтрація фільмів на основі введеної букви
   useEffect(() => {
     if (query.trim()) {
       const filtered = allMovies.filter((movie) =>
@@ -34,6 +34,7 @@ const Search = () => {
   const handleSearch = () => {
     if (query.trim()) {
       navigate(`/search?search=${encodeURIComponent(query)}`);
+      setShowSuggestions(false); // Закриваємо меню після натискання Enter
     }
   };
 
@@ -43,7 +44,7 @@ const Search = () => {
     setQuery("");
   };
 
-  // Закриття меню при натисканні поза контейнером
+  // Закриття меню при натисканні поза контейнером або на Enter
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (searchRef.current && !searchRef.current.contains(event.target)) {
@@ -56,6 +57,13 @@ const Search = () => {
       document.removeEventListener("click", handleClickOutside);
     };
   }, []);
+
+  // Закриття меню при натисканні Enter
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      handleSearch();
+    }
+  };
 
   return (
     <div ref={searchRef}>
@@ -74,6 +82,7 @@ const Search = () => {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onFocus={() => setShowSuggestions(true)}
+          onKeyDown={handleKeyDown} // Додаємо обробник натискання клавіш
         />
         <button type="submit" className={styles.search__submit}>
           <img src="/icons/search_icon.svg" alt="search" />
