@@ -150,12 +150,12 @@
 .moviePosterWrapper h2 {
   color: white;
   font-size: 18px;
-  word-wrap: break-word;   /* Дозволяє переносити довгі слова на новий рядок */
-  word-break: break-word;  /* Розбиває слово при необхідності */
-  white-space: normal;     /* Текст буде переноситись на кілька рядків */
-  max-width: 190px;        /* Ширина, яка відповідає ширині постера */
-  text-align: center;      /* Центрування тексту */
-  margin: 0 auto;          /* Центрування елементу */
+  word-wrap: break-word;   
+  word-break: break-word;  
+  white-space: normal;     
+  max-width: 190px;        
+  text-align: center;      
+  margin: 0 auto;          
 }
 
 
