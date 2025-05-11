@@ -1,3 +1,4 @@
+/* Загальний контейнер пошуку */
 .search {
   background-color: rgba(64, 62, 71, 0.93);
   padding: 7px 8px;
@@ -34,4 +35,74 @@
   border: none;
   outline: none;
   cursor: pointer;
+}
+
+/* Підказки при пошуку */
+.suggestions {
+  position: absolute;
+ background-color: rgba(64, 62, 71, 0.98);
+
+  border-radius: 10px;
+  margin-top: 5px;
+  width: 292px;
+  max-height: 800px;
+  z-index: 10;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Список фільмів */
+.movieList {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background-color: transparent; /* Прозорий фон списку */
+}
+
+/* Картка фільму */
+.movieItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px;
+  transition: background-color 0.3s ease;
+  background-color: transparent; /* Прозорий фон */
+}
+
+.movieItem:hover {
+  background-color: rgba(255, 255, 255, 0.08); /* Легке підсвічування при наведенні */
+  cursor: pointer;
+}
+
+/* Кнопка з фільмом */
+.movieLink {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Для вирівнювання елементів по лінії */
+  text-decoration: none;
+  color: #e8e8e8;
+  gap: 15px; /* Збільшено відстань між постером і текстом */
+  padding: 10px 15px; /* Додано відступи, щоб створити більше простору всередині кнопки */
+  border: none;
+  background-color: unset; /* Прибрано фон */
+  width: auto; /* Не обмежуємо ширину */
+}
+
+/* Зображення фільму */
+.movieLink img {
+  width: 60px;  /* Збільшено ширину зображення */
+  height: 90px; /* Збільшено висоту зображення */
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+/* Назва фільму */
+.movieLink h4 {
+  margin: 0;
+  font-size: 20px; /* Збільшено розмір шрифта */
+  line-height: 24px; /* Збільшена висота рядка для кращого вирівнювання */
+  color: #fff;
+  font-weight: 500; /* Збільшена вага шрифта */
+  text-align: left; /* Текст вирівняний по лівому краю для кращого вигляду */
+  max-width: 200px; /* Встановлено максимальну ширину для тексту, щоб не виходив за межі */
+  word-wrap: break-word; /* Автоматичний перенос довгих слів */
 }

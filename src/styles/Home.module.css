@@ -21,7 +21,7 @@
 .header {
   position: sticky;
   color: white;
-  top: 500px;
+  top: 490px;
   left: 4%;
   width: 275px;
   height: 37px;
@@ -128,25 +128,39 @@
   height: 100%;
   object-fit: contain;
 }
-
+/* Контейнер для фільмів */
 .movieDetails {
   display: flex;
   flex-wrap: wrap;
   margin-top: 100px; 
+   gap: 10px 40px;
 }
 
+/* Контейнер для кожного постера */
 .moviePosterWrapper {
-  margin: 34px;
-  text-align: center;
+  margin: 25px; /* Встановлює відступ між постерами */
+  text-align: center; /* Центрує текст під постером */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Вирівнює постери по центру */
+  flex-basis: 190px;
+  box-sizing: border-box; /* Включає відступи в розмір елементів */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.moviePosterWrapper:hover {
+  transform: scale(1.10); /* Збільшення постера */
+}
+
+/* Стиль для постера */
 .moviePoster {
-  width: 190px; 
-  height: 275px; 
-  object-fit: cover;  
-  margin-bottom: 10px;
+  width: 190px;  /* Однакові розміри для всіх постерів */
+  height: 275px;  /* Однакові розміри для всіх постерів */
+  object-fit: cover;  /* Пропорційне обрізання зображення */
+  margin-bottom: 10px; /* Відстань між постером і текстом */
 }
 
+/* Стиль для заголовка під постером */
 .moviePosterWrapper h2 {
   color: white;
   font-size: 18px;
@@ -154,13 +168,13 @@
   word-break: break-word;  
   white-space: normal;     
   max-width: 190px;        
-  text-align: center;      
+  text-align: center; /* Центрує заголовок */
   margin: 0 auto;          
 }
 
-
-
+/* Стиль для опису під постером */
 .moviePosterWrapper p {
   color: rgb(218, 215, 215);
   font-size: 18px;
+  text-align: center; /* Центрує текст опису */
 }
