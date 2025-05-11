@@ -33,16 +33,16 @@ function HomePage() {
     style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
   >
     <div className={styles.slide}>
-      <img src="img\posters/image1.png" alt="Стражі Галактики" className={styles.slideImage} />
-      <h2 className={styles.slideTitle}>GUARDIANS OF THE GALAXY IS NOW IN THE MOVIES</h2>
+      <img src="img\posters/image1.png" alt="MISSION IMPOSSIBLE" className={styles.slideImage} />
+      <h2 className={styles.slideTitle}>MISSION IMPOSSIBLE: FINAL PAYOFF COMING SOON TO THE MOVIES</h2>
     </div>
     <div className={styles.slide}>
-      <img src="img\posters/image2.png" alt="Майнкрафт" className={styles.slideImage} />
-      <h2 className={styles.slideTitle}>MINECRAFT NOW IN THE CINEMA</h2>
+      <img src="img\posters/image2.png" alt="LILO AND STITCH" className={styles.slideImage} />
+      <h2 className={styles.slideTitle}>LILO AND STITCH COMING SOON TO THE MOVIES</h2>
     </div>
     <div className={styles.slide}>
-      <img src="img\posters/image3.png" alt="Опенгеймер" className={styles.slideImage} />
-      <h2 className={styles.slideTitle}>OPPENGEIMER IS NOW IN THE CINEMA</h2>
+      <img src="img\posters/image3.png" alt="HOW TO TRAIN YOUR DRAGON " className={styles.slideImage} />
+      <h2 className={styles.slideTitle}>HOW TO TRAIN YOUR DRAGON COMING SOON TO THE MOVIE</h2>
     </div>
   </div>
 
