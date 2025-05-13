@@ -77,18 +77,26 @@ export default function MoviePage() {
   const ytId = new URL(trailerLink).searchParams.get("v");
   const nonEmpty = sessionsByDate.filter((g) => g.times.length > 0);
 
+  // ✅ Динамічно знаходимо hall з sessions.json
   function handleOrderClick() {
-    if (!nonEmpty.length) return;
-    const firstGroup = nonEmpty[0];
-    const firstTime = firstGroup.times[0];
-    setSelectedSession({
-      poster,
-      title,
-      date: firstGroup.date.toISOString().split("T")[0],
-      time: firstTime,
-      hall: "Main Hall",
-    });
+    fetch("/data/sessions.json")
+      .then((res) => res.json())
+      .then((data) => {
+        const sessionsForThisMovie = data.filter(
+          (s) => String(s.movieId) === id
+        );
+        if (sessionsForThisMovie.length === 0) return;
+
+        const hall = sessionsForThisMovie[0].hall;
+        setSelectedSession({
+          poster,
+          title,
+          hall,
+        });
+      })
+      .catch(console.error);
   }
+
 
   // Toggle фільм в обраному
   const toggleFavorite = () => {
@@ -116,6 +124,7 @@ export default function MoviePage() {
           <h1 className="movie-title">
             {title} ({new Date(releaseDate).getFullYear()})
           </h1>
+
           <p>
             <strong>Premiere:</strong> {releaseDate}
           </p>
@@ -206,8 +215,6 @@ export default function MoviePage() {
           onClose={() => setSelectedSession(null)}
           poster={selectedSession.poster}
           title={selectedSession.title}
-          date={selectedSession.date}
-          time={selectedSession.time}
           hall={selectedSession.hall}
         />
       )}
