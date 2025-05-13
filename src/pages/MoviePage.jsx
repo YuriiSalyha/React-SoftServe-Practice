@@ -1,10 +1,14 @@
-// src/pages/MoviePage.jsx
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "../styles/moviePage.Module.css";
 import imdbLogo from "/imbd_logo.png";
 import rtLogo from "/rt.jpg";
 import Modal from "../components/Modal/Modal.jsx";
+import {
+  addFavoriteToLocalStorage,
+  getFavoritesFromLocalStorage,
+  removeFavoriteFromLocalStorage,
+} from "../utils/localStorageFavoriteUtils"; // Імпортуємо функції для роботи з localStorage
 
 function getWeekDates() {
   const today = new Date();
@@ -23,6 +27,7 @@ export default function MoviePage() {
   const [movie, setMovie] = useState(null);
   const [sessionsByDate, setSessionsByDate] = useState([]);
   const [selectedSession, setSelectedSession] = useState(null);
+  const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
     Promise.all([
@@ -46,6 +51,12 @@ export default function MoviePage() {
       .catch(console.error);
   }, [id]);
 
+  // Перевірка, чи є фільм у обраному
+  useEffect(() => {
+    const favorites = getFavoritesFromLocalStorage();
+    setIsFavorite(favorites.includes(Number(id)));
+  }, [id]);
+
   if (!movie) {
     return <div className="loading">Loading...</div>;
   }
@@ -66,25 +77,41 @@ export default function MoviePage() {
   const ytId = new URL(trailerLink).searchParams.get("v");
   const nonEmpty = sessionsByDate.filter((g) => g.times.length > 0);
 
+  // ✅ Динамічно знаходимо hall з sessions.json
   function handleOrderClick() {
-    if (!nonEmpty.length) return;
-    const firstGroup = nonEmpty[0];
-    const firstTime = firstGroup.times[0];
-    setSelectedSession({
-      poster,
-      title,
-      date: firstGroup.date.toISOString().split("T")[0],
-      time: firstTime,
-      hall: "Main Hall",
-    });
+    fetch("/data/sessions.json")
+      .then((res) => res.json())
+      .then((data) => {
+        const sessionsForThisMovie = data.filter(
+          (s) => String(s.movieId) === id
+        );
+        if (sessionsForThisMovie.length === 0) return;
+
+        const hall = sessionsForThisMovie[0].hall;
+        setSelectedSession({
+          poster,
+          title,
+          hall,
+        });
+      })
+      .catch(console.error);
   }
 
-  // ← here are the lines you replace:
+
+  // Toggle фільм в обраному
+  const toggleFavorite = () => {
+    if (isFavorite) {
+      removeFavoriteFromLocalStorage(movie.id);
+      setIsFavorite(false);
+    } else {
+      addFavoriteToLocalStorage(movie);
+      setIsFavorite(true);
+    }
+  };
+
   const week = getWeekDates();
   const start = week[0];
   const end = week[week.length - 1];
-  // ↑ instead of `const [start,end] = getWeekDates();`
-
   const fmt = (d) => `${d.getMonth() + 1}.${d.getDate()}`;
   const rangeLabel = `${fmt(start)}-${fmt(end)}`; // e.g. "4.28-5.04"
 
@@ -97,6 +124,7 @@ export default function MoviePage() {
           <h1 className="movie-title">
             {title} ({new Date(releaseDate).getFullYear()})
           </h1>
+
           <p>
             <strong>Premiere:</strong> {releaseDate}
           </p>
@@ -104,10 +132,10 @@ export default function MoviePage() {
             <strong>Country:</strong> {country}
           </p>
           <p>
-            <strong>Duration:</strong> {duration} min
+            <strong>Duration:</strong> {duration}
           </p>
           <p>
-            <strong>Age Restriction:</strong> {ageRestriction}+
+            <strong>Age Restriction:</strong> {ageRestriction}
           </p>
           <p>
             <strong>Genres:</strong> {genres.join(", ")}
@@ -123,6 +151,17 @@ export default function MoviePage() {
             </div>
           </div>
         </div>
+        {/* Кнопка для додавання/видалення з обраного */}
+        <button
+          className="favorite-button"
+          onClick={toggleFavorite}
+          title={isFavorite ? "Remove from favorites" : "Add to favorites"}
+        >
+          <img
+            src={isFavorite ? "/icons/close.svg" : "/icons/heart_icon.svg"}
+            alt={isFavorite ? "Remove from favorites" : "Add to favorites"}
+          />
+        </button>
       </div>
 
       {/* Нижній блок */}
@@ -176,8 +215,6 @@ export default function MoviePage() {
           onClose={() => setSelectedSession(null)}
           poster={selectedSession.poster}
           title={selectedSession.title}
-          date={selectedSession.date}
-          time={selectedSession.time}
           hall={selectedSession.hall}
         />
       )}

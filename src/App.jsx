@@ -5,7 +5,7 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import FavoritesPage from "./pages/FavoredPage";
+import FavoritesPage from "./pages/FavoritePage";
 import HomePage from "./pages/HomePage";
 import MoviePage from "./pages/MoviePage";
 import SessionsPage from "./pages/SessionsPage";
@@ -27,14 +27,14 @@ import Footer from "./components/Footer/Footer";
 function App() {
   return (
     <Router>
-    <AuthProvider>
-      <Wrapper>
-        <Header />
+      <AuthProvider>
+        <Wrapper>
+          <Header />
           <Routes>
             {/* За замовчуванням перенаправимо на /sessions */}
             <Route path="/" element={<Navigate to="/home" replace />} />
 
-            {/* Говна сторінка */} 
+            {/* Говна сторінка */}
             <Route path="/home" element={<HomePage />} />
 
             {/* Сторінка сеансів */}
@@ -44,14 +44,13 @@ function App() {
             <Route path="/signIn" element={<SignInPage />} />
             <Route path="/signUp" element={<SignUpPage />} />
 
-
             {/* Сторінка одного фільму */}
             <Route path="/movie/:id" element={<MoviePage />} />
 
             {/* Сторінка результат пошуку */}
             <Route path="/search" element={<SearchPage />} />
             {/* Сторінка обраного */}
-          <Route path="/favorites" element={<FavoritesPage />} />
+            <Route path="/favorite" element={<FavoritesPage />} />
             {/* Сторінка сеансів */}
             {/* <Route path="/search" element={<SearchPage />} /> */}
             {/* Адмін панель */}
@@ -59,8 +58,9 @@ function App() {
             {/* 404 сторінка */}
             {/* <Route path="*" element={<NotFoundPage />} /> */}
           </Routes>
-      </Wrapper>
-    </AuthProvider>
+          <Footer />
+        </Wrapper>
+      </AuthProvider>
     </Router>
   );
 }

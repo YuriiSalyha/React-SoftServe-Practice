@@ -1,15 +1,24 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'; 
 import styles from '../styles/Home.module.css';
+import { supabase } from '../supabaseClient';
 
 function HomePage() {
   const [movies, setMovies] = useState([]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
-    fetch('/data/movies.json')
-      .then((response) => response.json())
-      .then((data) => setMovies(data));
+    const fetchMovies = async () => {
+      let { data: Movies, error } = await supabase
+        .from('Movies')
+        .select('*');
+      if (error) {
+        console.error(error);
+      } else {
+        setMovies(Movies);
+      }
+    };
+    fetchMovies();
   }, []);
 
   // Функція для попереднього слайду
