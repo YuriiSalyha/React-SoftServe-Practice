@@ -34,7 +34,7 @@ function HomePage() {
   useEffect(() => {
     const interval = setInterval(() => {
       handleNext();
-    }, 60000); // 3 секунди зміна слайдера
+    }, 10000); // 10 секунди зміна слайдера
 
     // Очищення інтервалу при виході з компонента
     return () => clearInterval(interval);
@@ -62,10 +62,6 @@ function HomePage() {
             </div>
             <div className={styles.slide}>
               <img src="img/posters/image3.png" alt="HOW TO TRAIN YOUR DRAGON" className={styles.slideImage} />
-              <h2 className={styles.slideTitle}>HOW TO TRAIN YOUR DRAGON COMING SOON TO THE MOVIE</h2>
-            </div>
-            <div className={styles.slide}>
-              <img src="img/posters/image4.png" alt="Bal" className={styles.slideImage} />
               <h2 className={styles.slideTitle}>HOW TO TRAIN YOUR DRAGON COMING SOON TO THE MOVIE</h2>
             </div>
           </div>

@@ -54,7 +54,7 @@
 }
 
 .dropdownButton {
-  background-color: rgba(64, 62, 71, 0.93); /* Прозорий фон */
+  background-color: rgba(64, 62, 71, 0.93); 
   color: white;
   padding: 5px 15px;
   font-size: 18px;
@@ -75,7 +75,7 @@
 }
 
 .dropdownButton:hover {
-  background-color: rgba(102, 102, 102, 0.8); /* Прозорий сірий */
+  background-color: rgba(102, 102, 102, 0.8); 
 }
 
 .dropdownButton::after {
@@ -93,7 +93,7 @@
   position: absolute;
   top: 80%;
   left: 0;
-  background-color: rgba(51, 51, 51, 0.98); /* Темний прозорий фон */
+  background-color: rgba(51, 51, 51, 0.98); 
   width: 170px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
@@ -104,7 +104,7 @@
 
 .dropdownMenu li {
   padding: 10px;
-  background-color: transparent; /* Залишає фон прозорим */
+  background-color: transparent; 
 }
 
 .dropdownMenu li button {
@@ -122,7 +122,6 @@
   background-color: rgba(85, 85, 85, 0.8); /* Легке підсвічування при наведенні */
 }
 
-/* Забороняє фокусування елементів списку і підсвічування фону */
 .dropdownMenu li button:focus,
 .dropdownMenu li button:active {
   background-color: transparent; 
@@ -145,26 +144,26 @@
 
 /* Контейнер для кожного постера */
 .moviePosterWrapper {
-  margin: 25px; /* Встановлює відступ між постерами */
-  text-align: center; /* Центрує текст під постером */
+  margin: 25px; 
+  text-align: center; 
   display: flex;
   flex-direction: column;
-  align-items: center; /* Вирівнює постери по центру */
+  align-items: center;
   flex-basis: 190px;
-  box-sizing: border-box; /* Включає відступи в розмір елементів */
+  box-sizing: border-box; 
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .moviePosterWrapper:hover {
-  transform: scale(1.10); /* Збільшення постера */
+  transform: scale(1.10); 
 }
 
 /* Стиль для постера */
 .moviePoster {
-  width: 190px;  /* Однакові розміри для всіх постерів */
-  height: 275px;  /* Однакові розміри для всіх постерів */
-  object-fit: cover;  /* Пропорційне обрізання зображення */
-  margin-bottom: 10px; /* Відстань між постером і текстом */
+  width: 190px; 
+  height: 275px; 
+  object-fit: cover; 
+  margin-bottom: 10px; 
 }
 
 /* Стиль для заголовка під постером */
@@ -175,7 +174,7 @@
   word-break: break-word;  
   white-space: normal;     
   max-width: 190px;        
-  text-align: center; /* Центрує заголовок */
+  text-align: center; 
   margin: 0 auto;          
 }
 
@@ -183,7 +182,7 @@
 .moviePosterWrapper p {
   color: rgb(218, 215, 215);
   font-size: 18px;
-  text-align: center; /* Центрує текст опису */
+  text-align: center; 
 }
 
 /* Пагінація */

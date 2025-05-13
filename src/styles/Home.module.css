@@ -138,13 +138,13 @@
 
 /* Контейнер для кожного постера */
 .moviePosterWrapper {
-  margin: 25px; /* Встановлює відступ між постерами */
-  text-align: center; /* Центрує текст під постером */
+  margin: 25px; 
+  text-align: center; 
   display: flex;
   flex-direction: column;
-  align-items: center; /* Вирівнює постери по центру */
+  align-items: center; 
   flex-basis: 190px;
-  box-sizing: border-box; /* Включає відступи в розмір елементів */
+  box-sizing: border-box; 
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -154,13 +154,12 @@
 
 /* Стиль для постера */
 .moviePoster {
-  width: 190px;  /* Однакові розміри для всіх постерів */
-  height: 275px;  /* Однакові розміри для всіх постерів */
-  object-fit: cover;  /* Пропорційне обрізання зображення */
-  margin-bottom: 10px; /* Відстань між постером і текстом */
+  width: 190px;  
+  height: 275px; 
+  object-fit: cover;  
+  margin-bottom: 10px; 
 }
 
-/* Стиль для заголовка під постером */
 .moviePosterWrapper h2 {
   color: white;
   font-size: 18px;
@@ -168,13 +167,12 @@
   word-break: break-word;  
   white-space: normal;     
   max-width: 190px;        
-  text-align: center; /* Центрує заголовок */
+  text-align: center;
   margin: 0 auto;          
 }
 
-/* Стиль для опису під постером */
 .moviePosterWrapper p {
   color: rgb(218, 215, 215);
   font-size: 18px;
-  text-align: center; /* Центрує текст опису */
+  text-align: center; 
 }

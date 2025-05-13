@@ -55,7 +55,7 @@
   display: flex;
   flex-direction: column;
   gap: 5px;
-  background-color: transparent; /* Прозорий фон списку */
+  background-color: transparent; 
 }
 
 /* Картка фільму */
@@ -65,11 +65,11 @@
   gap: 10px;
   padding: 6px;
   transition: background-color 0.3s ease;
-  background-color: transparent; /* Прозорий фон */
+  background-color: transparent; 
 }
 
 .movieItem:hover {
-  background-color: rgba(255, 255, 255, 0.08); /* Легке підсвічування при наведенні */
+  background-color: rgba(255, 255, 255, 0.08);
   cursor: pointer;
 }
 
@@ -77,20 +77,20 @@
 .movieLink {
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* Для вирівнювання елементів по лінії */
+  justify-content: flex-start; 
   text-decoration: none;
   color: #e8e8e8;
-  gap: 15px; /* Збільшено відстань між постером і текстом */
-  padding: 10px 15px; /* Додано відступи, щоб створити більше простору всередині кнопки */
+  gap: 15px; 
+  padding: 10px 15px; 
   border: none;
-  background-color: unset; /* Прибрано фон */
-  width: auto; /* Не обмежуємо ширину */
+  background-color: unset;
+  width: auto; 
 }
 
 /* Зображення фільму */
 .movieLink img {
-  width: 60px;  /* Збільшено ширину зображення */
-  height: 90px; /* Збільшено висоту зображення */
+  width: 60px; 
+  height: 90px; 
   border-radius: 5px;
   object-fit: cover;
 }
@@ -98,11 +98,11 @@
 /* Назва фільму */
 .movieLink h4 {
   margin: 0;
-  font-size: 20px; /* Збільшено розмір шрифта */
-  line-height: 24px; /* Збільшена висота рядка для кращого вирівнювання */
+  font-size: 20px;
+  line-height: 24px; 
   color: #fff;
-  font-weight: 500; /* Збільшена вага шрифта */
-  text-align: left; /* Текст вирівняний по лівому краю для кращого вигляду */
-  max-width: 200px; /* Встановлено максимальну ширину для тексту, щоб не виходив за межі */
-  word-wrap: break-word; /* Автоматичний перенос довгих слів */
+  font-weight: 500; 
+  text-align: left; 
+  max-width: 200px; 
+  word-wrap: break-word; 
 }

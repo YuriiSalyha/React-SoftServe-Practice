@@ -10,7 +10,6 @@ const Search = () => {
   const navigate = useNavigate();
   const searchRef = useRef(null);
 
-  // Завантаження всіх фільмів з JSON або API
   useEffect(() => {
     fetch("/data/movies.json")
       .then((response) => response.json())
@@ -34,7 +33,7 @@ const Search = () => {
   const handleSearch = () => {
     if (query.trim()) {
       navigate(`/search?search=${encodeURIComponent(query)}`);
-      setShowSuggestions(false); // Закриваємо меню після натискання Enter
+      setShowSuggestions(false);
     }
   };
 
@@ -82,7 +81,7 @@ const Search = () => {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onFocus={() => setShowSuggestions(true)}
-          onKeyDown={handleKeyDown} // Додаємо обробник натискання клавіш
+          onKeyDown={handleKeyDown} 
         />
         <button type="submit" className={styles.search__submit}>
           <img src="/icons/search_icon.svg" alt="search" />
