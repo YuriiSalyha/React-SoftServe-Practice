@@ -32,6 +32,15 @@ function FavoredPage() {
         ) : (
           movies.map((movie) => (
             <div key={movie.id} className={styles.movieCard}>
+              {/* Кнопка видалення у верхньому правому куті */}
+              <button
+                className={styles.removeButton}
+                onClick={() => handleRemove(movie.id)}
+                title="Remove from favorites"
+              >
+                <img src="/icons/close.svg" alt="Remove" />
+              </button>
+
               {/* Клікабельний постер */}
               <Link to={`/movie/${movie.id}`}>
                 <img
@@ -51,16 +60,6 @@ function FavoredPage() {
                 {movie.duration} | {movie.ageRestriction}+
               </p>
               <p>{movie.genres}</p>
-
-              <div className={styles.buttonWrapper}>
-                <button
-                  className={styles.removeButton}
-                  onClick={() => handleRemove(movie.id)}
-                  title="Remove from favorites"
-                >
-                  <img src="/icons/close.svg" alt="Remove" />
-                </button>
-              </div>
             </div>
           ))
         )}

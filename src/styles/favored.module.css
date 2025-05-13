@@ -28,8 +28,9 @@
   overflow: hidden;
   text-align: center;
   padding: 10px;
-  max-height: 380px;
+  max-height: 370px;
   transition: transform 0.3s;
+  position: relative; /* Для позиціонування кнопки */
 }
 
 .movieCard:hover {
@@ -55,33 +56,34 @@
   margin-bottom: 6px;
 }
 
+/* Кнопка видалення у верхньому правому куті */
 .removeButton {
+  position: absolute;
+  top: 8px;
+  right: 8px;
   background: transparent;
   border: none;
   cursor: pointer;
   padding: 0;
-  display: flex;
-  justify-content: center;
-  width: 100%;
 }
 
 .removeButton img {
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   background-color: #f7931e;
-  border-radius: 20%;
+  border-radius: 50%;
+  padding: 4px;
 }
 
-/* Додаємо курсор-посилання для постера */
 .posterLink {
   cursor: pointer;
 }
 
-/* Підкреслення заголовка при наведенні */
 .titleLink {
   color: inherit;
   text-decoration: none;
 }
+
 .titleLink:hover {
   text-decoration: underline;
 }

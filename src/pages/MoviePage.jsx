@@ -54,7 +54,7 @@ export default function MoviePage() {
   // Перевірка, чи є фільм у обраному
   useEffect(() => {
     const favorites = getFavoritesFromLocalStorage();
-    setIsFavorite(favorites.some((movie) => movie.id === parseInt(id)));
+    setIsFavorite(favorites.includes(Number(id)));
   }, [id]);
 
   if (!movie) {
