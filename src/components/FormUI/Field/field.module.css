@@ -1,0 +1,10 @@
+.field {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.field .field__error {
+  color: brown;
+}

@@ -1,0 +1,18 @@
+@import url("../Field/field.module.css");
+
+.field__input {
+  padding: 6px 8px;
+  background-color: rgba(64, 62, 71, 0.93);
+  color: white;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 22px;
+  letter-spacing: -0.41px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+}
+
+.field__input::placeholder {
+  color: darkgrey;
+}

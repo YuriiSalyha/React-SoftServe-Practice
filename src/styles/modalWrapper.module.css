@@ -1,0 +1,47 @@
+.block__wrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.block {
+  position: relative;
+  padding: 10px;
+  min-width: 400px;
+  min-height: 500px;
+  background-color: #000000;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  width: 35px;
+  height: 35px;
+  border-radius: 35px;
+  border: none;
+  cursor: pointer;
+  background-color: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.1s ease-in-out;
+}
+
+.btn:active {
+  scale: 0.9;
+}
+
+.close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}

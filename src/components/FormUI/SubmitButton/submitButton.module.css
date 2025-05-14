@@ -1,0 +1,27 @@
+.btn__submit {
+  margin-top: 30px;
+  width: 100%;
+  padding: 13px 31px;
+  border-radius: 10px;
+  background-color: var(--orange-color);
+  color: var(--white-color);
+  transition: all ease 0.2;
+  cursor: pointer;
+  border: 1px solid var(--orange-color);
+}
+
+.btn__submit:hover {
+  background-color: darkgoldenrod;
+}
+
+.btn__submit:active {
+  border-color: chocolate;
+}
+
+.text {
+  color: var(--white-color);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}

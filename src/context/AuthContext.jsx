@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
+import { supabase } from "../supabaseClient";
 import { createContext } from "react";
+import Cookies from "js-cookie";
 
 export const AuthContext = createContext({
   user: null,
@@ -12,52 +14,97 @@ export const AuthContext = createContext({
 
 const AuthProvider = ({ children }) => {
   const [status, setStatus] = useState("loading"); // loading, authorized, unauthenticated
-  const [user, setUser] = useState(null); // дані користувача
+  const [user, setUser] = useState(null);
 
-  const isAuthenticated = status === "authorized"; // швидка перевірка на авторизацію користувача
+  const isAuthenticated = status === "authorized";
 
-  const login = async ({ username, password }) => {
+  const login = async ({ usernameOrEmail, password }) => {
+    let email = usernameOrEmail;
+
     try {
-      const response = await fetch("/data/users.json");
+      if (!usernameOrEmail.includes("@")) {
+        const { data: profile, error: profileError } = await supabase
+          .from("profiles")
+          .select("user_id")
+          .eq("username", usernameOrEmail)
+          .single();
 
-      if (!response.ok) {
-        throw new Error("Не вдалося завантажити дані користувачів");
+        if (profileError || !profile) {
+          throw new Error("Username not found");
+        }
+
+        const { data: authUser, error: authUserError } = await supabase
+          .from("auth.users")
+          .select("email")
+          .eq("id", profile.user_id)
+          .single();
+
+        if (authUserError || !authUser) {
+          throw new Error("User data not found");
+        }
+
+        email = authUser.email;
       }
 
-      const res_data = await response.json();
+      const { data: authData, error: authError } =
+        await supabase.auth.signInWithPassword({
+          email,
+          password,
+        });
 
-      const findOne = res_data.find((user) => user.username === username);
+      if (authError) throw authError;
 
-      if (!findOne) {
-        const error = new Error("Користувача не знайдено");
-        error.field = "login";
-        throw error;
-      }
+      setUser(authData.user);
 
-      // перевірка пароля
-      if (password !== findOne.password) {
-        const error = new Error("Невірний пароль");
-        error.field = "password";
-        throw error;
-      }
-
-      localStorage.setItem("user", JSON.stringify(findOne));
-      setUser(findOne);
+      Cookies.set("access_token", authData.session.access_token, {
+        expires: 1,
+      });
+      Cookies.set("refresh_token", authData.session.refresh_token, {
+        expires: 30,
+      });
       setStatus("authorized");
 
-      return { success: true, user: findOne };
+      return { success: true };
     } catch (error) {
-      console.error(error);
-      setStatus("unauthenticated");
-      return { success: false, error: error.message, field: error?.field };
+      console.log(error.message);
+      setStatus("unauthorized");
+      setUser(null);
+      return { success: false, error: error.message };
     }
   };
 
-  const register = async ({ username, password }) => {
+  const register = async ({ email, username, password }) => {
     try {
-      // логика для створення користувача
-      setUser({username});
+      const { data: signUpData, error: signUpError } =
+        await supabase.auth.signUp({
+          email,
+          password,
+        });
+
+      if (signUpError) {
+        console.log("signUp", signUpError);
+        throw new Error(signUpError);
+      }
+
+      const { error } = await supabase
+        .from("Profiles")
+        .insert([{ user_id: signUpData.user.id, username }]);
+
+      if (error) {
+        console.log("profile: ", error);
+        throw new Error(error);
+      }
+
+      setUser(signUpData.user);
       setStatus("authorized");
+
+      Cookies.set("access_token", signUpData.session.access_token, {
+        expires: 1,
+      });
+      Cookies.set("refresh_token", signUpData.session.refresh_token, {
+        expires: 30,
+      });
+
       return { success: true };
     } catch (error) {
       console.error(error);
@@ -65,29 +112,53 @@ const AuthProvider = ({ children }) => {
     }
   };
 
-
-  const logout = () => {
-    localStorage.removeItem("user");
+  const logout = async () => {
+    await supabase.auth.signOut();
     setUser(null);
+    Cookies.remove("access_token");
+    Cookies.remove("refresh_token");
     setStatus("unauthenticated");
   };
 
   useEffect(() => {
-    const userDataString = localStorage.getItem("user");
 
-    if (userDataString) {
-      try {
-        const userData = JSON.parse(userDataString);
-        setUser(userData);
-      } catch (error) {
-        setStatus("unauthenticated");
-        logout();
-      } finally {
+    const getSession = async () => {
+      const {
+        data: { session },
+      } = await supabase.auth.getSession();
+      if (session) {
+        setUser(session.user);
         setStatus("authorized");
+        Cookies.set("access_token", session.access_token, { expires: 1 });
+        Cookies.set("refresh_token", session.refresh_token, { expires: 30 });
+      } else {
+        setStatus("unauthenticated");
       }
-    } else {
-      setStatus("unauthenticated");
-    }
+    };
+
+    getSession();
+
+    const { data: authListener } = supabase.auth.onAuthStateChange(
+      (event, session) => {
+        if (event === "SIGNED_IN" || event === "TOKEN_REFRESHED") {
+          setUser(session.user);
+          Cookies.set("access_token", session.access_token, { expires: 1 });
+          Cookies.set("refresh_token", session.refresh_token, { expires: 30 });
+          setStatus("authorized");
+        }
+
+        if (event === "SIGNED_OUT") {
+          setUser(null);
+          Cookies.remove("access_token");
+          Cookies.remove("refresh_token");
+          setStatus("unauthenticated");
+        }
+      }
+    );
+
+    return () => {
+      authListener?.subscription?.unsubscribe();
+    };
   }, []);
 
   return (

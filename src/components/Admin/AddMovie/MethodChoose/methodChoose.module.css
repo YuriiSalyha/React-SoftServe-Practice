@@ -1,0 +1,38 @@
+.btn {
+    outline: none;
+    border: none;
+    width: 150px;
+    height: 30px;
+    color: #fff;
+    cursor: pointer;
+    background-color: var(--orange-color);
+    transition: all 0.3s ease-in-out;
+} 
+
+.btn:active {
+    scale: 0.9;
+}
+
+.choose_box {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+} 
+
+.btns__wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 7px;
+
+    justify-content: center;
+}
+
+.title {
+    color: #fff;
+    text-align: center;
+    width: 350px;
+    font-size: 25px;
+}

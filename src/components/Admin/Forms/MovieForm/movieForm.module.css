@@ -1,0 +1,34 @@
+@import url("../../../FormUI/Form/form.module.css");
+
+.wrapper {
+  padding: 20px 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+}
+
+.poster_preview__wrapper {
+  background-color: darkgray;
+  min-width: 300px;
+  min-height: 450px;
+  max-width: 400px;
+  max-height: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.poster_preview__wrapper .poster_preview__text {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.poster_preview__wrapper .poster_preview__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
