@@ -186,7 +186,7 @@ function SearchresultPage() {
   return (
     <div className={styles.pageBackground}>
       <div className={styles.container}>
-        <h2 className={styles.header}>Search result: {query} </h2>
+        <h2 className={styles.header}>Search result: {query.toUpperCase()}</h2>
 
         {/* Блок із фільтрами */}
         <div className={styles.filtersContainer}>

@@ -21,7 +21,7 @@
 .header {
   position: sticky;
   color: white;
-  top: 500px;
+  top: 490px;
   left: 4%;
   width: 275px;
   height: 37px;
@@ -128,31 +128,51 @@
   height: 100%;
   object-fit: contain;
 }
-
+/* Контейнер для фільмів */
 .movieDetails {
   display: flex;
   flex-wrap: wrap;
   margin-top: 100px; 
+   gap: 10px 40px;
 }
 
+/* Контейнер для кожного постера */
 .moviePosterWrapper {
-  margin: 34px;
-  text-align: center;
+  margin: 25px; 
+  text-align: center; 
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  flex-basis: 190px;
+  box-sizing: border-box; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.moviePosterWrapper:hover {
+  transform: scale(1.10); /* Збільшення постера */
+}
+
+/* Стиль для постера */
 .moviePoster {
-  width: 190px; 
+  width: 190px;  
   height: 275px; 
   object-fit: cover;  
-  margin-bottom: 10px;
+  margin-bottom: 10px; 
 }
 
 .moviePosterWrapper h2 {
   color: white;
-  font-size: 22px;
+  font-size: 18px;
+  word-wrap: break-word;   
+  word-break: break-word;  
+  white-space: normal;     
+  max-width: 190px;        
+  text-align: center;
+  margin: 0 auto;          
 }
 
 .moviePosterWrapper p {
   color: rgb(218, 215, 215);
   font-size: 18px;
+  text-align: center; 
 }
