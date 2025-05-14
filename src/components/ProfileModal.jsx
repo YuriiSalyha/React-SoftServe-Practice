@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { supabase } from "../supabaseClient"; // 🔁 заміни шлях на свій
+import { supabase } from "../supabaseClient";
 import styles from "../styles/ProfileModal.module.css";
 
 const ProfileModal = ({ isOpen, onClose }) => {
   const [user, setUser] = useState(null);
+  const [role, setRole] = useState(null);
+  const [username, setUsername] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
@@ -13,23 +15,39 @@ const ProfileModal = ({ isOpen, onClose }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchUser = async () => {
-      const { data, error } = await supabase.auth.getUser();
-      if (error) {
-        console.error("Помилка при отриманні користувача:", error.message);
+    const fetchUserData = async () => {
+      const { data: authData, error: authError } =
+        await supabase.auth.getUser();
+      if (authError) {
+        console.error("Помилка при отриманні користувача:", authError.message);
+        return;
+      }
+
+      const currentUser = authData.user;
+      setUser(currentUser);
+
+      // Отримання role і username з таблиці profiles
+      const { data: profileData, error: profileError } = await supabase
+        .from("Profiles")
+        .select("role, username")
+        .eq("user_id", currentUser.id)
+        .single();
+
+      if (profileError) {
+        console.error("Помилка при отриманні профілю:", profileError.message);
       } else {
-        setUser(data.user);
+        setRole(profileData.role);
+        setUsername(profileData.username);
       }
     };
 
-    fetchUser();
+    fetchUserData();
   }, []);
 
   const handleLogout = async () => {
     try {
       const { error } = await supabase.auth.signOut();
       if (error) throw error;
-
       localStorage.removeItem("user");
       onClose();
       navigate("/signin");
@@ -84,11 +102,9 @@ const ProfileModal = ({ isOpen, onClose }) => {
               </div>
               <div>
                 <div className={styles.username}>
-                  {user?.user_metadata?.username || user?.email || "Guest"}
+                  {username || user?.email || "Guest"}
                 </div>
-                <div className={styles.role}>
-                  User group: {user?.user_metadata?.role || "User"}
-                </div>
+                <div className={styles.role}>User group: {role || "User"}</div>
               </div>
             </div>
 

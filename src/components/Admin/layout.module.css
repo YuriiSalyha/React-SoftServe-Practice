@@ -1,5 +1,5 @@
 .layout {
-    padding: 20px 0;
+  padding: 20px 0;
 }
 
 .layout .navbar {
@@ -29,5 +29,5 @@
 }
 
 .layout .navbar .navbar__list li a:hover {
-    color: darkgray;
+  color: darkgray;
 }
