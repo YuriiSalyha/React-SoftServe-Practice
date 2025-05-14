@@ -59,14 +59,14 @@ const SignUpPage = () => {
       console.error(error);
       setError("general", {
         type: "manual",
-        message: "Сталася помилка. Спробуйте ще раз пізніше.",
+        message: "There was an error. Please try again later.",
       });
     }
   };
 
   return (
     <div className={styles.wrapper}>
-      <h1 className={styles.title}>Регістрація</h1>
+      <h1 className={styles.title}>Registration</h1>
 
       {errors.general && (
         <p className={styles.field__error}>{errors.general.message}</p>
@@ -78,7 +78,7 @@ const SignUpPage = () => {
             id="email"
             className={styles.field__input}
             type="email"
-            placeholder="Ваша пошта"
+            placeholder="Your mail"
             {...register("email")}
           />
           {errors.email && (
@@ -91,7 +91,7 @@ const SignUpPage = () => {
             id="login"
             className={styles.field__input}
             type="text"
-            placeholder="Ваш логін"
+            placeholder="Your login"
             {...register("login")}
           />
           {errors.login && (
@@ -103,7 +103,7 @@ const SignUpPage = () => {
           <input
             id="password"
             className={styles.field__input}
-            placeholder="Ваш пароль"
+            placeholder="Your password"
             type="password"
             {...register("password")}
           />
@@ -116,7 +116,7 @@ const SignUpPage = () => {
           <input
             id="confirmPassword"
             className={styles.field__input}
-            placeholder="Повторіть пароль"
+            placeholder="Repeat the password"
             type="password"
             {...register("confirmPassword")}
           />
@@ -128,12 +128,12 @@ const SignUpPage = () => {
         </div>
 
         <button className={styles.btn__submit} type="submit">
-          Зарегіструватися
+          Register
         </button>
       </form>
 
       <div className={styles.text}>
-        Маєте аккаут? <a href="/signIn">Вхід</a>
+        Do you have an account? <a href="/signIn">Login</a>
       </div>
     </div>
   );
