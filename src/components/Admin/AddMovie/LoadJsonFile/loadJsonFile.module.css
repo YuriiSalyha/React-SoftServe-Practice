@@ -1,0 +1,49 @@
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px dashed #fff;
+  width: 300px;
+  height: 250px;
+  border-radius: 7px;
+}
+
+.form .label {
+  cursor: pointer;
+}
+.form .subtitle {
+  color: #fff;
+  text-align: center;
+}
+
+.form .input {
+  display: none;
+}
+.btn__submit {
+  width: 150px;
+  height: 30px;
+  border-radius: 7px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: #fff;
+  background-color: var(--orange-color);
+  transition: all 0.3s ease-in-out;
+}
+
+.btn__submit:active {
+  scale: 0.9;
+}
+
+.btn__submit:disabled {
+    background-color: gray;
+}
