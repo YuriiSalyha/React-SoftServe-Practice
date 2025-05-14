@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { supabase } from "../supabaseClient";
 import { createContext } from "react";
 import Cookies from "js-cookie";
@@ -28,21 +28,21 @@ const AuthProvider = ({ children }) => {
           .select("user_id")
           .eq("username", usernameOrEmail)
           .single();
-  
+
         if (profileError || !profile) {
           throw new Error("Username not found");
         }
-  
+
         const { data: authUser, error: authUserError } = await supabase
           .from("auth.users")
           .select("email")
           .eq("id", profile.user_id)
           .single();
-  
+
         if (authUserError || !authUser) {
           throw new Error("User data not found");
         }
-  
+
         email = authUser.email;
       }
 
@@ -75,16 +75,14 @@ const AuthProvider = ({ children }) => {
 
   const register = async ({ email, username, password }) => {
     try {
-      const {
-        data: signUpData,
-        error: signUpError,
-      } = await supabase.auth.signUp({
-        email,
-        password,
-      });
+      const { data: signUpData, error: signUpError } =
+        await supabase.auth.signUp({
+          email,
+          password,
+        });
 
       if (signUpError) {
-        console.log("signUp" , signUpError);
+        console.log("signUp", signUpError);
         throw new Error(signUpError);
       }
 
@@ -93,7 +91,7 @@ const AuthProvider = ({ children }) => {
         .insert([{ user_id: signUpData.user.id, username }]);
 
       if (error) {
-        console.log("profile: " , error);
+        console.log("profile: ", error);
         throw new Error(error);
       }
 
@@ -108,7 +106,6 @@ const AuthProvider = ({ children }) => {
       });
 
       return { success: true };
-      
     } catch (error) {
       console.error(error);
       return { success: false, error: error.message };
@@ -124,8 +121,11 @@ const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
+
     const getSession = async () => {
-      const { data: {session} } = await supabase.auth.getSession();
+      const {
+        data: { session },
+      } = await supabase.auth.getSession();
       if (session) {
         setUser(session.user);
         setStatus("authorized");
