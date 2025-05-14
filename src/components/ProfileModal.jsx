@@ -19,7 +19,7 @@ const ProfileModal = ({ isOpen, onClose }) => {
       const { data: authData, error: authError } =
         await supabase.auth.getUser();
       if (authError) {
-        console.error("Помилка при отриманні користувача:", authError.message);
+        console.error("Error when receiving a user:", authError.message);
         return;
       }
 
@@ -34,7 +34,7 @@ const ProfileModal = ({ isOpen, onClose }) => {
         .single();
 
       if (profileError) {
-        console.error("Помилка при отриманні профілю:", profileError.message);
+        console.error("Error when receiving a profile:", profileError.message);
       } else {
         setRole(profileData.role);
         setUsername(profileData.username);
@@ -59,7 +59,7 @@ const ProfileModal = ({ isOpen, onClose }) => {
 
   const handlePasswordChange = async () => {
     if (newPassword !== confirmPassword) {
-      alert("Нові паролі не співпадають.");
+      alert("New passwords do not match.");
       return;
     }
 
@@ -70,14 +70,14 @@ const ProfileModal = ({ isOpen, onClose }) => {
       });
 
       if (error) {
-        alert("Помилка при зміні паролю: " + error.message);
+        alert("Error changing password: " + error.message);
       } else {
-        alert("Пароль змінено успішно.");
+        alert("Password changed successfully.");
         setIsEditing(false);
       }
     } catch (error) {
-      console.error("Помилка при зміні паролю:", error.message);
-      alert("Виникла помилка при зміні паролю.");
+      console.error("Error changing password:", error.message);
+      alert("An error occurred while changing the password.");
     }
   };
 
