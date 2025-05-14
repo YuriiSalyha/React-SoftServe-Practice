@@ -1,0 +1,14 @@
+@import url("../FieldInput/field.module.css");
+
+.btn {
+    outline: none;
+    border: none;
+    background-color: inherit;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
