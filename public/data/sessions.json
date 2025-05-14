@@ -6,8 +6,15 @@
     "time": "12:30",
     "hall": "Hall 2",
     "price": 150,
-    "numberOfSeats": 50,
-    "bookedSeats": 0
+    "numberOfSeats": 60,
+    "bookedSeats": 2,
+    "seats": [
+      [null, null, null, 1, 1, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
   },
   {
     "id": "2",
@@ -16,8 +23,15 @@
     "time": "14:30",
     "hall": "Hall 2",
     "price": 150,
-    "numberOfSeats": 50,
-    "bookedSeats": 0
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
   },
   {
     "id": "3",
@@ -26,8 +40,15 @@
     "time": "16:30",
     "hall": "Hall 2",
     "price": 150,
-    "numberOfSeats": 50,
-    "bookedSeats": 0
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
   },
   {
     "id": "4",
@@ -36,8 +57,15 @@
     "time": "18:30",
     "hall": "Hall 2",
     "price": 150,
-    "numberOfSeats": 50,
-    "bookedSeats": 0
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
   },
   {
     "id": "5",
@@ -46,8 +74,15 @@
     "time": "20:30",
     "hall": "Hall 2",
     "price": 150,
-    "numberOfSeats": 50,
-    "bookedSeats": 0
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
   },
   {
     "id": "6",
@@ -56,8 +91,15 @@
     "time": "12:30",
     "hall": "Hall 3",
     "price": 150,
-    "numberOfSeats": 50,
-    "bookedSeats": 0
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
   },
   {
     "id": "7",
@@ -66,8 +108,15 @@
     "time": "14:30",
     "hall": "Hall 3",
     "price": 150,
-    "numberOfSeats": 50,
-    "bookedSeats": 0
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
   },
   {
     "id": "8",
@@ -76,8 +125,15 @@
     "time": "16:30",
     "hall": "Hall 3",
     "price": 150,
-    "numberOfSeats": 50,
-    "bookedSeats": 0
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
   },
   {
     "id": "9",
@@ -86,8 +142,15 @@
     "time": "18:30",
     "hall": "Hall 3",
     "price": 150,
-    "numberOfSeats": 50,
-    "bookedSeats": 0
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
   },
   {
     "id": "10",
@@ -96,8 +159,15 @@
     "time": "20:30",
     "hall": "Hall 3",
     "price": 150,
-    "numberOfSeats": 50,
-    "bookedSeats": 0
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
   },
   {
     "id": "11",
@@ -106,8 +176,15 @@
     "time": "12:30",
     "hall": "Hall 4",
     "price": 150,
-    "numberOfSeats": 50,
-    "bookedSeats": 0
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
   },
   {
     "id": "12",
@@ -116,8 +193,15 @@
     "time": "14:30",
     "hall": "Hall 4",
     "price": 150,
-    "numberOfSeats": 50,
-    "bookedSeats": 0
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
   },
   {
     "id": "13",
@@ -126,8 +210,15 @@
     "time": "16:30",
     "hall": "Hall 4",
     "price": 150,
-    "numberOfSeats": 50,
-    "bookedSeats": 0
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
   },
   {
     "id": "14",
@@ -136,8 +227,15 @@
     "time": "18:30",
     "hall": "Hall 4",
     "price": 150,
-    "numberOfSeats": 50,
-    "bookedSeats": 0
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
   },
   {
     "id": "15",
@@ -146,8 +244,15 @@
     "time": "20:30",
     "hall": "Hall 4",
     "price": 150,
-    "numberOfSeats": 50,
-    "bookedSeats": 0
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
   },
   {
     "id": "16",
@@ -156,8 +261,15 @@
     "time": "12:30",
     "hall": "Hall 5",
     "price": 150,
-    "numberOfSeats": 50,
-    "bookedSeats": 0
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
   },
   {
     "id": "17",
@@ -166,8 +278,15 @@
     "time": "14:30",
     "hall": "Hall 5",
     "price": 150,
-    "numberOfSeats": 50,
-    "bookedSeats": 0
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
   },
   {
     "id": "18",
@@ -176,8 +295,15 @@
     "time": "16:30",
     "hall": "Hall 5",
     "price": 150,
-    "numberOfSeats": 50,
-    "bookedSeats": 0
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
   },
   {
     "id": "19",
@@ -186,8 +312,15 @@
     "time": "18:30",
     "hall": "Hall 5",
     "price": 150,
-    "numberOfSeats": 50,
-    "bookedSeats": 0
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
   },
   {
     "id": "20",
@@ -196,8 +329,15 @@
     "time": "20:30",
     "hall": "Hall 5",
     "price": 150,
-    "numberOfSeats": 50,
-    "bookedSeats": 0
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
   },
   {
     "id": "21",
@@ -206,8 +346,15 @@
     "time": "12:30",
     "hall": "Hall 1",
     "price": 150,
-    "numberOfSeats": 50,
-    "bookedSeats": 0
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
   },
   {
     "id": "22",
@@ -216,8 +363,15 @@
     "time": "14:30",
     "hall": "Hall 1",
     "price": 150,
-    "numberOfSeats": 50,
-    "bookedSeats": 0
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
   },
   {
     "id": "23",
@@ -226,8 +380,15 @@
     "time": "16:30",
     "hall": "Hall 1",
     "price": 150,
-    "numberOfSeats": 50,
-    "bookedSeats": 0
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
   },
   {
     "id": "24",
@@ -236,8 +397,15 @@
     "time": "18:30",
     "hall": "Hall 1",
     "price": 150,
-    "numberOfSeats": 50,
-    "bookedSeats": 0
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
   },
   {
     "id": "25",
@@ -246,8 +414,15 @@
     "time": "20:30",
     "hall": "Hall 1",
     "price": 150,
-    "numberOfSeats": 50,
-    "bookedSeats": 0
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
   },
   {
     "id": "26",
@@ -256,8 +431,15 @@
     "time": "12:30",
     "hall": "Hall 2",
     "price": 150,
-    "numberOfSeats": 50,
-    "bookedSeats": 0
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
   },
   {
     "id": "27",
@@ -266,8 +448,15 @@
     "time": "14:30",
     "hall": "Hall 2",
     "price": 150,
-    "numberOfSeats": 50,
-    "bookedSeats": 0
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
   },
   {
     "id": "28",
@@ -276,8 +465,15 @@
     "time": "16:30",
     "hall": "Hall 2",
     "price": 150,
-    "numberOfSeats": 50,
-    "bookedSeats": 0
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
   },
   {
     "id": "29",
@@ -286,8 +482,15 @@
     "time": "18:30",
     "hall": "Hall 2",
     "price": 150,
-    "numberOfSeats": 50,
-    "bookedSeats": 0
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
   },
   {
     "id": "30",
@@ -296,8 +499,15 @@
     "time": "20:30",
     "hall": "Hall 2",
     "price": 150,
-    "numberOfSeats": 50,
-    "bookedSeats": 0
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
   },
   {
     "id": "31",
@@ -306,8 +516,15 @@
     "time": "12:30",
     "hall": "Hall 3",
     "price": 150,
-    "numberOfSeats": 50,
-    "bookedSeats": 0
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
   },
   {
     "id": "32",
@@ -316,8 +533,15 @@
     "time": "14:30",
     "hall": "Hall 3",
     "price": 150,
-    "numberOfSeats": 50,
-    "bookedSeats": 0
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
   },
   {
     "id": "33",
@@ -326,8 +550,15 @@
     "time": "16:30",
     "hall": "Hall 3",
     "price": 150,
-    "numberOfSeats": 50,
-    "bookedSeats": 0
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
   },
   {
     "id": "34",
@@ -336,8 +567,15 @@
     "time": "18:30",
     "hall": "Hall 3",
     "price": 150,
-    "numberOfSeats": 50,
-    "bookedSeats": 0
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
   },
   {
     "id": "35",
@@ -346,8 +584,15 @@
     "time": "20:30",
     "hall": "Hall 3",
     "price": 150,
-    "numberOfSeats": 50,
-    "bookedSeats": 0
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
   },
   {
     "id": "36",
@@ -356,8 +601,15 @@
     "time": "12:30",
     "hall": "Hall 4",
     "price": 150,
-    "numberOfSeats": 50,
-    "bookedSeats": 0
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
   },
   {
     "id": "37",
@@ -366,8 +618,15 @@
     "time": "14:30",
     "hall": "Hall 4",
     "price": 150,
-    "numberOfSeats": 50,
-    "bookedSeats": 0
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
   },
   {
     "id": "38",
@@ -376,8 +635,15 @@
     "time": "16:30",
     "hall": "Hall 4",
     "price": 150,
-    "numberOfSeats": 50,
-    "bookedSeats": 0
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
   },
   {
     "id": "39",
@@ -386,8 +652,15 @@
     "time": "18:30",
     "hall": "Hall 4",
     "price": 150,
-    "numberOfSeats": 50,
-    "bookedSeats": 0
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
   },
   {
     "id": "40",
@@ -396,8 +669,15 @@
     "time": "20:30",
     "hall": "Hall 4",
     "price": 150,
-    "numberOfSeats": 50,
-    "bookedSeats": 0
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
   },
   {
     "id": "41",
@@ -406,8 +686,15 @@
     "time": "12:30",
     "hall": "Hall 5",
     "price": 150,
-    "numberOfSeats": 50,
-    "bookedSeats": 0
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
   },
   {
     "id": "42",
@@ -416,8 +703,15 @@
     "time": "14:30",
     "hall": "Hall 5",
     "price": 150,
-    "numberOfSeats": 50,
-    "bookedSeats": 0
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
   },
   {
     "id": "43",
@@ -426,8 +720,15 @@
     "time": "16:30",
     "hall": "Hall 5",
     "price": 150,
-    "numberOfSeats": 50,
-    "bookedSeats": 0
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
   },
   {
     "id": "44",
@@ -436,8 +737,15 @@
     "time": "18:30",
     "hall": "Hall 5",
     "price": 150,
-    "numberOfSeats": 50,
-    "bookedSeats": 0
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
   },
   {
     "id": "45",
@@ -446,8 +754,15 @@
     "time": "20:30",
     "hall": "Hall 5",
     "price": 150,
-    "numberOfSeats": 50,
-    "bookedSeats": 0
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
   },
   {
     "id": "46",
@@ -456,8 +771,15 @@
     "time": "12:30",
     "hall": "Hall 1",
     "price": 150,
-    "numberOfSeats": 50,
-    "bookedSeats": 0
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
   },
   {
     "id": "47",
@@ -466,8 +788,15 @@
     "time": "14:30",
     "hall": "Hall 1",
     "price": 150,
-    "numberOfSeats": 50,
-    "bookedSeats": 0
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
   },
   {
     "id": "48",
@@ -476,8 +805,15 @@
     "time": "16:30",
     "hall": "Hall 1",
     "price": 150,
-    "numberOfSeats": 50,
-    "bookedSeats": 0
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
   },
   {
     "id": "49",
@@ -486,8 +822,15 @@
     "time": "18:30",
     "hall": "Hall 1",
     "price": 150,
-    "numberOfSeats": 50,
-    "bookedSeats": 0
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
   },
   {
     "id": "50",
@@ -997,8 +1340,15 @@
     "time": "20:30",
     "hall": "Hall 1",
     "price": 150,
-    "numberOfSeats": 50,
-    "bookedSeats": 0
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
   }
 
 
