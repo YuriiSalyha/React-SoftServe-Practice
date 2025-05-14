@@ -93,3 +93,23 @@
 .actionButton:hover {
   background-color: #3a3a3a;
 }
+
+.inputField {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #292828;
+}
+
+.inputField::placeholder {
+  color: rgb(196, 187, 187);
+}
+
+.editSection {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
