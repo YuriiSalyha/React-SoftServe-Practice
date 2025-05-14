@@ -499,7 +499,7 @@
     "numberOfSeats": 50,
     "bookedSeats": 0
   },
-  
+
   {
     "id": "1",
     "movieId": "1",
@@ -999,7 +999,155 @@
     "price": 150,
     "numberOfSeats": 50,
     "bookedSeats": 0
+  },
+  {
+    "id": "51",
+    "movieId": "1",
+    "date": "2025-05-19",
+    "time": "11:30",
+    "hall": "Hall 1",
+    "price": 150,
+    "numberOfSeats": 50,
+    "bookedSeats": 0
+  },
+  {
+    "id": "52",
+    "movieId": "3",
+    "date": "2025-05-19",
+    "time": "13:30",
+    "hall": "Hall 2",
+    "price": 150,
+    "numberOfSeats": 50,
+    "bookedSeats": 0
+  },
+  {
+    "id": "53",
+    "movieId": "7",
+    "date": "2025-05-19",
+    "time": "17:00",
+    "hall": "Hall 2",
+    "price": 150,
+    "numberOfSeats": 50,
+    "bookedSeats": 0
+  },
+  {
+    "id": "54",
+    "movieId": "8",
+    "date": "2025-05-20",
+    "time": "10:30",
+    "hall": "Hall 2",
+    "price": 150,
+    "numberOfSeats": 50,
+    "bookedSeats": 0
+  },
+  {
+    "id": "55",
+    "movieId": "1",
+    "date": "2025-05-20",
+    "time": "13:30",
+    "hall": "Hall 2",
+    "price": 150,
+    "numberOfSeats": 50,
+    "bookedSeats": 0
+  },
+  {
+    "id": "56",
+    "movieId": "6",
+    "date": "2025-05-20",
+    "time": "13:30",
+    "hall": "Hall 2",
+    "price": 150,
+    "numberOfSeats": 50,
+    "bookedSeats": 0
+  },
+  {
+    "id": "57",
+    "movieId": "3",
+    "date": "2025-05-21",
+    "time": "11:00",
+    "hall": "Hall 1",
+    "price": 150,
+    "numberOfSeats": 50,
+    "bookedSeats": 0
+  },
+  {
+    "id": "58",
+    "movieId": "8",
+    "date": "2025-05-21",
+    "time": "16:45",
+    "hall": "Hall 3",
+    "price": 150,
+    "numberOfSeats": 50,
+    "bookedSeats": 0
+  },
+  {
+    "id": "59",
+    "movieId": "2",
+    "date": "2025-05-22",
+    "time": "10:15",
+    "hall": "Hall 2",
+    "price": 150,
+    "numberOfSeats": 50,
+    "bookedSeats": 0
+  },
+  {
+    "id": "60",
+    "movieId": "7",
+    "date": "2025-05-22",
+    "time": "18:30",
+    "hall": "Hall 1",
+    "price": 150,
+    "numberOfSeats": 50,
+    "bookedSeats": 0
+  },
+  {
+    "id": "61",
+    "movieId": "1",
+    "date": "2025-05-23",
+    "time": "12:00",
+    "hall": "Hall 3",
+    "price": 150,
+    "numberOfSeats": 50,
+    "bookedSeats": 0
+  },
+  {
+    "id": "62",
+    "movieId": "4",
+    "date": "2025-05-23",
+    "time": "14:30",
+    "hall": "Hall 2",
+    "price": 150,
+    "numberOfSeats": 50,
+    "bookedSeats": 0
+  },
+  {
+    "id": "63",
+    "movieId": "10",
+    "date": "2025-05-24",
+    "time": "09:45",
+    "hall": "Hall 1",
+    "price": 150,
+    "numberOfSeats": 50,
+    "bookedSeats": 0
+  },
+  {
+    "id": "64",
+    "movieId": "5",
+    "date": "2025-05-24",
+    "time": "17:00",
+    "hall": "Hall 3",
+    "price": 150,
+    "numberOfSeats": 50,
+    "bookedSeats": 0
+  },
+  {
+    "id": "65",
+    "movieId": "9",
+    "date": "2025-05-24",
+    "time": "20:15",
+    "hall": "Hall 2",
+    "price": 150,
+    "numberOfSeats": 50,
+    "bookedSeats": 0
   }
-
-
 ]
