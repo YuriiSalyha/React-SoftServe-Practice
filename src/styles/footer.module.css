@@ -59,14 +59,14 @@
 }
 
 .socialLink:hover {
-  color: #e50914;
+  color: #f7931e;
   transform: translateY(-2px);
 }
 
 .footerLinks {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 3rem;
+  grid-template-columns: repeat(2, 1fr); /* 2 колонки */
+  gap: 5rem;
   align-items: start;
 }
 
@@ -86,13 +86,13 @@
 }
 
 .footerSection h4::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
   width: 30px;
   height: 2px;
-  background-color: #e50914;
+  background-color: #f7931e;
 }
 
 .footerSection ul {
@@ -141,7 +141,7 @@
 }
 
 .contactInfo li svg {
-  color: #e50914;
+  color: #f7931e;
   font-size: 1.2rem;
   flex-shrink: 0;
 }
@@ -190,10 +190,10 @@
 }
 
 .teamCredits ul li:not(:last-child)::after {
-  content: '•';
+  content: "•";
   position: absolute;
   right: 0;
-  color: #e50914;
+  color: #f7931e;
 }
 
 @media (max-width: 1024px) {

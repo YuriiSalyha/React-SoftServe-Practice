@@ -1,45 +1,84 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { supabase } from "../supabaseClient";
 import styles from "../styles/ProfileModal.module.css";
 
 const ProfileModal = ({ isOpen, onClose }) => {
   const [user, setUser] = useState(null);
+  const [role, setRole] = useState(null);
+  const [username, setUsername] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
+  const navigate = useNavigate();
+
   useEffect(() => {
-    const storedUser = localStorage.getItem("user");
-    if (storedUser) {
-      try {
-        setUser(JSON.parse(storedUser));
-      } catch (error) {
-        console.error("Помилка при парсингу user з localStorage:", error);
+    const fetchUserData = async () => {
+      const { data: authData, error: authError } =
+        await supabase.auth.getUser();
+      if (authError) {
+        console.error("Error when receiving a user:", authError.message);
+        return;
       }
-    }
+
+      const currentUser = authData.user;
+      setUser(currentUser);
+
+      // Отримання role і username з таблиці profiles
+      const { data: profileData, error: profileError } = await supabase
+        .from("Profiles")
+        .select("role, username")
+        .eq("user_id", currentUser.id)
+        .single();
+
+      if (profileError) {
+        console.error("Error when receiving a profile:", profileError.message);
+      } else {
+        setRole(profileData.role);
+        setUsername(profileData.username);
+      }
+    };
+
+    fetchUserData();
   }, []);
 
-  const handleLogout = () => {
-    localStorage.removeItem("user");
-    window.location.reload(); // повне оновлення
+  const handleLogout = async () => {
+    try {
+      const { error } = await supabase.auth.signOut();
+      if (error) throw error;
+      localStorage.removeItem("user");
+      onClose();
+      navigate("/signin");
+    } catch (error) {
+      console.error("Logout error:", error.message);
+      alert("An error occurred while logging out. Please try again.");
+    }
   };
 
-  const handlePasswordChange = () => {
-    if (oldPassword !== user.password) {
-      alert("Old password is incorrect.");
-      return;
-    }
-
+  const handlePasswordChange = async () => {
     if (newPassword !== confirmPassword) {
       alert("New passwords do not match.");
       return;
     }
 
-    const updatedUser = { ...user, password: newPassword };
-    localStorage.setItem("user", JSON.stringify(updatedUser));
-    setUser(updatedUser);
-    alert("Password changed successfully.");
-    setIsEditing(false);
+    try {
+      // Оновлення паролю через Supabase
+      const { error } = await supabase.auth.updateUser({
+        password: newPassword,
+      });
+
+      if (error) {
+        alert("Error changing password: " + error.message);
+      } else {
+        alert("Password changed successfully.");
+        setIsEditing(false);
+      }
+    } catch (error) {
+      console.error("Error changing password:", error.message);
+      alert("An error occurred while changing the password.");
+    }
   };
 
   if (!isOpen) return null;
@@ -62,11 +101,9 @@ const ProfileModal = ({ isOpen, onClose }) => {
               </div>
               <div>
                 <div className={styles.username}>
-                  {user?.username || "Guest"}
+                  {username || user?.email || "Guest"}
                 </div>
-                <div className={styles.role}>
-                  User group: {user?.role || "User"}
-                </div>
+                <div className={styles.role}>User group: {role || "User"}</div>
               </div>
             </div>
 
@@ -80,9 +117,15 @@ const ProfileModal = ({ isOpen, onClose }) => {
               <button className={styles.actionButton} onClick={handleLogout}>
                 ↩️ Log out
               </button>
-              {user?.role === "admin" && (
-                <button className={styles.actionButton}>🛠️ Admin panel</button>
-              )}
+              <button
+                className={styles.actionButton}
+                onClick={() => {
+                  onClose();
+                  navigate("/admin/panel");
+                }}
+              >
+                🛠️ Admin panel
+              </button>
             </div>
           </>
         ) : (

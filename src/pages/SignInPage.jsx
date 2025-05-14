@@ -3,8 +3,8 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import styles from "../styles/auth.module.css";
-import useAuth from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
+import { supabase } from "../supabaseClient"; // Підключаємо supabase клієнт
 
 const signInSchema = z.object({
   usernameOrEmail: z
@@ -31,8 +31,6 @@ const signInSchema = z.object({
 
 const SignInPage = () => {
   const navigate = useNavigate();
-  const {isAuthenticated}= useAuth();
-  const { login } = useAuth();
 
   const {
     register,
@@ -45,24 +43,26 @@ const SignInPage = () => {
 
   const onSubmit = async (data) => {
     try {
-      const response = await login({
-        usernameOrEmail: data.usernameOrEmail,
+      // Використовуємо метод signInWithPassword для перевірки користувача
+      const { error, user } = await supabase.auth.signInWithPassword({
+        email: data.usernameOrEmail, // Передаємо емейл
         password: data.password,
       });
 
+      if (error) {
+        throw error; // Якщо є помилка (наприклад, неправильний емейл або пароль), викидаємо її
+      }
+
+      // Якщо все правильно, редиректимо користувача
       navigate("/");
     } catch (error) {
       console.error(error);
       setError("general", {
         type: "manual",
-        message: "An error occurred. Please try again later.",
+        message: "Your login or password is incorrect. Please try again!",
       });
     }
   };
-
-  if (isAuthenticated) {
-    navigate("/");
-  }
 
   return (
     <div className={styles.wrapper}>
@@ -82,7 +82,9 @@ const SignInPage = () => {
             {...register("usernameOrEmail")}
           />
           {errors.usernameOrEmail && (
-            <p className={styles.field__error}>{errors.login.message}</p>
+            <p className={styles.field__error}>
+              {errors.usernameOrEmail.message}
+            </p>
           )}
         </div>
 

@@ -13,13 +13,22 @@ export default function Footer() {
           <div className={styles.footerBrand}>
             <img src={logo} alt="Cinemaverse" className={styles.footerLogo} />
             <p className={styles.footerDescription}>
-              Your ultimate destination for online movie streaming. Watch the latest releases and classic films in high quality.
+              Your ultimate destination for online movie streaming. Watch the
+              latest releases and classic films in high quality.
             </p>
             <div className={styles.socialLinks}>
-              <a href="#" className={styles.socialLink}><FaFacebook /></a>
-              <a href="#" className={styles.socialLink}><FaTwitter /></a>
-              <a href="#" className={styles.socialLink}><FaInstagram /></a>
-              <a href="#" className={styles.socialLink}><FaYoutube /></a>
+              <a href="#" className={styles.socialLink}>
+                <FaFacebook />
+              </a>
+              <a href="#" className={styles.socialLink}>
+                <FaTwitter />
+              </a>
+              <a href="#" className={styles.socialLink}>
+                <FaInstagram />
+              </a>
+              <a href="#" className={styles.socialLink}>
+                <FaYoutube />
+              </a>
             </div>
           </div>
 
@@ -27,22 +36,21 @@ export default function Footer() {
             <div className={styles.footerSection}>
               <h4>Navigation</h4>
               <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/SessionsPage">Sessions</a></li>
-                <li><a href="/SignInPage">Sign In</a></li>
-                <li><a href="/SignUp">Sign Up</a></li>
-                <li><a href="/FavoritePae">Favourites</a></li>
-              </ul>
-            </div>
-
-            <div className={styles.footerSection}>
-              <h4>Support</h4>
-              <ul>
-                <li><a href="/faq">FAQ</a></li>
-                <li><a href="/help">Help Center</a></li>
-                <li><a href="/terms">Terms of Use</a></li>
-                <li><a href="/privacy">Privacy Policy</a></li>
-                <li><a href="/contact">Contact Us</a></li>
+                <li>
+                  <a href="/">Home</a>
+                </li>
+                <li>
+                  <a href="/SessionsPage">Sessions</a>
+                </li>
+                <li>
+                  <a href="/SignInPage">Sign In</a>
+                </li>
+                <li>
+                  <a href="/SignUp">Sign Up</a>
+                </li>
+                <li>
+                  <a href="/FavoritePae">Favourites</a>
+                </li>
               </ul>
             </div>
 
