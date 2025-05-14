@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom"; // ✅ додано
+import { useNavigate } from "react-router-dom";
+import { supabase } from "../supabaseClient"; // 🔁 заміни шлях на свій
 import styles from "../styles/ProfileModal.module.css";
 
 const ProfileModal = ({ isOpen, onClose }) => {
@@ -9,39 +10,57 @@ const ProfileModal = ({ isOpen, onClose }) => {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const navigate = useNavigate(); // ✅ додано
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const storedUser = localStorage.getItem("user");
-    if (storedUser) {
-      try {
-        setUser(JSON.parse(storedUser));
-      } catch (error) {
-        console.error("Помилка при парсингу user з localStorage:", error);
+    const fetchUser = async () => {
+      const { data, error } = await supabase.auth.getUser();
+      if (error) {
+        console.error("Помилка при отриманні користувача:", error.message);
+      } else {
+        setUser(data.user);
       }
-    }
+    };
+
+    fetchUser();
   }, []);
 
-  const handleLogout = () => {
-    localStorage.removeItem("user");
-    window.location.reload(); // повне оновлення
+  const handleLogout = async () => {
+    try {
+      const { error } = await supabase.auth.signOut();
+      if (error) throw error;
+
+      localStorage.removeItem("user");
+      onClose();
+      navigate("/signin");
+    } catch (error) {
+      console.error("Logout error:", error.message);
+      alert("An error occurred while logging out. Please try again.");
+    }
   };
 
   const handlePasswordChange = () => {
-    if (oldPassword !== user.password) {
-      alert("Old password is incorrect.");
+    if (oldPassword !== user?.user_metadata?.password) {
+      alert("Старий пароль невірний.");
       return;
     }
 
     if (newPassword !== confirmPassword) {
-      alert("New passwords do not match.");
+      alert("Нові паролі не співпадають.");
       return;
     }
 
-    const updatedUser = { ...user, password: newPassword };
+    const updatedUser = {
+      ...user,
+      user_metadata: {
+        ...user.user_metadata,
+        password: newPassword,
+      },
+    };
+
     localStorage.setItem("user", JSON.stringify(updatedUser));
     setUser(updatedUser);
-    alert("Password changed successfully.");
+    alert("Пароль змінено успішно.");
     setIsEditing(false);
   };
 
@@ -65,10 +84,10 @@ const ProfileModal = ({ isOpen, onClose }) => {
               </div>
               <div>
                 <div className={styles.username}>
-                  {user?.username || "Guest"}
+                  {user?.user_metadata?.username || user?.email || "Guest"}
                 </div>
                 <div className={styles.role}>
-                  User group: {user?.role || "User"}
+                  User group: {user?.user_metadata?.role || "User"}
                 </div>
               </div>
             </div>
