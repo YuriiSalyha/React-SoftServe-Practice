@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom"; // ✅ додано
 import styles from "../styles/ProfileModal.module.css";
 
 const ProfileModal = ({ isOpen, onClose }) => {
@@ -7,6 +8,8 @@ const ProfileModal = ({ isOpen, onClose }) => {
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+
+  const navigate = useNavigate(); // ✅ додано
 
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
@@ -80,9 +83,15 @@ const ProfileModal = ({ isOpen, onClose }) => {
               <button className={styles.actionButton} onClick={handleLogout}>
                 ↩️ Log out
               </button>
-              {user?.role === "admin" && (
-                <button className={styles.actionButton}>🛠️ Admin panel</button>
-              )}
+              <button
+                className={styles.actionButton}
+                onClick={() => {
+                  onClose();
+                  navigate("/admin/panel");
+                }}
+              >
+                🛠️ Admin panel
+              </button>
             </div>
           </>
         ) : (

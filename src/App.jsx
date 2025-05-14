@@ -10,8 +10,6 @@ import HomePage from "./pages/HomePage";
 import MoviePage from "./pages/MoviePage";
 import SessionsPage from "./pages/SessionsPage";
 import SearchPage from "./pages/SearchPage";
-// import AdminPanel from "./pages/AdminPanel";
-// import NotFoundPage from "./pages/NotFoundPage";
 
 import "./styles/App.css";
 
