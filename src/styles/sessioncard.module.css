@@ -11,7 +11,7 @@
   height: 180px;
   object-fit: cover;
   margin-right: 16px;
-  background-color: #555;  /* fallback background for poster */
+  background-color: #555; /* fallback background for poster */
 }
 
 .info {
@@ -31,14 +31,14 @@
 }
 
 .times {
-  color: #FF6B08;
+  color: #f7931e;
   font-weight: bold;
 }
 
 .buyButton {
   display: inline-block;
   margin-top: 8px;
-  background-color: #FF6B08;
+  background-color: #f7931e;
   color: #fff;
   border: none;
   padding: 8px 16px;

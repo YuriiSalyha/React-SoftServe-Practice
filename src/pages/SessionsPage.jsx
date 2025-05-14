@@ -1,37 +1,42 @@
-/* src/pages/SessionsPage.jsx */
-import React, { useState, useEffect } from 'react';
-import SessionCard from '../components/SessionCard';
-import Modal from '../components/Modal/Modal.jsx';  
-import styles from '../styles/sessionspage.module.css';
+import React, { useState, useEffect } from "react";
+import SessionCard from "../components/SessionCard";
+import Modal from "../components/Modal/Modal.jsx";
+import styles from "../styles/sessionspage.module.css";
 
 export default function SessionsPage() {
   const [sessionsData, setSessionsData] = useState([]);
-  const [moviesData, setMoviesData]     = useState([]);
-  const [selectedDate, setSelectedDate] = useState('');
+  const [moviesData, setMoviesData] = useState([]);
+  const [selectedDate, setSelectedDate] = useState("");
   const [selectedSession, setSelectedSession] = useState(null);
 
   useEffect(() => {
     Promise.all([
-      fetch('/data/sessions.json').then(res => res.json()),
-      fetch('/data/movies.json').then(res => res.json())
+      fetch("/data/sessions.json").then((res) => res.json()),
+      fetch("/data/movies.json").then((res) => res.json()),
     ]).then(([sessions, movies]) => {
       setSessionsData(sessions);
       setMoviesData(movies);
-      const today = new Date().toISOString().slice(0,10);
+
+      const today = new Date().toISOString().slice(0, 10); // Отримуємо сьогоднішню дату
+
       setSelectedDate(
-        sessions.some(s => s.date === today)
+        sessions.some((s) => s.date === today)
           ? today
           : sessions[0]?.date || today
       );
     });
   }, []);
 
-  // Унікальні дати
-  const dateTabs = Array.from(new Set(sessionsData.map(s => s.date)))
-                        .sort();
+  // Отримуємо сьогоднішню дату
+  const today = new Date().toISOString().slice(0, 10);
+
+  // Фільтруємо дати, залишаємо тільки ті, що від сьогоднішньої дати і пізніше
+  const dateTabs = Array.from(new Set(sessionsData.map((s) => s.date)))
+    .filter((date) => date >= today) // Фільтруємо дати
+    .sort();
 
   // Сеанси на обрану дату
-  const sessionsOnDate = sessionsData.filter(s => s.date === selectedDate);
+  const sessionsOnDate = sessionsData.filter((s) => s.date === selectedDate);
 
   // Групування за фільмом
   const sessionsByMovie = sessionsOnDate.reduce((acc, sess) => {
@@ -42,20 +47,20 @@ export default function SessionsPage() {
   // Масив { movie, sessions }
   const moviesToShow = Object.entries(sessionsByMovie)
     .map(([movieId, sessions]) => ({
-      movie:    moviesData.find(m => String(m.id) === movieId),
-      sessions
+      movie: moviesData.find((m) => String(m.id) === movieId),
+      sessions,
     }))
-    .slice(0,6);
+    .slice(0, 6);
 
   // Клік на кнопку "Order Ticket"
   const handleOrderClick = ({ movie, sessions }) => {
     const sess = sessions[0];
     setSelectedSession({
       poster: movie.poster,
-      title:  movie.title,
-      date:   sess.date,
-      time:   sess.time,
-      hall:   sess.hall
+      title: movie.title,
+      date: sess.date,
+      time: sess.time,
+      hall: sess.hall,
     });
   };
 
@@ -68,16 +73,20 @@ export default function SessionsPage() {
       <h1 className={styles.pageTitle}>SESSIONS</h1>
 
       <div className={styles.tabs}>
-        {dateTabs.map(date => {
-          const label = new Date(date).toLocaleDateString('en-US', {
-            day:   '2-digit',
-            month: 'long'
-          }).toUpperCase();
+        {dateTabs.map((date) => {
+          const label = new Date(date)
+            .toLocaleDateString("en-US", {
+              day: "2-digit",
+              month: "long",
+            })
+            .toUpperCase();
 
           return (
             <button
               key={date}
-              className={`${styles.tab} ${date === selectedDate ? styles.activeTab : ''}`}
+              className={`${styles.tab} ${
+                date === selectedDate ? styles.activeTab : ""
+              }`}
               onClick={() => setSelectedDate(date)}
             >
               {label}
@@ -90,7 +99,7 @@ export default function SessionsPage() {
             type="date"
             className={styles.datePicker}
             value={selectedDate}
-            onChange={e => setSelectedDate(e.target.value)}
+            onChange={(e) => setSelectedDate(e.target.value)}
           />
           <span className={styles.arrow}>▾</span>
         </div>

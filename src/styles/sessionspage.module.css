@@ -23,8 +23,12 @@
   border-radius: 4px;
   cursor: pointer;
 }
-.tab:hover { background: #555; }
-.activeTab { background: #FF6B08; }
+.tab:hover {
+  background: #555;
+}
+.activeTab {
+  background: #f7931e;
+}
 
 .datePickerWrapper {
   position: relative;
@@ -41,7 +45,7 @@
   font-weight: bold;
 }
 .datePicker:focus {
-  outline: 2px solid #FF6B08;
+  outline: 2px solid #f7931e;
 }
 .arrow {
   position: absolute;
@@ -52,7 +56,6 @@
   color: #fff;
 }
 
-/* решта твоїх стилів… */
 .sessionsGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
