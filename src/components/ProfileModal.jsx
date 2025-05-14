@@ -57,29 +57,28 @@ const ProfileModal = ({ isOpen, onClose }) => {
     }
   };
 
-  const handlePasswordChange = () => {
-    if (oldPassword !== user?.user_metadata?.password) {
-      alert("Старий пароль невірний.");
-      return;
-    }
-
+  const handlePasswordChange = async () => {
     if (newPassword !== confirmPassword) {
       alert("Нові паролі не співпадають.");
       return;
     }
 
-    const updatedUser = {
-      ...user,
-      user_metadata: {
-        ...user.user_metadata,
+    try {
+      // Оновлення паролю через Supabase
+      const { error } = await supabase.auth.updateUser({
         password: newPassword,
-      },
-    };
+      });
 
-    localStorage.setItem("user", JSON.stringify(updatedUser));
-    setUser(updatedUser);
-    alert("Пароль змінено успішно.");
-    setIsEditing(false);
+      if (error) {
+        alert("Помилка при зміні паролю: " + error.message);
+      } else {
+        alert("Пароль змінено успішно.");
+        setIsEditing(false);
+      }
+    } catch (error) {
+      console.error("Помилка при зміні паролю:", error.message);
+      alert("Виникла помилка при зміні паролю.");
+    }
   };
 
   if (!isOpen) return null;
