@@ -1,0 +1,227 @@
+/* Загальний контейнер сторінки */
+.pageBackground {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  
+  /* Центральний макет */
+  .container {
+    width: 1136px;
+    background-color: #1f1f25;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  /* Стиль тексту новинок */
+  .header {
+    position: sticky;
+    color: white;
+    top: 50px;
+    left: 4%;
+    width: 275px;
+    height: 37px;
+    font-size: 32px;
+    white-space: nowrap;
+  }
+
+/* Текст фільм не знайдено */
+  .notFound {
+    color: white; 
+    font-size: 1.5rem; 
+    text-align: center; 
+    width: 2750px;
+    margin-top: -2rem; 
+    font-weight: bold; 
+  }
+  
+
+/* Стилі для кнопки і випадаючого меню */
+.dropdownContainer {
+  position: relative;
+  margin-top: 70px;
+  left: 25px;
+}
+
+.filtersContainer {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.dropdownButton {
+  background-color: rgba(64, 62, 71, 0.93); 
+  color: white;
+  padding: 5px 15px;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  width: 170px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 20px;
+}
+
+/* Забороняє підсвічування на кнопці при натисканні або фокусі */
+.dropdownButton:focus,
+.dropdownButton:active {
+  background-color: rgba(64, 62, 71, 0.93); 
+  outline: none; 
+}
+
+.dropdownButton:hover {
+  background-color: rgba(102, 102, 102, 0.8); 
+}
+
+.dropdownButton::after {
+  content: '˅'; 
+  font-size: 18px; 
+  margin-left: 10px;
+  background-color: transparent; 
+  transform: scaleX(2) translateY(2px); 
+  display: inline-block; 
+  color: rgb(248, 163, 6);
+}
+
+/* Стилі для випадаючого меню */
+.dropdownMenu {
+  position: absolute;
+  top: 80%;
+  left: 0;
+  background-color: rgba(51, 51, 51, 0.98); 
+  width: 170px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  padding: 10px 0;
+  list-style-type: none;
+  margin: 0;
+}
+
+.dropdownMenu li {
+  padding: 10px;
+  background-color: transparent; 
+}
+
+.dropdownMenu li button {
+  background-color: transparent; 
+  color: white;
+  border: none;
+  width: 100%;
+  padding: 10px;
+  text-align: left;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.dropdownMenu li button:hover {
+  background-color: rgba(85, 85, 85, 0.8); /* Легке підсвічування при наведенні */
+}
+
+.dropdownMenu li button:focus,
+.dropdownMenu li button:active {
+  background-color: transparent; 
+  outline: none; 
+}
+
+
+.arrowImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+/* Контейнер для фільмів */
+.movieDetails {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 100px; 
+   gap: 10px 40px;
+}
+
+/* Контейнер для кожного постера */
+.moviePosterWrapper {
+  margin: 25px; 
+  text-align: center; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-basis: 190px;
+  box-sizing: border-box; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.moviePosterWrapper:hover {
+  transform: scale(1.10); 
+}
+
+/* Стиль для постера */
+.moviePoster {
+  width: 190px; 
+  height: 275px; 
+  object-fit: cover; 
+  margin-bottom: 10px; 
+}
+
+/* Стиль для заголовка під постером */
+.moviePosterWrapper h2 {
+  color: white;
+  font-size: 18px;
+  word-wrap: break-word;   
+  word-break: break-word;  
+  white-space: normal;     
+  max-width: 190px;        
+  text-align: center; 
+  margin: 0 auto;          
+}
+
+/* Стиль для опису під постером */
+.moviePosterWrapper p {
+  color: rgb(218, 215, 215);
+  font-size: 18px;
+  text-align: center; 
+}
+
+/* Пагінація */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  gap: 10px;
+}
+
+.paginationButton,
+.paginationArrow {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  padding: 8px 5px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 0; 
+}
+
+.paginationButton:disabled,
+.paginationArrow:disabled {
+  background-color: transparent;
+  border: none;
+  color: #e0e0e0;
+  cursor: not-allowed;
+}
+
+.paginationButton:hover,
+.paginationArrow:hover {
+  background-color: transparent;
+  text-decoration: underline; 
+}
+
+.paginationButton.active,
+.paginationArrow.active {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+}
+

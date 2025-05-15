@@ -1,0 +1,30 @@
+.header {
+  width: 100%;
+  height: 98px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: var(--charcoal-gray-color);
+  padding: 0 15px;
+}
+
+.header .logo {
+  width: 106px;
+  height: auto;
+}
+
+.header .list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0 11px;
+  margin: 0 18px 0 10px;
+}
+
+.header .list .list__item a {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--white-color);
+  text-decoration: none;  
+}

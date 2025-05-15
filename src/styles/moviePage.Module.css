@@ -1,0 +1,242 @@
+/* src/styles/moviePage.Module.css */
+
+.movie-page {
+  width: 100%;
+  min-height: 100vh;
+  background: #111;
+  color: #fff;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* 1) Верхній блок */
+.movie-header {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.movie-poster {
+  width: 194px;
+  height: 275px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.movie-basic-info {
+  flex: 1;
+  text-align: left;
+  margin-left: 16px;
+}
+
+.movie-title {
+  font-size: 2rem;
+  margin: 0 0 0.5rem;
+}
+
+.movie-basic-info p {
+  margin: 0.25rem 0;
+}
+
+.ratings-inline {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.rating-inline-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.rating-logo {
+  width: 32px;
+}
+
+.rating-value {
+  font-weight: bold;
+  color: #fff;
+}
+
+.favorite-button {
+  align-self: flex-start;
+  background-color: #f7931e;
+  border: none;
+  border-radius: 12px;
+  padding: 8px;
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.favorite-button img {
+  width: 20px;
+  height: 20px;
+}
+
+.favorite-button:hover {
+  background-color: #ff8903;
+}
+
+/* 2) Нижній блок */
+.movie-body {
+  display: flex;
+  gap: 2rem;
+}
+
+/* Сеанси */
+.sessions-sidebar {
+  width: 200px;
+  background: #1a1a1a;
+  padding: 1rem;
+  border-radius: 4px;
+  margin: 0 auto; /* центр блоку */
+  text-align: center; /* центр тексту */
+}
+
+.sessions-sidebar h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+.sessions-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto 1rem; /* центр списку */
+  display: inline-block; /* підганяє ширину до вмісту */
+  text-align: left; /* вирівняти times ліворуч */
+}
+
+.session-item {
+  margin-bottom: 0.75rem;
+}
+
+.session-day {
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.session-times span {
+  display: block;
+  color: #f5c518;
+}
+
+.book-button {
+  width: 100%;
+  padding: 0.5rem;
+  background: #ff8c00;
+  color: #111;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.book-button:hover {
+  background: #e07b00;
+}
+
+/* Основні деталі */
+.movie-details {
+  flex: 1;
+}
+
+.movie-details-text {
+  text-align: left;
+}
+
+/* Опис */
+.movie-description {
+  margin-bottom: 2rem;
+}
+
+.movie-description h2 {
+  margin-bottom: 0.5rem;
+}
+
+.movie-description p {
+  line-height: 1.5;
+}
+
+/* Трейлер */
+.movie-trailer {
+  margin-bottom: 2rem;
+}
+
+.movie-trailer h2 {
+  margin-bottom: 0.5rem;
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Зірковий рейтинг */
+.movie-rating {
+  margin-top: 2rem;
+}
+
+.rating-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.rating-score {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.rate-text {
+  color: #ccc;
+}
+
+.rating-stars {
+  display: flex;
+  gap: 0.25rem;
+  margin-top: 0.5rem;
+}
+
+.star {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.star.full {
+  color: #ffd700;
+}
+
+.star.empty {
+  color: #444;
+}
+
+.star.half {
+  position: relative;
+  color: #444;
+}
+
+.star.half::before {
+  content: "★";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  overflow: hidden;
+  color: #ffd700;
+}

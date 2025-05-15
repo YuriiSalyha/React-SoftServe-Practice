@@ -1,0 +1,20 @@
+.btn {
+  outline: none;
+  border: none;
+  width: 150px;
+  min-height: 30px;
+  cursor: pointer;
+  background-color: var(--orange-color);
+  transition: all 0.3s ease-in-out;
+  border-radius: 7px;
+}
+
+.btn:active {
+  scale: 0.9;
+}
+
+.text {
+    font-size: 16px;
+    font-weight: 400;
+    color: #fff;
+}

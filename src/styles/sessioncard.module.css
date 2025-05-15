@@ -1,0 +1,52 @@
+.card {
+  background-color: #2b2b2b;
+  border-radius: 6px;
+  padding: 16px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.poster {
+  width: 120px;
+  height: 180px;
+  object-fit: cover;
+  margin-right: 16px;
+  background-color: #555; /* fallback background for poster */
+}
+
+.info {
+  flex: 1;
+  color: #fff;
+}
+
+.title {
+  font-size: 1.2em;
+  margin: 0 0 8px;
+}
+
+.info p {
+  margin: 4px 0;
+  font-size: 0.95em;
+  color: #ccc;
+}
+
+.times {
+  color: #f7931e;
+  font-weight: bold;
+}
+
+.buyButton {
+  display: inline-block;
+  margin-top: 8px;
+  background-color: #f7931e;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  font-size: 1em;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.buyButton:hover {
+  background-color: #e65c00;
+}

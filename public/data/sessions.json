@@ -1,0 +1,1107 @@
+[
+  {
+    "id": "1",
+    "movieId": "1",
+    "date": "2025-05-15",
+    "time": "12:30",
+    "hall": "Hall 2",
+    "price": 150,
+    "numberOfSeats": 60,
+    "bookedSeats": 2,
+    "seats": [
+      [null, null, null, 1, 1, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "2",
+    "movieId": "2",
+    "date": "2025-05-15",
+    "time": "14:30",
+    "hall": "Hall 2",
+    "price": 150,
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "3",
+    "movieId": "1",
+    "date": "2025-05-15",
+    "time": "16:30",
+    "hall": "Hall 2",
+    "price": 150,
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "4",
+    "movieId": "1",
+    "date": "2025-05-15",
+    "time": "18:30",
+    "hall": "Hall 2",
+    "price": 150,
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "5",
+    "movieId": "1",
+    "date": "2025-05-15",
+    "time": "20:30",
+    "hall": "Hall 2",
+    "price": 150,
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "6",
+    "movieId": "2",
+    "date": "2025-05-15",
+    "time": "12:30",
+    "hall": "Hall 3",
+    "price": 150,
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "7",
+    "movieId": "2",
+    "date": "2025-05-16",
+    "time": "14:30",
+    "hall": "Hall 3",
+    "price": 150,
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "8",
+    "movieId": "2",
+    "date": "2025-05-16",
+    "time": "16:30",
+    "hall": "Hall 3",
+    "price": 150,
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "9",
+    "movieId": "2",
+    "date": "2025-05-16",
+    "time": "18:30",
+    "hall": "Hall 3",
+    "price": 150,
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "10",
+    "movieId": "2",
+    "date": "2025-05-17",
+    "time": "20:30",
+    "hall": "Hall 3",
+    "price": 150,
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "11",
+    "movieId": "3",
+    "date": "2025-05-18",
+    "time": "12:30",
+    "hall": "Hall 4",
+    "price": 150,
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "12",
+    "movieId": "3",
+    "date": "2025-05-19",
+    "time": "14:30",
+    "hall": "Hall 4",
+    "price": 150,
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "13",
+    "movieId": "3",
+    "date": "2025-05-20",
+    "time": "16:30",
+    "hall": "Hall 4",
+    "price": 150,
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "14",
+    "movieId": "3",
+    "date": "2025-05-21",
+    "time": "18:30",
+    "hall": "Hall 4",
+    "price": 150,
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "15",
+    "movieId": "6",
+    "date": "2025-05-21",
+    "time": "20:30",
+    "hall": "Hall 4",
+    "price": 150,
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "16",
+    "movieId": "4",
+    "date": "2025-05-21",
+    "time": "12:30",
+    "hall": "Hall 5",
+    "price": 150,
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "17",
+    "movieId": "3",
+    "date": "2025-05-21",
+    "time": "14:30",
+    "hall": "Hall 5",
+    "price": 150,
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "18",
+    "movieId": "1",
+    "date": "2025-05-21",
+    "time": "16:30",
+    "hall": "Hall 5",
+    "price": 150,
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "19",
+    "movieId": "4",
+    "date": "2025-05-21",
+    "time": "18:30",
+    "hall": "Hall 5",
+    "price": 150,
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "20",
+    "movieId": "4",
+    "date": "2025-05-22",
+    "time": "20:30",
+    "hall": "Hall 5",
+    "price": 150,
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "21",
+    "movieId": "5",
+    "date": "2025-05-22",
+    "time": "12:30",
+    "hall": "Hall 1",
+    "price": 150,
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "22",
+    "movieId": "6",
+    "date": "2025-05-22",
+    "time": "14:30",
+    "hall": "Hall 1",
+    "price": 150,
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "23",
+    "movieId": "1",
+    "date": "2025-05-22",
+    "time": "16:30",
+    "hall": "Hall 1",
+    "price": 150,
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "24",
+    "movieId": "5",
+    "date": "2025-05-22",
+    "time": "18:30",
+    "hall": "Hall 1",
+    "price": 150,
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "25",
+    "movieId": "2",
+    "date": "2025-05-22",
+    "time": "20:30",
+    "hall": "Hall 1",
+    "price": 150,
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "26",
+    "movieId": "6",
+    "date": "2025-05-22",
+    "time": "12:30",
+    "hall": "Hall 2",
+    "price": 150,
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "27",
+    "movieId": "3",
+    "date": "2025-05-22",
+    "time": "14:30",
+    "hall": "Hall 2",
+    "price": 150,
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "28",
+    "movieId": "7",
+    "date": "2025-05-22",
+    "time": "16:30",
+    "hall": "Hall 2",
+    "price": 150,
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "29",
+    "movieId": "6",
+    "date": "2025-05-22",
+    "time": "18:30",
+    "hall": "Hall 2",
+    "price": 150,
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "30",
+    "movieId": "6",
+    "date": "2025-05-23",
+    "time": "20:30",
+    "hall": "Hall 2",
+    "price": 150,
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "31",
+    "movieId": "7",
+    "date": "2025-05-23",
+    "time": "12:30",
+    "hall": "Hall 3",
+    "price": 150,
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "32",
+    "movieId": "2",
+    "date": "2025-05-23",
+    "time": "14:30",
+    "hall": "Hall 3",
+    "price": 150,
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "33",
+    "movieId": "1",
+    "date": "2025-05-23",
+    "time": "16:30",
+    "hall": "Hall 3",
+    "price": 150,
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "34",
+    "movieId": "3",
+    "date": "2025-05-23",
+    "time": "18:30",
+    "hall": "Hall 3",
+    "price": 150,
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "35",
+    "movieId": "2",
+    "date": "2025-05-23",
+    "time": "20:30",
+    "hall": "Hall 3",
+    "price": 150,
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "36",
+    "movieId": "1",
+    "date": "2025-05-23",
+    "time": "12:30",
+    "hall": "Hall 4",
+    "price": 150,
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "37",
+    "movieId": "3",
+    "date": "2025-05-23",
+    "time": "14:30",
+    "hall": "Hall 4",
+    "price": 150,
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "38",
+    "movieId": "8",
+    "date": "2025-05-23",
+    "time": "16:30",
+    "hall": "Hall 4",
+    "price": 150,
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "39",
+    "movieId": "7",
+    "date": "2025-05-24",
+    "time": "18:30",
+    "hall": "Hall 4",
+    "price": 150,
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "40",
+    "movieId": "8",
+    "date": "2025-05-24",
+    "time": "20:30",
+    "hall": "Hall 4",
+    "price": 150,
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "41",
+    "movieId": "1",
+    "date": "2025-05-24",
+    "time": "12:30",
+    "hall": "Hall 5",
+    "price": 150,
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "42",
+    "movieId": "20",
+    "date": "2025-05-24",
+    "time": "14:30",
+    "hall": "Hall 5",
+    "price": 150,
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "43",
+    "movieId": "2",
+    "date": "2025-05-24",
+    "time": "16:30",
+    "hall": "Hall 5",
+    "price": 150,
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "44",
+    "movieId": "5",
+    "date": "2025-05-24",
+    "time": "18:30",
+    "hall": "Hall 5",
+    "price": 150,
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "45",
+    "movieId": "4",
+    "date": "2025-05-24",
+    "time": "20:30",
+    "hall": "Hall 5",
+    "price": 150,
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "46",
+    "movieId": "3",
+    "date": "2025-05-12",
+    "time": "12:30",
+    "hall": "Hall 1",
+    "price": 150,
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "47",
+    "movieId": "2",
+    "date": "2025-05-12",
+    "time": "14:30",
+    "hall": "Hall 1",
+    "price": 150,
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "48",
+    "movieId": "1",
+    "date": "2025-05-12",
+    "time": "16:30",
+    "hall": "Hall 1",
+    "price": 150,
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "49",
+    "movieId": "2",
+    "date": "2025-05-13",
+    "time": "18:30",
+    "hall": "Hall 1",
+    "price": 150,
+    "numberOfSeats": 60,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "50",
+    "movieId": "10",
+    "date": "2025-05-13",
+    "time": "20:30",
+    "hall": "Hall 1",
+    "price": 150,
+    "numberOfSeats": 50,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "51",
+    "movieId": "1",
+    "date": "2025-05-19",
+    "time": "11:30",
+    "hall": "Hall 1",
+    "price": 150,
+    "numberOfSeats": 50,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "52",
+    "movieId": "3",
+    "date": "2025-05-19",
+    "time": "13:30",
+    "hall": "Hall 2",
+    "price": 150,
+    "numberOfSeats": 50,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "53",
+    "movieId": "7",
+    "date": "2025-05-19",
+    "time": "17:00",
+    "hall": "Hall 2",
+    "price": 150,
+    "numberOfSeats": 50,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "54",
+    "movieId": "8",
+    "date": "2025-05-20",
+    "time": "10:30",
+    "hall": "Hall 2",
+    "price": 150,
+    "numberOfSeats": 50,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "55",
+    "movieId": "1",
+    "date": "2025-05-20",
+    "time": "13:30",
+    "hall": "Hall 2",
+    "price": 150,
+    "numberOfSeats": 50,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "56",
+    "movieId": "6",
+    "date": "2025-05-20",
+    "time": "13:30",
+    "hall": "Hall 2",
+    "price": 150,
+    "numberOfSeats": 50,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "57",
+    "movieId": "3",
+    "date": "2025-05-21",
+    "time": "11:00",
+    "hall": "Hall 1",
+    "price": 150,
+    "numberOfSeats": 50,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "58",
+    "movieId": "8",
+    "date": "2025-05-21",
+    "time": "16:45",
+    "hall": "Hall 3",
+    "price": 150,
+    "numberOfSeats": 50,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "59",
+    "movieId": "2",
+    "date": "2025-05-22",
+    "time": "10:15",
+    "hall": "Hall 2",
+    "price": 150,
+    "numberOfSeats": 50,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "60",
+    "movieId": "7",
+    "date": "2025-05-22",
+    "time": "18:30",
+    "hall": "Hall 1",
+    "price": 150,
+    "numberOfSeats": 50,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "61",
+    "movieId": "1",
+    "date": "2025-05-23",
+    "time": "12:00",
+    "hall": "Hall 3",
+    "price": 150,
+    "numberOfSeats": 50,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "62",
+    "movieId": "4",
+    "date": "2025-05-23",
+    "time": "14:30",
+    "hall": "Hall 2",
+    "price": 150,
+    "numberOfSeats": 50,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "63",
+    "movieId": "10",
+    "date": "2025-05-24",
+    "time": "09:45",
+    "hall": "Hall 1",
+    "price": 150,
+    "numberOfSeats": 50,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "64",
+    "movieId": "5",
+    "date": "2025-05-24",
+    "time": "17:00",
+    "hall": "Hall 3",
+    "price": 150,
+    "numberOfSeats": 50,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  },
+  {
+    "id": "65",
+    "movieId": "9",
+    "date": "2025-05-24",
+    "time": "20:15",
+    "hall": "Hall 2",
+    "price": 150,
+    "numberOfSeats": 50,
+    "bookedSeats": 0,
+    "seats": [
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null, null, null, null, null, null]
+    ]
+  }
+]

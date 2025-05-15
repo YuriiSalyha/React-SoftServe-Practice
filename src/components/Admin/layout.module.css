@@ -1,0 +1,33 @@
+.layout {
+  padding: 20px 0;
+}
+
+.layout .navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 30px;
+  padding-bottom: 40px;
+}
+
+.layout .navbar .title {
+  color: #fff;
+}
+
+.layout .navbar .navbar__list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.layout .navbar .navbar__list li a {
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3 ease-in-out;
+}
+
+.layout .navbar .navbar__list li a:hover {
+  color: darkgray;
+}
