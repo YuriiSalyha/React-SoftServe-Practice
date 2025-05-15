@@ -8,7 +8,8 @@ import {
   addFavoriteToLocalStorage,
   getFavoritesFromLocalStorage,
   removeFavoriteFromLocalStorage,
-} from "../utils/localStorageFavoriteUtils"; // Імпортуємо функції для роботи з localStorage
+} from "../utils/localStorageFavoriteUtils";
+import { supabase } from "../supabaseClient";
 
 function getWeekDates() {
   const today = new Date();
@@ -30,13 +31,21 @@ export default function MoviePage() {
   const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
-    Promise.all([
-      fetch("/data/movies.json").then((r) => r.json()),
-      fetch("/data/sessions.json").then((r) => r.json()),
-    ])
-      .then(([movies, sessions]) => {
-        const found = movies.find((m) => String(m.id) === id);
-        setMovie(found || null);
+    const fetchMovieAndSessions = async () => {
+      try {
+        // Fetch movie data from Supabase
+        const { data: movieData, error: movieError } = await supabase
+          .from('Movies')
+          .select('*')
+          .eq('id', id)
+          .single();
+
+        if (movieError) throw movieError;
+        setMovie(movieData);
+
+        // Fetch sessions from JSON
+        const response = await fetch("/data/sessions.json");
+        const sessions = await response.json();
 
         const week = getWeekDates();
         const grouped = week.map((date) => {
@@ -47,11 +56,15 @@ export default function MoviePage() {
           return { date, times };
         });
         setSessionsByDate(grouped);
-      })
-      .catch(console.error);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchMovieAndSessions();
   }, [id]);
 
-  // Перевірка, чи є фільм у обраному
+  // Check if movie is in favorites
   useEffect(() => {
     const favorites = getFavoritesFromLocalStorage();
     setIsFavorite(favorites.includes(Number(id)));
@@ -77,28 +90,29 @@ export default function MoviePage() {
   const ytId = new URL(trailerLink).searchParams.get("v");
   const nonEmpty = sessionsByDate.filter((g) => g.times.length > 0);
 
-  // ✅ Динамічно знаходимо hall з sessions.json
-  function handleOrderClick() {
-    fetch("/data/sessions.json")
-      .then((res) => res.json())
-      .then((data) => {
-        const sessionsForThisMovie = data.filter(
-          (s) => String(s.movieId) === id
-        );
-        if (sessionsForThisMovie.length === 0) return;
-
-        const hall = sessionsForThisMovie[0].hall;
+  // Get hall from sessions.json
+  async function handleOrderClick() {
+    try {
+      const response = await fetch("/data/sessions.json");
+      const sessions = await response.json();
+      
+      const sessionsForThisMovie = sessions.filter(
+        (s) => String(s.movieId) === id
+      );
+      
+      if (sessionsForThisMovie.length > 0) {
         setSelectedSession({
           poster,
           title,
-          hall,
+          hall: sessionsForThisMovie[0].hall,
         });
-      })
-      .catch(console.error);
+      }
+    } catch (error) {
+      console.error("Error fetching session:", error);
+    }
   }
 
-
-  // Toggle фільм в обраному
+  // Toggle favorite
   const toggleFavorite = () => {
     if (isFavorite) {
       removeFavoriteFromLocalStorage(movie.id);
