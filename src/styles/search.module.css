@@ -1,14 +1,21 @@
 /* Загальний контейнер пошуку */
 .search {
   background-color: rgba(64, 62, 71, 0.93);
-  padding: 7px 8px;
-  border-radius: 10px;
-  width: 292px;
-  height: 36px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  width: 320px;
+  height: 42px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 5px;
+  gap: 8px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.search:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .search__field {
@@ -18,13 +25,19 @@
   outline: none;
   color: var(--white-color);
   font-weight: 400;
-  font-size: 17px;
+  font-size: 16px;
   line-height: 22px;
-  letter-spacing: -0.41px;
+  letter-spacing: -0.2px;
+  padding: 4px 0;
 }
 
 .search__field::placeholder {
-  color: #e8e8e8;
+  color: rgba(232, 232, 232, 0.7);
+  transition: color 0.3s ease;
+}
+
+.search__field:focus::placeholder {
+  color: rgba(232, 232, 232, 0.4);
 }
 
 .search__submit {
@@ -35,74 +48,122 @@
   border: none;
   outline: none;
   cursor: pointer;
+  padding: 4px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.search__submit:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.search__submit img {
+  width: 20px;
+  height: 20px;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.search__submit:hover img {
+  opacity: 1;
 }
 
 /* Підказки при пошуку */
 .suggestions {
   position: absolute;
- background-color: rgba(64, 62, 71, 0.98);
-
-  border-radius: 10px;
-  margin-top: 5px;
-  width: 292px;
-  max-height: 800px;
+  background-color: rgba(64, 62, 71, 0.98);
+  border-radius: 12px;
+  margin-top: 8px;
+  width: 320px;
+  max-height: 600px;
   z-index: 10;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Список фільмів */
 .movieList {
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  background-color: transparent; 
+  gap: 2px;
+  background-color: transparent;
+  padding: 4px;
 }
 
 /* Картка фільму */
 .movieItem {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 6px;
-  transition: background-color 0.3s ease;
-  background-color: transparent; 
+  gap: 12px;
+  padding: 4px;
+  transition: all 0.2s ease;
+  background-color: transparent;
+  border-radius: 8px;
 }
 
 .movieItem:hover {
   background-color: rgba(255, 255, 255, 0.08);
   cursor: pointer;
+  transform: translateX(4px);
 }
 
 /* Кнопка з фільмом */
 .movieLink {
   display: flex;
   align-items: center;
-  justify-content: flex-start; 
+  justify-content: flex-start;
   text-decoration: none;
   color: #e8e8e8;
-  gap: 15px; 
-  padding: 10px 15px; 
+  gap: 16px;
+  padding: 8px 12px;
   border: none;
   background-color: unset;
-  width: auto; 
+  width: 100%;
+  transition: all 0.2s ease;
 }
 
 /* Зображення фільму */
 .movieLink img {
-  width: 60px; 
-  height: 90px; 
-  border-radius: 5px;
+  width: 50px;
+  height: 75px;
+  border-radius: 6px;
   object-fit: cover;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.movieItem:hover .movieLink img {
+  transform: scale(1.05);
 }
 
 /* Назва фільму */
 .movieLink h4 {
   margin: 0;
-  font-size: 20px;
-  line-height: 24px; 
+  font-size: 16px;
+  line-height: 1.4;
   color: #fff;
-  font-weight: 500; 
-  text-align: left; 
-  max-width: 200px; 
-  word-wrap: break-word; 
+  font-weight: 500;
+  text-align: left;
+  max-width: 220px;
+  word-wrap: break-word;
+  transition: color 0.2s ease;
+}
+
+.movieItem:hover .movieLink h4 {
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
