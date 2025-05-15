@@ -117,15 +117,17 @@ const ProfileModal = ({ isOpen, onClose }) => {
               <button className={styles.actionButton} onClick={handleLogout}>
                 ↩️ Log out
               </button>
-              <button
-                className={styles.actionButton}
-                onClick={() => {
-                  onClose();
-                  navigate("/admin/panel");
-                }}
-              >
-                🛠️ Admin panel
-              </button>
+              {role === "admin" && (
+                <button
+                  className={styles.actionButton}
+                  onClick={() => {
+                    onClose();
+                    navigate("/admin/panel");
+                  }}
+                >
+                  🛠️ Admin panel
+                </button>
+              )}
             </div>
           </>
         ) : (
