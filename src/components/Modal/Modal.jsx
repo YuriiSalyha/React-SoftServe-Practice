@@ -3,25 +3,19 @@ import React, { useState, useEffect } from 'react';
 import styles from '../../styles/modal.module.css';
 
 function Modal({ isOpen, onClose, poster, title, hall }) {
-  // дані сеансів
-  const [sessionsData, setSessionsData]     = useState([]);
-  // вибрані дата/час
-  const [selectedDate, setSelectedDate]     = useState('');
+  const [sessionsData, setSessionsData] = useState([]);
+  const [selectedDate, setSelectedDate] = useState('');
   const [availableDates, setAvailableDates] = useState([]);
-  const [selectedTime, setSelectedTime]     = useState('');
+  const [selectedTime, setSelectedTime] = useState('');
   const [availableTimes, setAvailableTimes] = useState([]);
-
-  // список реально зайнятих місць для поточної сесії
   const [bookedSeatsList, setBookedSeatsList] = useState([]);
-  // список місць, які користувач обрав у цьому вікні
-  const [selectedSeats, setSelectedSeats]     = useState([]);
-
-  // для форми
-  const [name, setName]   = useState('');
+  const [selectedSeats, setSelectedSeats] = useState([]);
+  const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [isOrdered, setIsOrdered] = useState(false);
+  const [price, setPrice] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0);
 
-  // 1) Завантажити сесії при відкритті модального
   useEffect(() => {
     if (!isOpen) return;
     setSelectedDate('');
@@ -31,6 +25,8 @@ function Modal({ isOpen, onClose, poster, title, hall }) {
     setSelectedSeats([]);
     setBookedSeatsList([]);
     setIsOrdered(false);
+    setPrice(0);
+    setTotalPrice(0);
 
     fetch('/data/sessions.json')
       .then(res => res.json())
@@ -44,12 +40,13 @@ function Modal({ isOpen, onClose, poster, title, hall }) {
       .catch(console.error);
   }, [isOpen, hall]);
 
-  // 2) Оновлюємо список часу при зміні дати
   useEffect(() => {
     setSelectedTime('');
     setAvailableTimes([]);
     setSelectedSeats([]);
     setBookedSeatsList([]);
+    setPrice(0);
+    setTotalPrice(0);
 
     if (!selectedDate) return;
     const times = Array.from(
@@ -62,28 +59,31 @@ function Modal({ isOpen, onClose, poster, title, hall }) {
     setAvailableTimes(times);
   }, [selectedDate, sessionsData, hall]);
 
-  // 3) При виборі часу – формуємо список зайнятих місць
   useEffect(() => {
     setSelectedSeats([]);
     setBookedSeatsList([]);
+    setPrice(0);
+    setTotalPrice(0);
 
     if (!selectedTime) return;
     const session = sessionsData.find(
       s => s.hall === hall && s.date === selectedDate && s.time === selectedTime
     );
     if (session) {
-      // якщо в session.bookedSeatsList є конкретні номери місць – використовуємо їх,
-      // інакше беремо перші N місць (кількість bookedSeats)
       const booked = Array.isArray(session.bookedSeatsList)
         ? session.bookedSeatsList
         : Array.from({ length: session.bookedSeats }, (_, i) => i + 1);
       setBookedSeatsList(booked);
+      setPrice(session.price || 0);
     }
   }, [selectedTime, selectedDate, sessionsData, hall]);
 
-  // Тоггл вибору місця в сітці
+  useEffect(() => {
+    setTotalPrice(price * selectedSeats.length);
+  }, [price, selectedSeats]);
+
   const handleSeatClick = (seatNumber) => {
-    if (bookedSeatsList.includes(seatNumber)) return; // не клікаємо по червоних
+    if (bookedSeatsList.includes(seatNumber)) return;
     setSelectedSeats(prev =>
       prev.includes(seatNumber)
         ? prev.filter(n => n !== seatNumber)
@@ -91,12 +91,20 @@ function Modal({ isOpen, onClose, poster, title, hall }) {
     );
   };
 
-  // Підтвердження замовлення
   const handleConfirm = e => {
     e.preventDefault();
     if (selectedDate && selectedTime && name && phone && selectedSeats.length) {
       setIsOrdered(true);
-      // тут можна відправити selectedSeats разом з іншими даними на сервер
+      // Here you would typically send the order to your backend
+      console.log({
+        movie: title,
+        date: selectedDate,
+        time: selectedTime,
+        hall,
+        seats: selectedSeats,
+        totalPrice,
+        customer: { name, phone }
+      });
     }
   };
 
@@ -109,98 +117,125 @@ function Modal({ isOpen, onClose, poster, title, hall }) {
 
         {isOrdered ? (
           <div className={styles.successMessage}>
-            <p>Your ticket has been successfully booked!</p>
-            <p>
-              {`Session: ${selectedDate} at ${selectedTime}, Seats: ${selectedSeats.join(', ')}`}
-            </p>
+            <div className={styles.successIcon}>✓</div>
+            <h2>Booking Confirmed!</h2>
+            <div className={styles.ticketDetails}>
+              <p><strong>Movie:</strong> {title}</p>
+              <p><strong>Date:</strong> {selectedDate}</p>
+              <p><strong>Time:</strong> {selectedTime}</p>
+              <p><strong>Hall:</strong> {hall}</p>
+              <p><strong>Seats:</strong> {selectedSeats.join(', ')}</p>
+              <p><strong>Total Price:</strong> {totalPrice} UAH</p>
+            </div>
+            <p className={styles.thankYou}>Thank you for your purchase!</p>
           </div>
         ) : (
           <form className={styles.form} onSubmit={handleConfirm}>
-            {/* Інформація про фільм */}
             <div className={styles.movieInfo}>
               <img src={poster} alt={`Poster of ${title}`} className={styles.poster}/>
-              <h2 className={styles.title}>{title}</h2>
+              <div className={styles.movieDetails}>
+                <h2 className={styles.title}>{title}</h2>
+                <p className={styles.hall}>Hall: {hall}</p>
+              </div>
             </div>
-            <p className={styles.sessionDetails}>Hall: <span>{hall}</span></p>
 
-            {/* Дата */}
-            <label className={styles.label}>
-              Session Date:
-              <select
-                className={styles.input}
-                value={selectedDate}
-                onChange={e => setSelectedDate(e.target.value)}
-                required
-              >
-                <option value="">Select a date</option>
-                {availableDates.map(date => (
-                  <option key={date} value={date}>{date}</option>
-                ))}
-              </select>
-            </label>
+            <div className={styles.formGrid}>
+              <div className={styles.formSection}>
+                <label className={styles.label}>
+                  Session Date:
+                  <select
+                    className={styles.input}
+                    value={selectedDate}
+                    onChange={e => setSelectedDate(e.target.value)}
+                    required
+                  >
+                    <option value="">Select a date</option>
+                    {availableDates.map(date => (
+                      <option key={date} value={date}>{date}</option>
+                    ))}
+                  </select>
+                </label>
 
-            {/* Час */}
-            <label className={styles.label}>
-              Session Time:
-              <select
-                className={styles.input}
-                value={selectedTime}
-                onChange={e => setSelectedTime(e.target.value)}
-                disabled={!availableTimes.length}
-                required
-              >
-                <option value="">Select a time</option>
-                {availableTimes.map(time => (
-                  <option key={time} value={time}>{time}</option>
-                ))}
-              </select>
-            </label>
+                <label className={styles.label}>
+                  Session Time:
+                  <select
+                    className={styles.input}
+                    value={selectedTime}
+                    onChange={e => setSelectedTime(e.target.value)}
+                    disabled={!availableTimes.length}
+                    required
+                  >
+                    <option value="">Select a time</option>
+                    {availableTimes.map(time => (
+                      <option key={time} value={time}>{time}</option>
+                    ))}
+                  </select>
+                </label>
+              </div>
 
-            {/* Персональні дані */}
-            <label className={styles.label}>
-              Your Name:
-              <input
-                type="text"
-                className={styles.input}
-                placeholder="Enter your name"
-                value={name}
-                onChange={e => setName(e.target.value)}
-                required
-              />
-            </label>
+              <div className={styles.formSection}>
+                <label className={styles.label}>
+                  Your Name:
+                  <input
+                    type="text"
+                    className={styles.input}
+                    placeholder="Enter your name"
+                    value={name}
+                    onChange={e => setName(e.target.value)}
+                    required
+                  />
+                </label>
 
-            <label className={styles.label}>
-              Phone Number:
-              <input
-                type="tel"
-                className={styles.input}
-                placeholder="Enter your phone"
-                value={phone}
-                onChange={e => setPhone(e.target.value)}
-                required
-              />
-            </label>
+                <label className={styles.label}>
+                  Phone Number:
+                  <input
+                    type="tel"
+                    className={styles.input}
+                    placeholder="Enter your phone"
+                    value={phone}
+                    onChange={e => setPhone(e.target.value)}
+                    required
+                  />
+                </label>
+              </div>
+            </div>
 
-            {/* Сітка місць */}
             {name && phone && selectedTime && (
               <div className={styles.seatsSection}>
-                <p className={styles.label}>Select Your Seats:</p>
+                <div className={styles.seatsHeader}>
+                  <h3>Select Your Seats</h3>
+                  <div className={styles.seatsLegend}>
+                    <div className={styles.legendItem}>
+                      <div className={`${styles.legendBox} ${styles.available}`}></div>
+                      <span>Available</span>
+                    </div>
+                    <div className={styles.legendItem}>
+                      <div className={`${styles.legendBox} ${styles.selected}`}></div>
+                      <span>Selected</span>
+                    </div>
+                    <div className={styles.legendItem}>
+                      <div className={`${styles.legendBox} ${styles.booked}`}></div>
+                      <span>Booked</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className={styles.screen}>Screen</div>
+                
                 <div className={styles.seatsGrid}>
                   {Array.from({ length: 5 }).map((_, row) => (
                     <div key={row} className={styles.seatRow}>
                       {Array.from({ length: 12 }).map((_, col) => {
                         const seatNumber = row * 12 + col + 1;
-                        const isBooked   = bookedSeatsList.includes(seatNumber);
+                        const isBooked = bookedSeatsList.includes(seatNumber);
                         const isSelected = selectedSeats.includes(seatNumber);
-                        const cls = [
-                          styles.seat,
-                          isBooked   ? styles.booked  : '',
-                          isSelected ? styles.selected : ''
-                        ].join(' ');
                         return (
                           <div
                             key={seatNumber}
-                            className={cls}
+                            className={`${styles.seat} ${
+                              isBooked ? styles.booked :
+                              isSelected ? styles.selected : ''
+                            }`}
                             onClick={() => handleSeatClick(seatNumber)}
                           >
                             {seatNumber}
@@ -210,10 +245,17 @@ function Modal({ isOpen, onClose, poster, title, hall }) {
                     </div>
                   ))}
                 </div>
+
+                {selectedSeats.length > 0 && (
+                  <div className={styles.orderSummary}>
+                    <p>Selected Seats: {selectedSeats.join(', ')}</p>
+                    <p>Price per Seat: {price} UAH</p>
+                    <p className={styles.totalPrice}>Total: {totalPrice} UAH</p>
+                  </div>
+                )}
               </div>
             )}
 
-            {/* Кнопка підтвердження */}
             <button
               type="submit"
               className={styles.confirmButton}
