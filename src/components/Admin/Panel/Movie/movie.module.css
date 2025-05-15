@@ -1,6 +1,5 @@
 .movie {
   width: 230px;
-  height: 275px;
   margin-bottom: 10px;
   position: relative;
   transition: all 0.3 ease-in-out;
@@ -9,6 +8,7 @@
 .movie .image {
   object-fit: cover;
   width: 100%;
+  height: 300px;
 }
 
 .movie .title {
